@@ -1,0 +1,198 @@
+/* Chat Widget Styles */
+.widgetContainer {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 9999;
+}
+
+.chatFrame {
+  margin-bottom: 16px;
+  animation: slideUp 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.chatFrame iframe {
+  border: none;
+  border-radius: 16px;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 
+              0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  background-color: white;
+  transition: box-shadow 0.3s ease;
+}
+
+.chatFrame iframe:hover {
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15),
+              0 10px 10px -5px rgba(0, 0, 0, 0.06);
+}
+
+.toggleButton {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 10px 25px -5px rgba(37, 99, 235, 0.4),
+              0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+  color: white;
+  overflow: hidden;
+}
+
+.toggleButton::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s ease, height 0.6s ease;
+}
+
+.toggleButton:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+.toggleButton:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 15px 35px -5px rgba(37, 99, 235, 0.5),
+              0 6px 8px -2px rgba(0, 0, 0, 0.15);
+}
+
+.toggleButton:active {
+  transform: translateY(0) scale(0.98);
+  transition: all 0.1s ease;
+}
+
+.toggleButton.open {
+  background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+  box-shadow: 0 10px 25px -5px rgba(239, 68, 68, 0.4),
+              0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.toggleButton.open:hover {
+  box-shadow: 0 15px 35px -5px rgba(239, 68, 68, 0.5),
+              0 6px 8px -2px rgba(0, 0, 0, 0.15);
+}
+
+.iconWrapper {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.toggleButton:hover .iconWrapper {
+  transform: scale(1.1);
+}
+
+.closeIcon {
+  width: 28px;
+  height: 28px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.closeIcon::before,
+.closeIcon::after {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 2.5px;
+  background: currentColor;
+  border-radius: 2px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.closeIcon::before {
+  transform: rotate(45deg);
+}
+
+.closeIcon::after {
+  transform: rotate(-45deg);
+}
+
+.toggleButton:hover .closeIcon::before,
+.toggleButton:hover .closeIcon::after {
+  height: 3px;
+  width: 22px;
+}
+
+.chatIcon {
+  width: 28px;
+  height: 28px;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.toggleButton:hover .chatIcon {
+  transform: scale(1.1) rotate(-5deg);
+}
+
+/* Slide up animation */
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Pulse animation for attention */
+@keyframes pulse {
+  0%, 100% {
+    box-shadow: 0 10px 25px -5px rgba(37, 99, 235, 0.4),
+                0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  }
+  50% {
+    box-shadow: 0 10px 25px -5px rgba(37, 99, 235, 0.6),
+                0 4px 6px -1px rgba(0, 0, 0, 0.15);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  .widgetContainer {
+    bottom: 16px;
+    right: 16px;
+  }
+  
+  .toggleButton {
+    width: 56px;
+    height: 56px;
+  }
+  
+  .closeIcon,
+  .chatIcon {
+    width: 24px;
+    height: 24px;
+  }
+  
+  .closeIcon::before,
+  .closeIcon::after {
+    width: 18px;
+    height: 2px;
+  }
+  
+  .toggleButton:hover .closeIcon::before,
+  .toggleButton:hover .closeIcon::after {
+    width: 20px;
+    height: 2.5px;
+  }
+}
+
+
