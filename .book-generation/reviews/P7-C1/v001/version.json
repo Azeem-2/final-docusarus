@@ -1,0 +1,23 @@
+{
+  "version": "v001",
+  "agent": "book-editor",
+  "created": "2025-12-01T00:00:00Z",
+  "chapter_id": "P7-C1",
+  "inputs": {
+    "draft_file": ".book-generation/drafts/P7-C1/v001/draft.md",
+    "review_passes": [
+      "Structural",
+      "Content",
+      "Citation",
+      "Consistency",
+      "Accuracy"
+    ]
+  },
+  "outputs": {
+    "file": "review.md",
+    "quality_score": 90,
+    "approval_status": "ApprovedWithMinorRevisions"
+  }
+}
+
+

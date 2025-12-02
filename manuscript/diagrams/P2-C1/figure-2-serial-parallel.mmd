@@ -1,0 +1,73 @@
+```mermaid
+graph TD
+    subgraph Serial["SERIAL MECHANISM (Robot Arm)"]
+        style Serial fill:#0066CC,stroke:#000000,color:#FFFFFF
+        S_Base["Base (Fixed)"]
+        S_J1["Joint 1"]
+        S_L1["Link 1"]
+        S_J2["Joint 2"]
+        S_L2["Link 2"]
+        S_J3["Joint 3"]
+        S_L3["Link 3"]
+        S_EE["End-Effector"]
+
+        S_Base --> S_J1 --> S_L1 --> S_J2 --> S_L2 --> S_J3 --> S_L3 --> S_EE
+    end
+
+    subgraph SerialPros["Serial Advantages"]
+        style SerialPros fill:#00CC66,stroke:#000000,color:#000000
+        SP1["✓ Simple kinematics (DH parameters)"]
+        SP2["✓ Large workspace"]
+        SP3["✓ Easy control"]
+        SP4["✓ Lower cost"]
+    end
+
+    subgraph SerialCons["Serial Disadvantages"]
+        style SerialCons fill:#FF9900,stroke:#000000,color:#000000
+        SC1["✗ Lower stiffness (cantilever)"]
+        SC2["✗ Errors accumulate"]
+        SC3["✗ Lower payload capacity"]
+    end
+
+    subgraph Parallel["PARALLEL MECHANISM (Stewart Platform)"]
+        style Parallel fill:#0066CC,stroke:#000000,color:#FFFFFF
+        P_Base["Base Platform"]
+        P_L1["Leg 1"]
+        P_L2["Leg 2"]
+        P_L3["Leg 3"]
+        P_L4["Leg 4"]
+        P_L5["Leg 5"]
+        P_L6["Leg 6"]
+        P_Top["Moving Platform"]
+
+        P_Base --> P_L1 --> P_Top
+        P_Base --> P_L2 --> P_Top
+        P_Base --> P_L3 --> P_Top
+        P_Base --> P_L4 --> P_Top
+        P_Base --> P_L5 --> P_Top
+        P_Base --> P_L6 --> P_Top
+    end
+
+    subgraph ParallelPros["Parallel Advantages"]
+        style ParallelPros fill:#00CC66,stroke:#000000,color:#000000
+        PP1["✓ High stiffness (load shared)"]
+        PP2["✓ High accuracy (no accumulation)"]
+        PP3["✓ High payload capacity"]
+    end
+
+    subgraph ParallelCons["Parallel Disadvantages"]
+        style ParallelCons fill:#FF9900,stroke:#000000,color:#000000
+        PC1["✗ Limited workspace (0.3-0.5m³)"]
+        PC2["✗ Complex kinematics (numerical)"]
+        PC3["✗ Higher cost (more actuators)"]
+    end
+
+    Serial -.-> SerialPros
+    Serial -.-> SerialCons
+    Parallel -.-> ParallelPros
+    Parallel -.-> ParallelCons
+```
+
+**Figure 2: Serial vs Parallel Mechanism Architecture**
+
+Comparison of serial mechanisms (single kinematic chain from base to end-effector) and parallel mechanisms (multiple chains creating closed loops). Each architecture has distinct trade-offs for workspace, stiffness, accuracy, and cost.

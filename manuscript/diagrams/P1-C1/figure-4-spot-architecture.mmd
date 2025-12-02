@@ -1,0 +1,49 @@
+%%{init: {'theme':'base','themeVariables':{'primaryColor':'#0066CC','primaryTextColor':'#FFFFFF','primaryBorderColor':'#000000','lineColor':'#000000','secondaryColor':'#00CC66','tertiaryColor':'#FF9900','background':'#FFFFFF','fontFamily':'"Helvetica Neue", Arial, sans-serif','fontSize':'14px'}}}%%
+
+graph TB
+    style CAM fill:#0066CC,stroke:#000000,stroke-width:2px,color:#FFFFFF
+    style IMU fill:#0066CC,stroke:#000000,stroke-width:2px,color:#FFFFFF
+    style FORCE fill:#0066CC,stroke:#000000,stroke-width:2px,color:#FFFFFF
+    style FUSION fill:#FF9900,stroke:#000000,stroke-width:2px,color:#FFFFFF
+    style STATE fill:#FF9900,stroke:#000000,stroke-width:2px,color:#FFFFFF
+    style POLICY fill:#FF9900,stroke:#000000,stroke-width:2px,color:#FFFFFF
+    style PLANNER fill:#FF9900,stroke:#000000,stroke-width:2px,color:#FFFFFF
+    style MOTOR fill:#0066CC,stroke:#000000,stroke-width:2px,color:#FFFFFF
+    style ENV fill:#666666,stroke:#000000,stroke-width:2px,color:#FFFFFF
+
+    subgraph Sensors["SENSOR LAYER"]
+        CAM["5x Stereo Cameras<br/>360° vision<br/>Depth perception<br/>Obstacle detection"]
+        IMU["IMU Sensor<br/>3-axis gyro<br/>3-axis accel<br/>Orientation tracking"]
+        FORCE["Joint Encoders<br/>Position feedback<br/>Torque sensing<br/>Contact detection"]
+    end
+
+    subgraph Perception["PERCEPTION LAYER"]
+        FUSION["Sensor Fusion<br/>Kalman filtering<br/>Multi-modal integration<br/>Noise reduction"]
+        STATE["State Estimation<br/>Body pose<br/>Terrain mapping<br/>Stability metrics"]
+    end
+
+    subgraph Control["CONTROL LAYER"]
+        POLICY["RL Locomotion Policy<br/>Trained in simulation<br/>Domain randomized<br/>95% success rate"]
+        PLANNER["High-Level Planner<br/>Navigation goals<br/>Gait selection<br/>Collision avoidance"]
+    end
+
+    subgraph Actuation["ACTUATION LAYER"]
+        MOTOR["28 DOF Motors<br/>Electric brushless<br/>40 Nm torque/joint<br/>50ms response time"]
+    end
+
+    ENV["Physical Environment<br/>Warehouses, stairs<br/>Variable friction<br/>Dynamic obstacles"]
+
+    CAM --> FUSION
+    IMU --> FUSION
+    FORCE --> FUSION
+    FUSION --> STATE
+    STATE --> PLANNER
+    PLANNER --> POLICY
+    POLICY --> MOTOR
+    MOTOR --> ENV
+    ENV -.->|Sensor feedback| CAM
+    ENV -.->|Ground contact| FORCE
+
+    classDef physical fill:#0066CC,stroke:#000000,stroke-width:2px,color:#FFFFFF
+    classDef ai fill:#FF9900,stroke:#000000,stroke-width:2px,color:#FFFFFF
+    classDef framework fill:#666666,stroke:#000000,stroke-width:2px,color:#FFFFFF

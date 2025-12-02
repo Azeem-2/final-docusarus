@@ -1,0 +1,40 @@
+{
+  "version": "v001",
+  "agent": "research-agent",
+  "created": "2025-12-01T00:00:00Z",
+  "topic": "robotics-vs-ai",
+  "inputs": {
+    "research_question": "Conceptual distinctions and relationships between robotics, AI, and embodied intelligence for P1-C2.",
+    "scope": "P1-C2 Robotics vs AI vs Embodied Intelligence",
+    "time_budget": "3-4 hours"
+  },
+  "outputs": {
+    "file": "research.md",
+    "word_count": 0,
+    "source_count": {
+      "tier1": 6,
+      "tier2": 4,
+      "total": 10
+    }
+  },
+  "metrics": {
+    "time_spent_hours": 1.5,
+    "tier1_percentage": 0.6,
+    "claims_with_multiple_sources": 4,
+    "gaps_identified": 1
+  },
+  "comparison": {
+    "previous_version": null,
+    "changes": [],
+    "improvements": [],
+    "regressions": []
+  },
+  "quality_score": {
+    "source_quality": 0.9,
+    "coverage": 0.8,
+    "synthesis": 0.85,
+    "overall": 0.85
+  }
+}
+
+

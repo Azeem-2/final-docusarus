@@ -1,0 +1,22 @@
+graph TD
+    A[Natural Language Command<br/>"Pick up the red cup"] --> B[Language Encoder<br/>Transformer/LLM]
+    C[Camera Image<br/>Scene with Objects] --> D[Visual Encoder<br/>CNN/ViT]
+    B --> E[Language Features]
+    D --> F[Visual Features]
+    E --> G[Grounding Module]
+    F --> G
+    G --> H[Visual Grounding<br/>Object Location]
+    G --> I[Action Grounding<br/>Action Mapping]
+    H --> J[Language-Conditioned Policy]
+    I --> J
+    J --> K[Actions<br/>End-Effector Poses]
+    K --> L[Robot Execution<br/>Manipulation]
+    
+    style A fill:#4A90E2,stroke:#2E5C8A,color:#fff
+    style B fill:#E8F4F8,stroke:#4A90E2
+    style D fill:#F0F8E8,stroke:#7CB342
+    style G fill:#FFF3E0,stroke:#FF9800
+    style J fill:#F3E5F5,stroke:#9C27B0
+    style K fill:#E8F5E9,stroke:#4CAF50
+    style L fill:#E8F5E9,stroke:#4CAF50
+

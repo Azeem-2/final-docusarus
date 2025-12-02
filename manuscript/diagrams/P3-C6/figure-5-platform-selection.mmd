@@ -1,0 +1,31 @@
+graph TD
+    A[Platform Selection] --> B{Use Case?}
+    
+    B -->|RL Training| C[Isaac Sim<br/>GPU Acceleration]
+    B -->|Education| D[Webots<br/>Ease of Use]
+    B -->|ROS2 Project| E[Gazebo<br/>ROS2 Integration]
+    
+    A --> F{Hardware?}
+    F -->|NVIDIA GPU| C
+    F -->|CPU Only| G{ROS2 Needed?}
+    G -->|Yes| E
+    G -->|No| D
+    
+    A --> H{Ecosystem?}
+    H -->|ML Frameworks| C
+    H -->|ROS2 Required| E
+    H -->|Educational Resources| D
+    
+    A --> I{Team Expertise?}
+    I -->|Beginners| D
+    I -->|ROS2 Experts| E
+    I -->|ML/RL Researchers| C
+    
+    J[Multi-Platform Validation] --> K[Test in Multiple Simulators<br/>Improve Robustness]
+    
+    style A fill:#4A90E2,stroke:#2E5C8A,color:#fff
+    style C fill:#E8F4F8,stroke:#4A90E2
+    style D fill:#F0F8E8,stroke:#7CB342
+    style E fill:#FFF3E0,stroke:#FF9800
+    style K fill:#E8F5E9,stroke:#4CAF50
+

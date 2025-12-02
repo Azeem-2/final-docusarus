@@ -1,0 +1,14 @@
+%% Figure 2: Battery Chemistry Comparison (Qualitative)
+graph LR
+  LI[Li-ion] --> LIDESC[High energy density,\nmoderate cycle life,\nrequires strict protection]
+  LIFE[LiFePO4] --> LIFEDESC[Lower energy density,\nvery good cycle life,\nstrong safety profile]
+  NIMH[NiMH] --> NIMHDESC[Moderate energy density,\nrobust,\nsimpler handling]
+  LA[Lead-acid] --> LADESC[Low energy density,\nlow cost,\nheavy,\ncommon for stationary systems]
+
+  classDef chem fill=#f3e5f5,stroke:#6a1b9a,stroke-width:1px;
+  classDef desc fill=#ffffff,stroke:#616161,stroke-width:1px,stroke-dasharray: 3 3;
+
+  class LI,LIFE,NIMH,LA chem;
+  class LIDESC,LIFEDESC,NIMHDESC,LADESC desc;
+
+

@@ -1,0 +1,42 @@
+```mermaid
+graph TB
+    Center[Proposed Robotics Deployment]
+
+    W[Workers]
+    M[Management]
+    C[Customers / Patients]
+    R[Regulators]
+    COMM[Community / Society]
+    SUPP[Suppliers & Integrators]
+
+    Center --- W
+    Center --- M
+    Center --- C
+    Center --- R
+    Center --- COMM
+    Center --- SUPP
+
+    Wnote[Jobs, skills, safety,\nworkload, autonomy]
+    Mnote[Costs, ROI, throughput,\nquality, risk]
+    Cnote[Service quality,\ntrust, access, privacy]
+    Rnote[Compliance,\nstandards, liability]
+    COMMnote[Local economy,\nenvironment, equity]
+    SUPPnote[Technical feasibility,\nmaintenance, lifecycle]
+
+    W --- Wnote
+    M --- Mnote
+    C --- Cnote
+    R --- Rnote
+    COMM --- COMMnote
+    SUPP --- SUPPnote
+
+    classDef center fill:#4e79a7,stroke:#2f4f73,color:#fff;
+    classDef actor fill:#59a14f,stroke:#33712e,color:#fff;
+    classDef note fill:#f28e2c,stroke:#a86019,color:#fff;
+
+    class Center center;
+    class W,M,C,R,COMM,SUPP actor;
+    class Wnote,Mnote,Cnote,Rnote,COMMnote,SUPPnote note;
+```
+
+

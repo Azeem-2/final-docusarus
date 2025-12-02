@@ -1,0 +1,39 @@
+{
+  "version": "v001",
+  "agent": "chapter-structure-architect",
+  "created": "2025-12-02T04:05:00Z",
+  "book": "future-embodied-intelligence",
+  "inputs": {
+    "outline_version": "v001",
+    "outline_path": ".book-generation/outlines/future-embodied-intelligence/v001/",
+    "chapter_id": "P7-C3",
+    "chapter_type": "Forward-Looking Synthesis"
+  },
+  "outputs": {
+    "file": "structure.md",
+    "concept_density": 0.095,
+    "concept_density_class": "Medium-High",
+    "estimated_reading_time": 55,
+    "estimated_total_time": 420,
+    "pedagogical_layers": 4,
+    "ai_touchpoints": 5
+  },
+  "metrics": {
+    "sections_mapped": 14,
+    "dual_domain_coverage": 0.90,
+    "structure_completeness": 96
+  },
+  "comparison": {
+    "previous_version": null,
+    "changes": [],
+    "improvements": [],
+    "regressions": []
+  },
+  "quality_score": {
+    "completeness": 96,
+    "clarity": 92,
+    "pedagogical_soundness": 93,
+    "overall": 94
+  }
+}
+

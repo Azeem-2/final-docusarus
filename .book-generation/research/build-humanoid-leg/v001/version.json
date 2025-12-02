@@ -1,0 +1,2 @@
+{"version":"v001","agent":"research-agent","created":"2025-01-27T03:30:00Z","topic":"build-humanoid-leg","inputs":{"research_question":"Humanoid leg design and simulation","time_budget":"3-4 hours","mcp_tools_used":["DuckDuckGo","Firecrawl"]},"outputs":{"file":"research.md","source_count":{"tier1":7,"tier2":3,"total":10}},"metrics":{"time_spent_hours":1.0,"tier1_percentage":70},"quality_score":{"overall":88}}
+

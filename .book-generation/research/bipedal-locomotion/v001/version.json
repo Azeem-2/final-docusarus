@@ -1,0 +1,17 @@
+{
+  "version": "v001",
+  "created": "2025-12-01",
+  "agent": "research-agent",
+  "chapter_id": "P5-C2",
+  "title": "Bipedal Locomotion",
+  "status": "scaffold_complete",
+  "sources": {
+    "mcp_context7": [
+      "/robotlocomotion/drake"
+    ],
+    "mcp_firecrawl": [
+      "https://arxiv.org/html/2511.00512v1"
+    ]
+  }
+}
+

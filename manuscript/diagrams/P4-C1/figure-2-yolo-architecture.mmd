@@ -1,0 +1,38 @@
+graph LR
+    Input["Input Image<br/>640×640×3"] --> Backbone
+
+    subgraph "Backbone: Feature Extraction"
+        Backbone["CSPDarknet<br/>Multi-scale features"]
+        Backbone --> F1["Feature Map 1<br/>80×80"]
+        Backbone --> F2["Feature Map 2<br/>40×40"]
+        Backbone --> F3["Feature Map 3<br/>20×20"]
+    end
+
+    subgraph "Neck: Feature Fusion"
+        F1 --> FPN["FPN/PAN<br/>Feature Pyramid"]
+        F2 --> FPN
+        F3 --> FPN
+        FPN --> Fused1["Fused 80×80"]
+        FPN --> Fused2["Fused 40×40"]
+        FPN --> Fused3["Fused 20×20"]
+    end
+
+    subgraph "Detection Heads"
+        Fused1 --> Head1["Head 1<br/>Small objects"]
+        Fused2 --> Head2["Head 2<br/>Medium objects"]
+        Fused3 --> Head3["Head 3<br/>Large objects"]
+    end
+
+    Head1 --> Pred["Predictions:<br/>BBox + Class + Confidence"]
+    Head2 --> Pred
+    Head3 --> Pred
+
+    Pred --> NMS["Non-Maximum<br/>Suppression"]
+
+    NMS --> Output["Final Detections<br/>[x1,y1,x2,y2] + class + score"]
+
+    style Input fill:#e1f5ff
+    style Backbone fill:#fff3cd
+    style FPN fill:#d4edda
+    style NMS fill:#f8d7da
+    style Output fill:#d1ecf1

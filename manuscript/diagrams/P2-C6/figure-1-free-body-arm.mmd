@@ -1,0 +1,18 @@
+%% Figure 1: Free-Body Diagram of a Simple Arm Link
+flowchart TD
+  J((Joint))
+  L[Link + Payload]
+
+  J --> L
+  Fg[Gravity\n(weight)] --> L
+  Tj[Joint Torque\nτ] --> J
+
+  classDef joint fill=#e8f5e9,stroke:#2e7d32,stroke-width:1px;
+  classDef link fill=#e3f2fd,stroke:#1565c0,stroke-width:1px;
+  classDef force fill=#fff3e0,stroke:#ef6c00,stroke-width:1px;
+
+  class J joint;
+  class L link;
+  class Fg,Tj force;
+
+

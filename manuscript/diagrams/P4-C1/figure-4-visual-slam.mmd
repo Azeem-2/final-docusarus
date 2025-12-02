@@ -1,0 +1,46 @@
+graph LR
+    Input["Camera<br/>Image Stream"] --> FE["Feature<br/>Extraction<br/>(ORB/SIFT)"]
+
+    FE --> Track["Feature<br/>Tracking"]
+
+    Track --> Init{Initialized?}
+
+    Init -->|No| Initialize["Initialize<br/>Map + Pose"]
+    Init -->|Yes| LocalMap["Local<br/>Mapping"]
+
+    Initialize --> LocalMap
+
+    LocalMap --> BA["Bundle<br/>Adjustment<br/>(Optimize poses<br/>+ 3D points)"]
+
+    BA --> LCD["Loop Closure<br/>Detection<br/>(DBoW2)"]
+
+    LCD --> LoopFound{Loop<br/>Found?}
+
+    LoopFound -->|No| Output
+    LoopFound -->|Yes| PGO["Pose Graph<br/>Optimization<br/>(Correct drift)"]
+
+    PGO --> Output["Output:<br/>• 6-DOF Pose<br/>• 3D Map Points<br/>• Trajectory"]
+
+    subgraph "Front-End: Tracking"
+        FE
+        Track
+        Initialize
+    end
+
+    subgraph "Back-End: Mapping"
+        LocalMap
+        BA
+        LCD
+        PGO
+    end
+
+    Output -.->|"Next Frame"| FE
+
+    style Input fill:#e1f5ff
+    style FE fill:#fff3cd
+    style Track fill:#fff3cd
+    style LocalMap fill:#d4edda
+    style BA fill:#d4edda
+    style LCD fill:#f8d7da
+    style PGO fill:#f8d7da
+    style Output fill:#d1ecf1

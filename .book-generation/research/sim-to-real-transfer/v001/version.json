@@ -1,0 +1,15 @@
+{
+  "version": "v001",
+  "created": "2025-12-01",
+  "agent": "research-agent",
+  "chapter_id": "P3-C7",
+  "title": "Sim-to-Real Transfer",
+  "status": "scaffold_complete",
+  "sources": {
+    "mcp_context7": [
+      "/fan-ziqi/rl_sar",
+      "/websites/isaac-sim_github_io_isaaclab_main"
+    ]
+  }
+}
+

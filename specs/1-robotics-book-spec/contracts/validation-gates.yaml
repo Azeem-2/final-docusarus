@@ -1,0 +1,378 @@
+# Validation Gates Contracts
+
+## Gate 1: Constitutional Compliance Validator
+
+**Purpose**: Ensure all content adheres to 20 constitutional articles.
+
+```yaml
+Input:
+  content_file: String  # Any markdown output from agents
+  article_checks: List<Integer>  # Which articles to validate (default: all 20)
+
+Output:
+  compliant: Boolean  # True if zero violations
+  violations:
+    - article_number: Integer  # 1-20
+      article_name: String  # e.g., "Article 5: Core Values"
+      violation_description: String  # What was violated
+      content_location: String  # Line number or section name
+      severity: Enum  # Critical, Warning
+  suggestions: List<String>  # How to fix violations
+
+Article Checks:
+  Article 1 (Purpose): Content serves educational purpose (not promotional, not off-topic)
+  Article 2 (Scope): Both physical and simulation domains present (dual-domain integration)
+  Article 3 (Vision): First principles approach, unified framework evident
+  Article 4 (Audience): Beginner-friendly language, minimal prerequisites
+  Article 5 (Core Values): Clarity, Accuracy, Practicality, Safety, Modernity
+  Article 6 (Tone & Voice): Expert yet friendly, simple, motivational
+  Article 7 (Chapter Format): All 14 mandatory sections present
+  Article 8 (Dual-Domain Accuracy): Physical and simulation content technically correct
+  Article 9 (Platforms): Platform references educational, not promotional
+  Article 10 (Visualization): Required diagrams present with consistent style
+  Article 11 (Mathematics): Intuition before formalism, explanations before equations
+  Article 12 (Labs): Simulation + Physical labs present
+  Article 13 (Safety): Safety warnings for physical labs
+  Article 14 (AI Integration): AI concepts tied to both domains
+  Article 15 (Ethical Principles): Responsible development, safety, transparency
+  Article 16 (Content Boundaries): No bias, no inaccurate science, no dangerous instructions
+  Article 17 (Consistency): Same structure, tone, accuracy across content
+  Article 18 (Revision Principles): Preserve constitution during revisions
+  Article 19 (Academic Integrity): Correct sourcing, no fabrication
+  Article 20 (Final Commitment): All articles followed strictly
+
+Severity Levels:
+  Critical:
+    - Missing required section (Article 7 violation)
+    - Missing dual-domain treatment (Article 2, 5 violation)
+    - Missing safety warnings for physical labs (Article 13 violation)
+    - Wikipedia or excluded sources cited (Article 19 violation)
+    - Inaccurate science or dangerous instructions (Article 16 violation)
+  Warning:
+    - Tone inconsistency (Article 6, 17)
+    - Suboptimal diagram quality (Article 10)
+    - Math presentation could be improved (Article 11)
+```
+
+---
+
+## Gate 2: Dual-Domain Validator
+
+**Purpose**: Enforce 100% dual-domain integration (physical + simulation) per Article 2.
+
+```yaml
+Input:
+  chapter_file: String  # Draft or lesson file
+
+Output:
+  dual_domain_present: Boolean  # True if all checks pass
+  physical_section_exists: Boolean
+  simulation_section_exists: Boolean
+  integrated_section_exists: Boolean
+  physical_keywords_count: Integer  # Hardware, sensors, motors, actuators, etc.
+  simulation_keywords_count: Integer  # Simulator, digital twin, RL, physics engine, etc.
+  balance_score: Float  # 0.0-1.0, calculated as min(physical_kw, simulation_kw) / max(physical_kw, simulation_kw)
+  recommendations: List<String>  # How to improve balance
+
+Physical Keywords (auto-detected):
+  - hardware, sensor, actuator, motor, servo, gear, encoder, IMU, LIDAR, camera
+  - voltage, current, power, battery, LiPo, circuit, wiring, ground
+  - mechanical, friction, torque, force, mass, inertia, backlash
+  - real robot, physical robot, embodied, real-world deployment
+
+Simulation Keywords (auto-detected):
+  - simulator, simulation, digital twin, virtual environment, physics engine
+  - Isaac Sim, MuJoCo, Gazebo, Webots, Unity Robotics, PyBullet
+  - reinforcement learning, RL, imitation learning, policy, training
+  - domain randomization, sim-to-real, transfer, reality gap, fidelity
+
+Section Detection:
+  physical_section_exists:
+    - Section title contains "Physical" OR "Hardware" OR "Real Robot"
+    - OR Section content has ≥10 physical keywords
+  simulation_section_exists:
+    - Section title contains "Simulation" OR "Virtual" OR "Digital Twin"
+    - OR Section content has ≥10 simulation keywords
+  integrated_section_exists:
+    - Section title contains "Integrated" OR "Comparison" OR "Sim-to-Real"
+    - OR Section explicitly compares physical vs simulation
+
+Balance Threshold:
+  balance_score >= 0.7 (target: balanced coverage)
+
+  Examples:
+    - 100 physical keywords, 100 simulation keywords → balance_score = 1.0 (perfect)
+    - 100 physical keywords, 70 simulation keywords → balance_score = 0.7 (acceptable)
+    - 100 physical keywords, 50 simulation keywords → balance_score = 0.5 (FAIL, needs more simulation content)
+
+Validation Rules:
+  - physical_section_exists = true (Required)
+  - simulation_section_exists = true (Required)
+  - integrated_section_exists = true (Required)
+  - balance_score >= 0.7 (Required)
+  - If any check fails → dual_domain_present = false → BLOCK PUBLICATION
+```
+
+---
+
+## Gate 3: Safety Validator
+
+**Purpose**: Ensure all physical labs have proper hazard warnings per Article 13.
+
+```yaml
+Input:
+  lab_file: String  # Physical lab content (markdown)
+
+Output:
+  safety_compliant: Boolean  # True if all checks pass
+  warnings_present: Boolean  # At least 1 warning exists
+  warnings_count: Integer
+  hazard_types_covered: List<Enum>  # Mechanical, Electrical, Motion
+  emergency_stop_mentioned: Boolean
+  safety_review_required: Boolean  # True if high-risk procedures detected
+  issues:
+    - hazard_description: String  # e.g., "LiPo battery charging"
+      warning_missing: Boolean  # True if no warning found for this hazard
+      suggested_warning: String  # Template warning text
+
+Hazard Detection (keyword-based):
+  Mechanical:
+    - Keywords: gear, pinch, rotating, sharp, blade, cut, crush
+    - Required Warning: "⚠️ PINCH HAZARD" or "⚠️ SHARP EDGES" or "⚠️ ROTATING PARTS"
+  Electrical:
+    - Keywords: voltage, current, battery, LiPo, wire, short circuit, power supply
+    - Required Warning: "⚠️ ELECTRICAL" or "⚠️ LITHIUM POLYMER BATTERY"
+  Motion:
+    - Keywords: motor, servo, movement, collision, unexpected, runaway
+    - Required Warning: "⚠️ ROBOT CAN MOVE" or "⚠️ MOVEMENT ZONE" or "⚠️ COLLISION HAZARD"
+
+Emergency Stop Check:
+  - Search for: "emergency stop", "e-stop", "kill switch", "power disconnect"
+  - Required for: Any lab with motors, servos, or actuators
+  - emergency_stop_mentioned = true if found, else false
+
+High-Risk Procedures (require safety professional review):
+  - LiPo battery charging/handling
+  - AC voltage (>50V AC)
+  - High current (>5A)
+  - Powered tools (drills, saws)
+  - Hazardous materials (solvents, adhesives)
+
+Validation Rules:
+  - warnings_present = true (at least 1 warning)
+  - All detected hazards have corresponding warnings
+  - emergency_stop_mentioned = true (if motorized system)
+  - If high-risk procedures detected → safety_review_required = true → human safety auditor must approve
+```
+
+---
+
+## Gate 4: Citation Validator
+
+**Purpose**: Verify all citations follow standards (Tier 1/2, IEEE format, no Wikipedia) per Article 19.
+
+```yaml
+Input:
+  content_file: String  # Any file with citations (research, draft, review)
+
+Output:
+  citations_valid: Boolean  # True if all checks pass
+  citation_count: Integer
+  tier1_count: Integer  # Peer-reviewed journals, conferences, textbooks, official docs
+  tier2_count: Integer  # Industry white papers, expert blogs, open-source docs
+  excluded_sources_found: List<String>  # Wikipedia, etc.
+  formatting_errors:
+    - citation_text: String
+      issue: String  # "Not IEEE format", "URL broken", "No access date", etc.
+      line_number: Integer
+  url_check_results:
+    - url: String
+      accessible: Boolean
+      http_status: Integer  # 200 = OK, 404 = Not Found, etc.
+      last_checked: Timestamp
+
+Citation Format (IEEE):
+  Correct: [1] B. Siciliano, L. Sciavicco, L. Villani, and G. Oriolo, "Robotics: Modelling, Planning and Control," Springer, 2009.
+  Correct: [2] "MuJoCo Documentation," MuJoCo, 2024. [Online]. Available: https://mujoco.readthedocs.io/. [Accessed: 30-Nov-2025].
+  Incorrect: "Siciliano et al., Robotics textbook" (missing details, not numbered, not IEEE format)
+
+Tier Classification (auto-detected):
+  Tier 1 Sources (preferred):
+    - Domains: ieee.org, springer.com, arxiv.org (if published), acm.org, roboticsproceedings.org
+    - Keywords in title: "IEEE Transactions", "ICRA", "IROS", "RSS", "IJRR"
+    - Official docs: docs.nvidia.com, mujoco.readthedocs.io, docs.ros.org
+  Tier 2 Sources (acceptable):
+    - Industry blogs from recognized companies (nvidia.com/blog, openai.com/research)
+    - GitHub repos with 1000+ stars
+    - University course materials (mit.edu, stanford.edu, cmu.edu)
+  Excluded Sources (never cite):
+    - wikipedia.org, wikimedia.org
+    - User-editable platforms: fandom.com, wikia.com
+    - Non-peer-reviewed preprints without validation
+
+URL Accessibility Check:
+  - HTTP GET request to each URL
+  - http_status = 200 → accessible = true
+  - http_status = 404 or timeout → accessible = false → ISSUE flagged
+  - Re-check weekly (URLs can break over time)
+
+Validation Rules:
+  - tier1_count >= 10 (minimum Tier 1 citations per chapter)
+  - excluded_sources_found = [] (empty array, no Wikipedia)
+  - All URLs accessible (http_status = 200)
+  - All citations in IEEE format (regex pattern match)
+  - If any check fails → citations_valid = false → BLOCK PUBLICATION until fixed
+```
+
+---
+
+## Gate 5: Readability Validator
+
+**Purpose**: Ensure text is accessible to target audience (university undergraduates) per Article 6.
+
+```yaml
+Input:
+  text_file: String  # Draft or lesson file (markdown)
+
+Output:
+  readability_passed: Boolean  # True if metrics in acceptable range
+  metrics:
+    flesch_kincaid_grade: Float  # Target: 12-14 (university level)
+    flesch_reading_ease: Float  # Target: 50-60 (fairly difficult, standard for college)
+    avg_sentence_length: Float  # Target: 15-20 words
+    avg_word_length: Float  # Target: 4-6 characters
+    passive_voice_percentage: Float  # Target: <10% (active voice preferred)
+  recommendations: List<String>  # How to improve readability
+
+Flesch-Kincaid Grade Level:
+  Formula: 0.39 × (words/sentences) + 11.8 × (syllables/words) - 15.59
+  Interpretation:
+    - 8-10: Middle school (TOO SIMPLE for university book)
+    - 12-14: University undergraduate (TARGET RANGE)
+    - 16+: Graduate level (TOO COMPLEX, may confuse beginners)
+
+Flesch Reading Ease:
+  Formula: 206.835 - 1.015 × (words/sentences) - 84.6 × (syllables/words)
+  Interpretation:
+    - 60-70: Standard (8th-9th grade, acceptable)
+    - 50-60: Fairly difficult (10th-12th grade, TARGET for university text)
+    - 30-50: Difficult (college graduate, OK for advanced chapters)
+    - <30: Very difficult (graduate school, TOO HARD for this book)
+
+Validation Rules:
+  - flesch_kincaid_grade within [11, 15] (allows 11-15 range, target 12-14)
+  - flesch_reading_ease within [45, 65] (allows some flexibility)
+  - avg_sentence_length within [12, 25] words (not too short, not too long)
+  - passive_voice_percentage < 15% (prefer active voice, but allow some passive for variety)
+  - If metrics outside ranges → readability_passed = false → WARNING (not blocking, but editor should review)
+```
+
+---
+
+## Gate 6: Diagram Style Validator
+
+**Purpose**: Ensure all diagrams follow unified visual theme per Article 10.
+
+```yaml
+Input:
+  diagram_file: String  # SVG, PNG, or Mermaid source
+
+Output:
+  style_compliant: Boolean  # True if all checks pass
+  issues:
+    - check_name: String  # e.g., "Color palette", "Font size", "Label presence"
+      passed: Boolean
+      details: String  # What's wrong or what's correct
+
+Style Checks:
+  Color Palette:
+    - Allowed colors: Defined in style guide (TBD Phase 1)
+    - Example palette:
+      - Blue (#0066CC): Physical robotics
+      - Green (#00CC66): Simulation
+      - Orange (#FF9900): AI/ML
+      - Gray (#666666): General/Framework
+    - Check: All colors in diagram match allowed palette
+
+  Notation:
+    - Solid arrows: Data flow
+    - Dashed arrows: Control flow
+    - Rectangles: Components
+    - Ovals: Processes
+    - Diamonds: Decisions
+    - Check: Shapes used correctly per notation guide
+
+  Labels:
+    - All components labeled with clear text
+    - Font: Sans-serif (e.g., Arial, Helvetica)
+    - Font size: Minimum 12pt (readable at 100% zoom)
+    - Check: No unlabeled components, font size >= 12pt
+
+  Black & White Readability:
+    - Convert diagram to grayscale
+    - Check: All elements distinguishable (use patterns, not just colors)
+    - Example: Use hatching, stippling, line styles in addition to colors
+
+  Caption:
+    - Every diagram has caption (checked by data model validation)
+    - Caption format: "Figure {number}: {Description}"
+    - Check: Caption present and formatted correctly
+
+Validation Rules:
+  - All style checks must pass (passed = true)
+  - If any check fails → style_compliant = false → WARNING (editor reviews, may require manual diagram revision)
+```
+
+---
+
+## Validation Pipeline
+
+**When Validators Run**:
+
+```yaml
+research-agent output:
+  - Citation Validator (Tier 1/2, no Wikipedia, URLs accessible)
+  - Constitutional Compliance (Article 19: Academic Integrity)
+
+outliner-agent output:
+  - Dual-Domain Validator (physical + simulation coverage in outline)
+  - Constitutional Compliance (Article 2: Scope, Article 7: Chapter Format)
+
+chapter-structure-architect output:
+  - Constitutional Compliance (Article 5: Core Values, Article 11: Mathematics)
+
+lesson-planner output:
+  - Dual-Domain Validator (both domains in lesson content)
+  - Safety Validator (if physical labs present)
+  - Constitutional Compliance (Article 12: Labs, Article 13: Safety)
+
+writer-agent output:
+  - Readability Validator (Flesch-Kincaid grade, reading ease)
+  - Dual-Domain Validator (keyword balance in prose)
+  - Constitutional Compliance (Article 6: Tone & Voice, Article 17: Consistency)
+
+book-editor output:
+  - ALL validators run (comprehensive final check)
+  - Citation Validator
+  - Dual-Domain Validator
+  - Safety Validator
+  - Readability Validator
+  - Diagram Style Validator (for embedded diagrams)
+  - Constitutional Compliance (all 20 articles)
+```
+
+**Blocking vs. Warning**:
+- **Critical Issues** (BLOCK publication):
+  - Constitutional violations (Article 2, 7, 13, 16, 19, 20)
+  - Dual-domain balance < 0.7
+  - Missing safety warnings for physical labs
+  - Wikipedia or excluded sources cited
+  - Broken URLs (404 errors)
+- **Warnings** (Flagged for review, not blocking):
+  - Readability metrics slightly outside target
+  - Diagram style inconsistencies (manual review OK)
+  - Tone/voice variations (editorial judgment)
+
+**Iteration**:
+- If blocking issues found → agent re-runs with feedback
+- If warnings found → human editor reviews and decides (approve as-is, request minor revisions, or escalate to blocking)

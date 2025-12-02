@@ -1,0 +1,22 @@
+graph LR
+    A[Expert Demonstrations] --> B[Behavioral Cloning]
+    A --> C[Inverse RL]
+    A --> D[DAgger]
+    
+    B --> E[Direct Policy<br/>π: s → a]
+    C --> F[Inferred Reward<br/>R: s,a → r]
+    F --> G[RL Policy<br/>Maximize R]
+    D --> H[Iterative Policy<br/>Collect on π states]
+    
+    E --> I{Distribution<br/>Shift?}
+    G --> J{Better<br/>Generalization}
+    H --> K{Reduced<br/>Shift}
+    
+    style A fill:#4A90E2,stroke:#2E5C8A,color:#fff
+    style B fill:#E8F4F8,stroke:#4A90E2
+    style C fill:#F0F8E8,stroke:#7CB342
+    style D fill:#FFF3E0,stroke:#FF9800
+    style I fill:#FFEBEE,stroke:#E53935
+    style J fill:#E8F5E9,stroke:#4CAF50
+    style K fill:#E8F5E9,stroke:#4CAF50
+

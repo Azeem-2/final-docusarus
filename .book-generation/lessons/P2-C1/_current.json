@@ -1,0 +1,18 @@
+{
+  "current_version": "v001",
+  "chapter_id": "P2-C1",
+  "chapter_title": "Mechanical Structures",
+  "last_updated": "2025-11-30",
+  "version_history": [
+    {
+      "version": "v001",
+      "created": "2025-11-30",
+      "created_by": "lesson-planner agent",
+      "description": "Initial complete 6-part lesson with dual-domain coverage (physical + simulation)",
+      "word_count": 8800,
+      "status": "complete"
+    }
+  ],
+  "lesson_path": ".book-generation/lessons/P2-C1/v001/lesson.md",
+  "version_metadata_path": ".book-generation/lessons/P2-C1/v001/version.json"
+}

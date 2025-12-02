@@ -1,0 +1,16 @@
+graph TD
+    A[ZMP-Based Walking Control] --> B[Plan ZMP Trajectory<br/>Within Support Polygon]
+    B --> C[Generate CoM Trajectory<br/>From ZMP]
+    C --> D[Execute Joint Trajectories<br/>Achieve CoM Motion]
+    
+    E[Support Polygon] --> F[Single Support:<br/>Foot Contact Area]
+    E --> G[Double Support:<br/>Convex Hull of Feet]
+    
+    H[ZMP Constraint] --> I[ZMP in Support Polygon<br/>→ Stable]
+    H --> J[ZMP Outside Support Polygon<br/>→ Fall]
+    
+    style A fill:#4A90E2,stroke:#2E5C8A,color:#fff
+    style B fill:#E8F4F8,stroke:#4A90E2
+    style C fill:#F0F8E8,stroke:#7CB342
+    style D fill:#FFF3E0,stroke:#FF9800
+

@@ -1,0 +1,22 @@
+graph TD
+    A[Motion Planning] --> B[Sampling-Based<br/>RRT, PRM]
+    A --> C[Optimization-Based<br/>Trajectory Optimization]
+    
+    B --> D[Any Collision-Free<br/>Path]
+    C --> E[Smooth, Feasible<br/>Trajectory]
+    
+    D --> F[Fast<br/>Probabilistically Complete]
+    E --> G[Slower<br/>Better Quality]
+    
+    H[Trade-offs] --> I[Sampling: Speed vs Quality]
+    H --> J[Optimization: Quality vs Time]
+    
+    K[Hybrid Approach] --> L[Sampling for Initial Path<br/>Optimization for Refinement]
+    
+    style A fill:#4A90E2,stroke:#2E5C8A,color:#fff
+    style B fill:#E8F4F8,stroke:#4A90E2
+    style C fill:#F0F8E8,stroke:#7CB342
+    style F fill:#FFF3E0,stroke:#FF9800
+    style G fill:#E8F5E9,stroke:#4CAF50
+    style L fill:#F3E5F5,stroke:#9C27B0
+

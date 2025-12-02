@@ -1,0 +1,23 @@
+{
+  "version": "v001",
+  "agent": "research-agent",
+  "created": "2025-12-01T00:00:00Z",
+  "topic": "power-systems-and-batteries",
+  "inputs": {
+    "research_question": "Educational framing for P2-C4 Power Systems & Batteries in a robotics context.",
+    "scope": "P2-C4 Power Systems & Batteries",
+    "time_budget": "3-4 hours"
+  },
+  "outputs": {
+    "file": "research.md",
+    "word_count": 0,
+    "source_count": {
+      "tier1": 0,
+      "tier2": 0,
+      "total": 0
+    }
+  },
+  "status": "Scaffold"
+}
+
+

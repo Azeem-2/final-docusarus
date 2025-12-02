@@ -1,0 +1,1205 @@
+# Glossary Tracking System
+# All technical terms across all chapters of Physical AI, Simulation AI & Humanoid Robotics book
+
+metadata:
+  created: "2025-11-30"
+  version: "1.0.5"
+  total_terms: 130
+  last_updated: "2025-12-02"
+  description: "Master glossary tracking all technical terms introduced across all 40+ chapters"
+
+# Terms are organized alphabetically
+# Each term includes: definition, first_introduced chapter, category, complexity_level, related_terms
+
+terms:
+  - term: "Actuator"
+    definition: "A mechanical or electromechanical device that converts energy into motion or force to move a robot joint, link, or mechanism."
+    first_introduced: "P1-C1"
+    category: "hardware"
+    complexity_level: "beginner"
+    related_terms: ["motor", "servo", "control-system"]
+    synonyms: []
+    see_also: ["end-effector", "torque", "robot-arm"]
+
+  - term: "Artificial Intelligence (AI)"
+    definition: "A field of study focused on algorithms and models that produce behaviors we consider intelligent, such as perception, reasoning, learning, and planning."
+    first_introduced: "P1-C2"
+    category: "ai"
+    complexity_level: "beginner"
+    related_terms: ["machine-learning", "policy", "embodied-intelligence"]
+    synonyms: ["AI"]
+    see_also: ["Physical AI", "robotics"]
+
+  - term: "Digital Twin"
+    definition: "A living digital representation of a specific physical asset, system, or process that stays in sync with the real world through continuous data exchange and is used to understand, predict, and optimize behavior."
+    first_introduced: "P1-C1"
+    category: "simulation"
+    complexity_level: "intermediate"
+    related_terms: ["simulation", "sim-to-real-transfer", "reality-gap"]
+    synonyms: []
+    see_also: ["Introduction to Digital Twins", "Role of Simulation in Robotics"]
+
+  - term: "Embodied Intelligence"
+    definition: "Intelligence that arises from the tight coupling of a body, controller, and environment, where physical form and sensorimotor interaction shape what can be learned and how a system behaves."
+    first_introduced: "P1-C1"
+    category: "general"
+    complexity_level: "beginner"
+    related_terms: ["Physical AI", "robotics", "simulation"]
+    synonyms: []
+    see_also: ["Robotics vs AI vs Embodied Intelligence"]
+
+  - term: "Foundation Model"
+    definition: "A large-scale AI model trained on diverse data that can be adapted to many downstream tasks, such as physical reasoning or robot control, often serving as a general-purpose building block."
+    first_introduced: "P1-C1"
+    category: "ai"
+    complexity_level: "intermediate"
+    related_terms: ["world-model", "policy", "machine-learning"]
+    synonyms: []
+    see_also: ["Physical AI"]
+
+  - term: "Humanoid Robot"
+    definition: "A robot with a body plan inspired by the human form, typically including a torso, two arms, two legs, and a head, designed to operate in environments and use tools built for people."
+    first_introduced: "P1-C3"
+    category: "hardware"
+    complexity_level: "beginner"
+    related_terms: ["bipedal-locomotion", "human-robot-interaction", "actuator"]
+    synonyms: ["humanoid"]
+    see_also: ["Evolution of Humanoid Robotics"]
+
+  - term: "Physical AI"
+    definition: "AI systems that perceive, understand, and perform complex actions in the physical world using embodied robots or devices, combining sensing, control, learning, and interaction with real environments."
+    first_introduced: "P1-C1"
+    category: "ai"
+    complexity_level: "beginner"
+    related_terms: ["embodied-intelligence", "robotics", "simulation"]
+    synonyms: []
+    see_also: ["What is Physical AI"]
+
+  - term: "Reality Gap"
+    definition: "The discrepancy between how a robot or policy behaves in simulation and how it behaves in the real world under nominally equivalent conditions, caused by modeling errors, unmodeled dynamics, and sensor differences."
+    first_introduced: "P1-C1"
+    category: "simulation"
+    complexity_level: "intermediate"
+    related_terms: ["sim-to-real-transfer", "domain-randomization", "digital-twin"]
+    synonyms: []
+    see_also: ["Role of Simulation in Robotics"]
+
+  - term: "Robot"
+    definition: "A physical system with a body, sensors, actuators, and a controller that can act autonomously or semi-autonomously in the physical world."
+    first_introduced: "P1-C2"
+    category: "hardware"
+    complexity_level: "beginner"
+    related_terms: ["robotics", "actuator", "sensor"]
+    synonyms: []
+    see_also: ["Robotics vs AI vs Embodied Intelligence"]
+
+  - term: "Robotics"
+    definition: "The field concerned with designing, modeling, building, and controlling embodied systems that sense, decide, and act in the physical world."
+    first_introduced: "P1-C2"
+    category: "general"
+    complexity_level: "beginner"
+    related_terms: ["robot", "embodied-intelligence", "Physical AI"]
+    synonyms: []
+    see_also: ["Robotics vs AI vs Embodied Intelligence"]
+
+  - term: "Sim-to-Real Transfer"
+    definition: "The process of training or designing behaviors in simulation and then deploying them successfully to physical robots while managing the effects of the reality gap."
+    first_introduced: "P1-C1"
+    category: "simulation"
+    complexity_level: "intermediate"
+    related_terms: ["reality-gap", "domain-randomization", "digital-twin"]
+    synonyms: ["sim2real"]
+    see_also: ["Role of Simulation in Robotics", "Physics Engines and Sim-to-Real"]
+
+  - term: "Sensor"
+    definition: "A device that measures some aspect of the robot or its environment and converts it into a signal that a controller can use."
+    first_introduced: "P2-C2"
+    category: "hardware"
+    complexity_level: "beginner"
+    related_terms: ["proprioceptive-sensor", "exteroceptive-sensor", "robot", "actuator"]
+    synonyms: []
+    see_also: ["Sensors & Perception Hardware"]
+
+  - term: "Proprioceptive Sensor"
+    definition: "A sensor that measures internal quantities of the robot itself, such as joint angle, wheel rotation, or body acceleration."
+    first_introduced: "P2-C2"
+    category: "perception"
+    complexity_level: "beginner"
+    related_terms: ["sensor", "exteroceptive-sensor", "encoder", "IMU"]
+    synonyms: []
+    see_also: ["Sensors & Perception Hardware"]
+
+  - term: "Exteroceptive Sensor"
+    definition: "A sensor that measures properties of the environment outside the robot, such as distance to obstacles, images of the scene, or contact with surfaces."
+    first_introduced: "P2-C2"
+    category: "perception"
+    complexity_level: "beginner"
+    related_terms: ["sensor", "proprioceptive-sensor", "camera", "lidar"]
+    synonyms: []
+    see_also: ["Sensors & Perception Hardware"]
+
+  - term: "Kinematics"
+    definition: "The study of how a robot’s joints and links move relative to each other and to the environment, without considering the forces that cause the motion."
+    first_introduced: "P2-C5"
+    category: "kinematics"
+    complexity_level: "beginner"
+    related_terms: ["forward-kinematics", "inverse-kinematics", "workspace", "joint-space", "task-space"]
+    synonyms: []
+    see_also: ["Kinematics"]
+
+  - term: "Dynamics"
+    definition: "The study of how forces and torques acting on a robot produce motion, taking into account mass, inertia, gravity, friction, and other physical effects."
+    first_introduced: "P2-C6"
+    category: "dynamics"
+    complexity_level: "beginner"
+    related_terms: ["force", "torque", "inertia", "energy"]
+    synonyms: []
+    see_also: ["Dynamics"]
+
+  - term: "Feedback Control"
+    definition: "A control strategy where the robot continuously measures what is happening, compares it to what is desired, and adjusts its commands based on the difference."
+    first_introduced: "P2-C7"
+    category: "control"
+    complexity_level: "beginner"
+    related_terms: ["control-loop", "PID-controller", "error-signal"]
+    synonyms: ["feedback"]
+    see_also: ["Control Systems"]
+
+  - term: "PID Controller"
+    definition: "A widely used feedback controller that combines proportional, integral, and derivative actions on the error signal to shape how a system responds."
+    first_introduced: "P2-C7"
+    category: "control"
+    complexity_level: "beginner"
+    related_terms: ["feedback-control", "control-loop", "actuator"]
+    synonyms: ["PID"]
+    see_also: ["Control Systems"]
+
+  - term: "Reinforcement Learning (RL)"
+    definition: "A machine learning approach where an agent learns to make decisions by interacting with an environment, receiving rewards for good actions, and gradually improving its behavior through trial and error."
+    first_introduced: "P3-C3"
+    category: "ai"
+    complexity_level: "intermediate"
+    related_terms: ["policy", "reward", "agent", "value-function"]
+    synonyms: ["RL"]
+    see_also: ["Reinforcement Learning Basics"]
+
+  - term: "Policy"
+    definition: "In reinforcement learning, a policy is a function or strategy that maps states to actions, determining what the agent should do in each situation."
+    first_introduced: "P3-C3"
+    category: "ai"
+    complexity_level: "intermediate"
+    related_terms: ["reinforcement-learning", "agent", "state", "action"]
+    synonyms: []
+    see_also: ["Reinforcement Learning Basics"]
+
+  - term: "Reward"
+    definition: "In reinforcement learning, a numeric signal that indicates how good or bad the outcome of an action was, used to guide the agent's learning."
+    first_introduced: "P3-C3"
+    category: "ai"
+    complexity_level: "intermediate"
+    related_terms: ["reinforcement-learning", "agent", "value-function"]
+    synonyms: []
+    see_also: ["Reinforcement Learning Basics"]
+
+  - term: "Agent"
+    definition: "In reinforcement learning, the learning system (typically a robot controller) that makes decisions and learns from interactions with the environment."
+    first_introduced: "P3-C3"
+    category: "ai"
+    complexity_level: "intermediate"
+    related_terms: ["reinforcement-learning", "policy", "environment"]
+    synonyms: []
+    see_also: ["Reinforcement Learning Basics"]
+
+  - term: "Episode"
+    definition: "In reinforcement learning, a complete sequence of states, actions, and rewards from a starting point to some end condition (e.g., task completion or failure)."
+    first_introduced: "P3-C3"
+    category: "ai"
+    complexity_level: "intermediate"
+    related_terms: ["reinforcement-learning", "agent", "reward"]
+    synonyms: []
+    see_also: ["Reinforcement Learning Basics"]
+
+  - term: "Imitation Learning"
+    definition: "A machine learning approach where a robot learns to perform tasks by observing and imitating expert demonstrations, rather than learning through trial and error."
+    first_introduced: "P3-C4"
+    category: "ai"
+    complexity_level: "intermediate"
+    related_terms: ["behavioral-cloning", "reinforcement-learning", "policy"]
+    synonyms: []
+    see_also: ["Imitation Learning"]
+
+  - term: "Behavioral Cloning"
+    definition: "A form of imitation learning where a policy is trained to directly predict expert actions from states, treating the problem as supervised learning."
+    first_introduced: "P3-C4"
+    category: "ai"
+    complexity_level: "intermediate"
+    related_terms: ["imitation-learning", "policy", "distribution-shift"]
+    synonyms: ["BC"]
+    see_also: ["Imitation Learning"]
+
+  - term: "Motion Planning"
+    definition: "The problem of finding a collision-free path or trajectory for a robot from a start configuration to a goal configuration while avoiding obstacles and respecting physical constraints."
+    first_introduced: "P3-C5"
+    category: "kinematics"
+    complexity_level: "intermediate"
+    related_terms: ["configuration-space", "collision-checking", "trajectory"]
+    synonyms: []
+    see_also: ["Motion Planning in Simulation"]
+
+  - term: "Configuration Space (C-space)"
+    definition: "A space where each point represents a complete robot configuration (e.g., all joint angles), simplifying motion planning by treating the robot as a point and obstacles as regions."
+    first_introduced: "P3-C5"
+    category: "kinematics"
+    complexity_level: "intermediate"
+    related_terms: ["motion-planning", "joint-space", "workspace"]
+    synonyms: ["C-space"]
+    see_also: ["Motion Planning in Simulation"]
+
+  - term: "RRT (Rapidly-exploring Random Tree)"
+    definition: "A sampling-based motion planning algorithm that grows a tree from the start configuration by randomly sampling and extending toward unexplored regions until reaching the goal."
+    first_introduced: "P3-C5"
+    category: "kinematics"
+    complexity_level: "intermediate"
+    related_terms: ["motion-planning", "sampling-based-planning", "configuration-space"]
+    synonyms: ["RRT"]
+    see_also: ["Motion Planning in Simulation"]
+
+  - term: "Simulation Toolchain"
+    definition: "A complete simulation platform that provides physics engines, sensor simulation, visualization, integration tools, and workflow support, going beyond just physics calculations."
+    first_introduced: "P3-C6"
+    category: "simulation"
+    complexity_level: "intermediate"
+    related_terms: ["simulation", "physics-engine", "sim-to-real-transfer"]
+    synonyms: []
+    see_also: ["Simulation Toolchains"]
+
+  - term: "Domain Randomization"
+    definition: "A technique for improving sim-to-real transfer by training policies across many varied simulation conditions (randomized physics, visual, and environmental parameters) to build robustness."
+    first_introduced: "P3-C7"
+    category: "simulation"
+    complexity_level: "intermediate"
+    related_terms: ["sim-to-real-transfer", "reality-gap", "policy"]
+    synonyms: []
+    see_also: ["Sim-to-Real Transfer"]
+
+  - term: "System Identification"
+    definition: "The process of measuring physical robot properties (mass, inertia, friction, actuator dynamics) and using them to calibrate simulation models for improved accuracy."
+    first_introduced: "P3-C7"
+    category: "simulation"
+    complexity_level: "intermediate"
+    related_terms: ["sim-to-real-transfer", "reality-gap", "simulation"]
+    synonyms: []
+    see_also: ["Sim-to-Real Transfer"]
+
+  - term: "Sim-to-Sim Validation"
+    definition: "The process of testing a policy trained in one simulator by deploying it to a different simulator without retraining, used to validate robustness before physical deployment."
+    first_introduced: "P3-C7"
+    category: "simulation"
+    complexity_level: "intermediate"
+    related_terms: ["sim-to-real-transfer", "reality-gap", "policy"]
+    synonyms: []
+    see_also: ["Sim-to-Real Transfer"]
+
+  - term: "Teacher-Student Distillation"
+    definition: "A technique where a teacher policy trained with privileged observations (unavailable on real robots) is used to train a student policy that uses only real-sensor observations."
+    first_introduced: "P3-C7"
+    category: "ai"
+    complexity_level: "intermediate"
+    related_terms: ["imitation-learning", "policy", "sim-to-real-transfer"]
+    synonyms: []
+    see_also: ["Sim-to-Real Transfer"]
+
+  - term: "Privileged Observations"
+    definition: "Information available in simulation but not on real robots, such as ground truth velocities, contact forces, or perfect state estimates."
+    first_introduced: "P3-C7"
+    category: "simulation"
+    complexity_level: "intermediate"
+    related_terms: ["simulation", "teacher-student-distillation", "sensor"]
+    synonyms: []
+    see_also: ["Sim-to-Real Transfer"]
+
+  - term: "Fine-Tuning"
+    definition: "The process of adapting a policy trained in simulation using real-world data collected from physical robot deployment, closing the reality gap through iterative improvement."
+    first_introduced: "P3-C7"
+    category: "ai"
+    complexity_level: "intermediate"
+    related_terms: ["sim-to-real-transfer", "policy", "reinforcement-learning"]
+    synonyms: []
+    see_also: ["Sim-to-Real Transfer"]
+
+  - term: "Bipedal Locomotion"
+    definition: "The ability to walk, run, or move using two legs, mimicking human movement patterns."
+    first_introduced: "P5-C2"
+    category: "kinematics"
+    complexity_level: "intermediate"
+    related_terms: ["gait-cycle", "stance-phase", "swing-phase", "zero-moment-point"]
+    synonyms: ["walking", "bipedal-walking"]
+    see_also: ["Bipedal Locomotion"]
+
+  - term: "Gait Cycle"
+    definition: "A complete sequence of leg movements during walking, consisting of stance phase (foot on ground) and swing phase (foot in air)."
+    first_introduced: "P5-C2"
+    category: "kinematics"
+    complexity_level: "intermediate"
+    related_terms: ["bipedal-locomotion", "stance-phase", "swing-phase", "double-support"]
+    synonyms: []
+    see_also: ["Bipedal Locomotion"]
+
+  - term: "Stance Phase"
+    definition: "The phase of the gait cycle when the foot is on the ground, supporting the body weight."
+    first_introduced: "P5-C2"
+    category: "kinematics"
+    complexity_level: "intermediate"
+    related_terms: ["gait-cycle", "swing-phase", "bipedal-locomotion"]
+    synonyms: []
+    see_also: ["Bipedal Locomotion"]
+
+  - term: "Swing Phase"
+    definition: "The phase of the gait cycle when the foot is in the air, moving forward to the next step."
+    first_introduced: "P5-C2"
+    category: "kinematics"
+    complexity_level: "intermediate"
+    related_terms: ["gait-cycle", "stance-phase", "bipedal-locomotion"]
+    synonyms: []
+    see_also: ["Bipedal Locomotion"]
+
+  - term: "Zero Moment Point (ZMP)"
+    definition: "The point on the ground where the net moment (torque) is zero, used to assess and control balance during walking. The ZMP must stay within the support polygon for stability."
+    first_introduced: "P5-C2"
+    category: "dynamics"
+    complexity_level: "intermediate"
+    related_terms: ["support-polygon", "balance", "bipedal-locomotion", "center-of-pressure"]
+    synonyms: ["ZMP"]
+    see_also: ["Bipedal Locomotion", "Balance & Stability"]
+
+  - term: "Support Polygon"
+    definition: "The area of contact between the robot's foot (or feet) and the ground, defining the region where the Zero Moment Point must remain for stability."
+    first_introduced: "P5-C2"
+    category: "dynamics"
+    complexity_level: "intermediate"
+    related_terms: ["zero-moment-point", "balance", "bipedal-locomotion"]
+    synonyms: []
+    see_also: ["Bipedal Locomotion", "Balance & Stability"]
+
+  - term: "Capture Point"
+    definition: "The point on the ground where a robot can step to come to rest and maintain balance, calculated based on center of mass position and velocity."
+    first_introduced: "P5-C2"
+    category: "dynamics"
+    complexity_level: "intermediate"
+    related_terms: ["balance", "zero-moment-point", "bipedal-locomotion"]
+    synonyms: []
+    see_also: ["Bipedal Locomotion", "Balance & Stability"]
+
+  - term: "Model Predictive Control (MPC) for Walking"
+    definition: "A control approach for bipedal walking that predicts future states over a horizon and optimizes control inputs to generate walking trajectories while handling constraints."
+    first_introduced: "P5-C2"
+    category: "control"
+    complexity_level: "intermediate"
+    related_terms: ["bipedal-locomotion", "zero-moment-point", "trajectory-optimization"]
+    synonyms: ["MPC for walking"]
+    see_also: ["Bipedal Locomotion"]
+
+  - term: "Balance"
+    definition: "The ability of a robot to maintain stable upright posture and resist disturbances, assessed using metrics like Zero Moment Point and Center of Pressure."
+    first_introduced: "P5-C3"
+    category: "dynamics"
+    complexity_level: "intermediate"
+    related_terms: ["stability", "zero-moment-point", "center-of-pressure", "capture-point"]
+    synonyms: []
+    see_also: ["Balance & Stability"]
+
+  - term: "Stability"
+    definition: "The ability of a robot to resist disturbances and maintain its desired state, often measured using stability margins."
+    first_introduced: "P5-C3"
+    category: "dynamics"
+    complexity_level: "intermediate"
+    related_terms: ["balance", "stability-margin", "zero-moment-point"]
+    synonyms: []
+    see_also: ["Balance & Stability"]
+
+  - term: "Center of Pressure (CoP)"
+    definition: "The point on the ground where the ground reaction force acts, measured by force sensors in the feet. Related to Zero Moment Point when the robot is balanced."
+    first_introduced: "P5-C3"
+    category: "dynamics"
+    complexity_level: "intermediate"
+    related_terms: ["zero-moment-point", "balance", "force-sensor"]
+    synonyms: ["CoP"]
+    see_also: ["Balance & Stability"]
+
+  - term: "Stability Margin"
+    definition: "The distance from a balance metric (like ZMP or CoM projection) to the edge of the support polygon, providing a safety buffer for stability."
+    first_introduced: "P5-C3"
+    category: "dynamics"
+    complexity_level: "intermediate"
+    related_terms: ["balance", "stability", "zero-moment-point", "support-polygon"]
+    synonyms: []
+    see_also: ["Balance & Stability"]
+
+  - term: "Ankle Strategy"
+    definition: "A balance control strategy that adjusts ankle torque to maintain balance, effective for small disturbances with fast response but limited range."
+    first_introduced: "P5-C3"
+    category: "control"
+    complexity_level: "intermediate"
+    related_terms: ["balance", "hip-strategy", "step-recovery", "force-control"]
+    synonyms: []
+    see_also: ["Balance & Stability"]
+
+  - term: "Hip Strategy"
+    definition: "A balance control strategy that adjusts hip motion to shift the center of mass, effective for medium disturbances with slower response but more range than ankle strategy."
+    first_introduced: "P5-C3"
+    category: "control"
+    complexity_level: "intermediate"
+    related_terms: ["balance", "ankle-strategy", "step-recovery"]
+    synonyms: []
+    see_also: ["Balance & Stability"]
+
+  - term: "Step Recovery"
+    definition: "A balance control strategy that takes a step to recover balance, used for large disturbances when ankle and hip strategies are insufficient."
+    first_introduced: "P5-C3"
+    category: "control"
+    complexity_level: "intermediate"
+    related_terms: ["balance", "ankle-strategy", "hip-strategy", "capture-point"]
+    synonyms: []
+    see_also: ["Balance & Stability"]
+
+  - term: "Manipulation"
+    definition: "The ability to move, grasp, and interact with objects in the environment using robot hands or end-effectors."
+    first_introduced: "P5-C4"
+    category: "kinematics"
+    complexity_level: "intermediate"
+    related_terms: ["dexterity", "grasping", "hand-kinematics", "force-control"]
+    synonyms: []
+    see_also: ["Manipulation & Dexterity"]
+
+  - term: "Dexterity"
+    definition: "Fine motor control and skill in manipulation, enabling precise and complex hand movements for tasks like grasping, rotating, and using tools."
+    first_introduced: "P5-C4"
+    category: "kinematics"
+    complexity_level: "intermediate"
+    related_terms: ["manipulation", "hand-kinematics", "in-hand-manipulation"]
+    synonyms: []
+    see_also: ["Manipulation & Dexterity"]
+
+  - term: "Power Grasp"
+    definition: "A grasping strategy that uses the full hand (multiple fingers and palm) to grip large objects securely, providing strong hold for heavy items."
+    first_introduced: "P5-C4"
+    category: "kinematics"
+    complexity_level: "intermediate"
+    related_terms: ["precision-grasp", "grasping", "manipulation"]
+    synonyms: []
+    see_also: ["Manipulation & Dexterity"]
+
+  - term: "Precision Grasp"
+    definition: "A grasping strategy that uses finger tips for fine control, providing precise manipulation of small or delicate objects with minimal contact area."
+    first_introduced: "P5-C4"
+    category: "kinematics"
+    complexity_level: "intermediate"
+    related_terms: ["power-grasp", "grasping", "manipulation"]
+    synonyms: []
+    see_also: ["Manipulation & Dexterity"]
+
+  - term: "In-Hand Manipulation"
+    definition: "The ability to reorient objects within the hand without releasing them, involving coordinated finger motions to rotate, flip, or slide objects."
+    first_introduced: "P5-C4"
+    category: "kinematics"
+    complexity_level: "intermediate"
+    related_terms: ["manipulation", "dexterity", "hand-kinematics", "finger-coordination"]
+    synonyms: []
+    see_also: ["Manipulation & Dexterity"]
+
+  - term: "Hand Kinematics"
+    definition: "The study of finger motion and positioning, including forward kinematics (joint angles to fingertip positions) and inverse kinematics (fingertip positions to joint angles) for multi-fingered hands."
+    first_introduced: "P5-C4"
+    category: "kinematics"
+    complexity_level: "intermediate"
+    related_terms: ["kinematics", "manipulation", "dexterity"]
+    synonyms: []
+    see_also: ["Manipulation & Dexterity"]
+
+  - term: "Tactile Sensing"
+    definition: "The ability to sense contact and forces through touch sensors in the fingertips and palm, providing feedback for stable grasping and manipulation."
+    first_introduced: "P5-C4"
+    category: "perception"
+    complexity_level: "intermediate"
+    related_terms: ["sensor", "force-control", "manipulation", "haptic-feedback"]
+    synonyms: ["touch-sensing"]
+    see_also: ["Manipulation & Dexterity"]
+
+  - term: "Human–Robot Interaction (HRI)"
+    definition: "The field concerned with communication and collaboration between humans and robots, including modalities like speech, gestures, touch, and vision."
+    first_introduced: "P5-C5"
+    category: "general"
+    complexity_level: "intermediate"
+    related_terms: ["natural-language-interaction", "gesture-recognition", "haptic-feedback", "multi-modal-interaction"]
+    synonyms: ["HRI"]
+    see_also: ["Human–Robot Interaction"]
+
+  - term: "Interaction Modalities"
+    definition: "Different ways humans and robots communicate, including speech, gestures, touch, and vision, which can be combined for multi-modal interaction."
+    first_introduced: "P5-C5"
+    category: "general"
+    complexity_level: "intermediate"
+    related_terms: ["human-robot-interaction", "natural-language-interaction", "gesture-recognition"]
+    synonyms: []
+    see_also: ["Human–Robot Interaction"]
+
+  - term: "Natural Language Interaction"
+    definition: "Communication between humans and robots using natural language, involving speech recognition, language understanding, and speech synthesis."
+    first_introduced: "P5-C5"
+    category: "ai"
+    complexity_level: "intermediate"
+    related_terms: ["human-robot-interaction", "speech-recognition", "language-understanding"]
+    synonyms: []
+    see_also: ["Human–Robot Interaction"]
+
+  - term: "Gesture Recognition"
+    definition: "The ability to recognize and interpret human gestures (hand movements, body language) for robot control and communication."
+    first_introduced: "P5-C5"
+    category: "perception"
+    complexity_level: "intermediate"
+    related_terms: ["human-robot-interaction", "vision", "pose-estimation"]
+    synonyms: []
+    see_also: ["Human–Robot Interaction"]
+
+  - term: "Haptic Feedback"
+    definition: "Tactile feedback provided by robots to humans through vibration, force feedback, or texture rendering, enabling physical interaction and communication."
+    first_introduced: "P5-C5"
+    category: "perception"
+    complexity_level: "intermediate"
+    related_terms: ["human-robot-interaction", "tactile-sensing", "touch"]
+    synonyms: []
+    see_also: ["Human–Robot Interaction"]
+
+  - term: "Multi-Modal Interaction"
+    definition: "Human-robot interaction that combines multiple communication modalities (speech, gestures, touch, vision) for more robust and natural interaction."
+    first_introduced: "P5-C5"
+    category: "general"
+    complexity_level: "intermediate"
+    related_terms: ["human-robot-interaction", "interaction-modalities", "natural-language-interaction"]
+    synonyms: []
+    see_also: ["Human–Robot Interaction"]
+
+  - term: "Safety Systems"
+    definition: "Mechanisms and protocols designed to ensure safe operation of robots, including collision avoidance, force limits, emergency stops, and safety monitoring."
+    first_introduced: "P5-C6"
+    category: "safety"
+    complexity_level: "intermediate"
+    related_terms: ["collision-avoidance", "force-limits", "emergency-stop", "fail-safe-design"]
+    synonyms: []
+    see_also: ["Safety Systems"]
+
+  - term: "Collision Avoidance"
+    definition: "Mechanisms to prevent collisions between robots and humans or objects, involving collision detection, path planning, and reactive avoidance."
+    first_introduced: "P5-C6"
+    category: "safety"
+    complexity_level: "intermediate"
+    related_terms: ["safety-systems", "motion-planning", "safety-zones"]
+    synonyms: []
+    see_also: ["Safety Systems"]
+
+  - term: "Force Limits"
+    definition: "Maximum safe forces that robots can apply, monitored and limited in real-time to ensure safe contact with humans and objects."
+    first_introduced: "P5-C6"
+    category: "safety"
+    complexity_level: "intermediate"
+    related_terms: ["safety-systems", "force-control", "safe-contact"]
+    synonyms: []
+    see_also: ["Safety Systems"]
+
+  - term: "Emergency Stop"
+    definition: "A mechanism that immediately shuts down the robot when activated, either manually (stop buttons) or automatically (triggered by safety conditions)."
+    first_introduced: "P5-C6"
+    category: "safety"
+    complexity_level: "intermediate"
+    related_terms: ["safety-systems", "fail-safe-design", "safety-monitoring"]
+    synonyms: ["E-stop", "emergency-shutdown"]
+    see_also: ["Safety Systems"]
+
+  - term: "Fail-Safe Design"
+    definition: "A design principle where systems default to a safe state on failure, using redundancy and fault tolerance to ensure safe operation even when components fail."
+    first_introduced: "P5-C6"
+    category: "safety"
+    complexity_level: "intermediate"
+    related_terms: ["safety-systems", "redundancy", "fault-detection"]
+    synonyms: []
+    see_also: ["Safety Systems"]
+
+  - term: "Safety Monitoring"
+    definition: "Continuous real-time monitoring of safety conditions, including sensor monitoring, state monitoring, and safety checks to detect and respond to hazards."
+    first_introduced: "P5-C6"
+    category: "safety"
+    complexity_level: "intermediate"
+    related_terms: ["safety-systems", "fault-detection", "safety-diagnostics"]
+    synonyms: []
+    see_also: ["Safety Systems"]
+
+  - term: "Fault Detection"
+    definition: "The process of identifying, classifying, and responding to faults in robot systems, enabling proactive safety management and system reliability."
+    first_introduced: "P5-C6"
+    category: "safety"
+    complexity_level: "intermediate"
+    related_terms: ["safety-systems", "safety-monitoring", "fail-safe-design"]
+    synonyms: []
+    see_also: ["Safety Systems"]
+
+  - term: "Vision Model"
+    definition: "An AI model that processes and understands visual information (images, videos) to perform tasks like object detection, classification, segmentation, or scene understanding."
+    first_introduced: "P4-C1"
+    category: "ai"
+    complexity_level: "intermediate"
+    related_terms: ["object-detection", "semantic-segmentation", "neural-network", "computer-vision"]
+    synonyms: []
+    see_also: ["Vision Models"]
+
+  - term: "Object Detection"
+    definition: "The task of identifying and localizing objects in images, typically outputting bounding boxes and class labels for each detected object."
+    first_introduced: "P4-C1"
+    category: "perception"
+    complexity_level: "intermediate"
+    related_terms: ["vision-model", "yolo", "bounding-box", "computer-vision"]
+    synonyms: []
+    see_also: ["Vision Models"]
+
+  - term: "Semantic Segmentation"
+    definition: "The task of assigning a class label to each pixel in an image, providing dense pixel-level understanding of the scene."
+    first_introduced: "P4-C1"
+    category: "perception"
+    complexity_level: "intermediate"
+    related_terms: ["vision-model", "object-detection", "computer-vision"]
+    synonyms: []
+    see_also: ["Vision Models"]
+
+  - term: "Multi-Modal Model"
+    definition: "An AI model that processes and integrates information from multiple modalities (e.g., text, images, audio, video) to understand complex scenes and commands."
+    first_introduced: "P4-C2"
+    category: "ai"
+    complexity_level: "intermediate"
+    related_terms: ["vision-language-model", "language-model", "vision-model"]
+    synonyms: []
+    see_also: ["Multi-modal Models"]
+
+  - term: "Vision-Language Model (VLM)"
+    definition: "A type of multi-modal model that combines visual understanding (images) and language understanding (text) to enable tasks like visual question answering, language grounding, and language-to-action."
+    first_introduced: "P4-C2"
+    category: "ai"
+    complexity_level: "intermediate"
+    related_terms: ["multi-modal-model", "vision-model", "language-model"]
+    synonyms: ["VLM"]
+    see_also: ["Multi-modal Models"]
+
+  - term: "Control Policy"
+    definition: "A function that maps observations (what the robot senses) to actions (what the robot should do), typically implemented as a neural network learned from data."
+    first_introduced: "P4-C3"
+    category: "ai"
+    complexity_level: "intermediate"
+    related_terms: ["policy", "reinforcement-learning", "imitation-learning", "neural-network"]
+    synonyms: ["learned-policy", "policy-network"]
+    see_also: ["Control Policies"]
+
+  - term: "Learned Control"
+    definition: "Control strategies that are learned from data (demonstrations or experience) rather than hand-designed, enabling robots to perform complex behaviors difficult to program manually."
+    first_introduced: "P4-C3"
+    category: "control"
+    complexity_level: "intermediate"
+    related_terms: ["control-policy", "reinforcement-learning", "imitation-learning"]
+    synonyms: []
+    see_also: ["Control Policies"]
+
+  - term: "Actor-Critic"
+    definition: "A reinforcement learning method that combines two components: an actor (policy network that selects actions) and a critic (value network that estimates expected return), reducing variance and improving learning stability."
+    first_introduced: "P4-C4"
+    category: "ai"
+    complexity_level: "intermediate"
+    related_terms: ["reinforcement-learning", "policy", "value-function", "ppo", "sac"]
+    synonyms: []
+    see_also: ["Reinforcement Learning (Advanced)"]
+
+  - term: "PPO (Proximal Policy Optimization)"
+    definition: "A popular on-policy reinforcement learning algorithm that prevents large policy updates using a clipped objective, providing stable and reliable learning for robotics tasks."
+    first_introduced: "P4-C4"
+    category: "ai"
+    complexity_level: "intermediate"
+    related_terms: ["reinforcement-learning", "actor-critic", "on-policy", "policy"]
+    synonyms: ["PPO"]
+    see_also: ["Reinforcement Learning (Advanced)"]
+
+  - term: "SAC (Soft Actor-Critic)"
+    definition: "An off-policy reinforcement learning algorithm designed for continuous control, using entropy regularization to encourage exploration and experience replay for sample efficiency."
+    first_introduced: "P4-C4"
+    category: "ai"
+    complexity_level: "intermediate"
+    related_terms: ["reinforcement-learning", "actor-critic", "off-policy", "experience-replay"]
+    synonyms: ["SAC"]
+    see_also: ["Reinforcement Learning (Advanced)"]
+
+  - term: "TD3 (Twin Delayed DDPG)"
+    definition: "An off-policy reinforcement learning algorithm that improves stability over DDPG by using twin Q-networks, delayed policy updates, and target policy smoothing."
+    first_introduced: "P4-C4"
+    category: "ai"
+    complexity_level: "intermediate"
+    related_terms: ["reinforcement-learning", "actor-critic", "off-policy", "ddpg"]
+    synonyms: ["TD3"]
+    see_also: ["Reinforcement Learning (Advanced)"]
+
+  - term: "On-Policy"
+    definition: "A reinforcement learning approach where the policy is updated using data collected by the current policy, requiring fresh data collection for each update."
+    first_introduced: "P4-C4"
+    category: "ai"
+    complexity_level: "intermediate"
+    related_terms: ["reinforcement-learning", "ppo", "off-policy"]
+    synonyms: []
+    see_also: ["Reinforcement Learning (Advanced)"]
+
+  - term: "Off-Policy"
+    definition: "A reinforcement learning approach where the policy can learn from data collected by different policies, enabling experience replay and improved sample efficiency."
+    first_introduced: "P4-C4"
+    category: "ai"
+    complexity_level: "intermediate"
+    related_terms: ["reinforcement-learning", "sac", "td3", "experience-replay"]
+    synonyms: []
+    see_also: ["Reinforcement Learning (Advanced)"]
+
+  - term: "Experience Replay"
+    definition: "A technique in off-policy reinforcement learning where past experiences are stored in a buffer and reused for training, improving sample efficiency."
+    first_introduced: "P4-C4"
+    category: "ai"
+    complexity_level: "intermediate"
+    related_terms: ["reinforcement-learning", "off-policy", "sac", "td3"]
+    synonyms: []
+    see_also: ["Reinforcement Learning (Advanced)"]
+
+  - term: "Trajectory Optimization"
+    definition: "The process of finding optimal motion trajectories that are smooth, time-efficient, and energy-efficient, considering cost functions and constraints (joint limits, obstacles, dynamic constraints)."
+    first_introduced: "P4-C5"
+    category: "kinematics"
+    complexity_level: "intermediate"
+    related_terms: ["trajectory", "path", "motion-planning", "optimization"]
+    synonyms: []
+    see_also: ["Trajectory Optimization"]
+
+  - term: "Path"
+    definition: "A geometric sequence of configurations (positions) in configuration space, without timing information, specifying where to go but not when or how fast."
+    first_introduced: "P4-C5"
+    category: "kinematics"
+    complexity_level: "intermediate"
+    related_terms: ["trajectory", "trajectory-optimization", "motion-planning"]
+    synonyms: []
+    see_also: ["Trajectory Optimization"]
+
+  - term: "Trajectory"
+    definition: "A path with timing information, specifying positions, velocities, and accelerations over time, providing complete motion specification."
+    first_introduced: "P4-C5"
+    category: "kinematics"
+    complexity_level: "intermediate"
+    related_terms: ["path", "trajectory-optimization", "motion-planning"]
+    synonyms: []
+    see_also: ["Trajectory Optimization"]
+
+  - term: "Cost Function"
+    definition: "A function that defines what makes a trajectory 'good', such as minimizing execution time, smoothness (jerk/acceleration), or energy consumption."
+    first_introduced: "P4-C5"
+    category: "mathematics"
+    complexity_level: "intermediate"
+    related_terms: ["trajectory-optimization", "optimization"]
+    synonyms: []
+    see_also: ["Trajectory Optimization"]
+
+  - term: "Quadratic Programming (QP)"
+    definition: "An optimization method that solves problems with quadratic cost functions and linear constraints, providing fast solutions suitable for real-time trajectory optimization."
+    first_introduced: "P4-C5"
+    category: "mathematics"
+    complexity_level: "intermediate"
+    related_terms: ["trajectory-optimization", "optimization", "cost-function"]
+    synonyms: ["QP"]
+    see_also: ["Trajectory Optimization"]
+
+  - term: "Policy Distillation"
+    definition: "The process of compressing a large, powerful teacher policy into a smaller, faster student policy while maintaining performance, enabling efficient deployment on robots."
+    first_introduced: "P4-C6"
+    category: "ai"
+    complexity_level: "intermediate"
+    related_terms: ["policy", "teacher-student-framework", "behavioral-cloning"]
+    synonyms: []
+    see_also: ["Policy Distillation"]
+
+  - term: "Teacher-Student Framework"
+    definition: "A framework for policy distillation where a large teacher policy (possibly using privileged information) teaches a smaller student policy (using only real-world observations)."
+    first_introduced: "P4-C6"
+    category: "ai"
+    complexity_level: "intermediate"
+    related_terms: ["policy-distillation", "policy", "privileged-observations"]
+    synonyms: []
+    see_also: ["Policy Distillation"]
+
+  - term: "Feature Matching"
+    definition: "A policy distillation method where intermediate representations (features) from the teacher and student networks are matched, preserving internal knowledge structure."
+    first_introduced: "P4-C6"
+    category: "ai"
+    complexity_level: "intermediate"
+    related_terms: ["policy-distillation", "teacher-student-framework", "neural-network"]
+    synonyms: []
+    see_also: ["Policy Distillation"]
+
+  - term: "Logit Matching"
+    definition: "A policy distillation method where output distributions (logits) from the teacher and student policies are matched, enabling the student to learn the teacher's action preferences."
+    first_introduced: "P4-C6"
+    category: "ai"
+    complexity_level: "intermediate"
+    related_terms: ["policy-distillation", "teacher-student-framework", "policy"]
+    synonyms: []
+    see_also: ["Policy Distillation"]
+
+  - term: "Language-to-Action"
+    definition: "Systems that translate natural language commands into robot actions, enabling intuitive human-robot interaction through natural language control."
+    first_introduced: "P4-C7"
+    category: "ai"
+    complexity_level: "intermediate"
+    related_terms: ["human-robot-interaction", "language-conditioned-policy", "natural-language-interaction"]
+    synonyms: []
+    see_also: ["Language-to-Action Systems"]
+
+  - term: "Language-Conditioned Policy"
+    definition: "A control policy that takes natural language commands as input, generating robot actions conditioned on both language and visual/proprioceptive observations."
+    first_introduced: "P4-C7"
+    category: "ai"
+    complexity_level: "intermediate"
+    related_terms: ["language-to-action", "control-policy", "natural-language-interaction"]
+    synonyms: []
+    see_also: ["Language-to-Action Systems"]
+
+  - term: "Visual Grounding"
+    definition: "The process of connecting language descriptions to visual locations in images, enabling robots to understand which objects or regions language refers to."
+    first_introduced: "P4-C7"
+    category: "perception"
+    complexity_level: "intermediate"
+    related_terms: ["language-to-action", "vision-language-model", "object-detection"]
+    synonyms: []
+    see_also: ["Language-to-Action Systems"]
+
+  - term: "Action Grounding"
+    definition: "The process of mapping language action descriptions to robot actions, enabling robots to understand what actions to perform based on natural language commands."
+    first_introduced: "P4-C7"
+    category: "ai"
+    complexity_level: "intermediate"
+    related_terms: ["language-to-action", "language-conditioned-policy", "control-policy"]
+    synonyms: []
+    see_also: ["Language-to-Action Systems"]
+
+  # Part 7: Professional Path & Research Terms
+
+  - term: "PhD Program"
+    definition: "A doctoral degree requiring original research contributions, comprehensive qualifying exams, and a thesis defense. Typically takes 4-6 years and provides deep specialization in a research area."
+    first_introduced: "P7-C2"
+    category: "general"
+    complexity_level: "intermediate"
+    related_terms: ["research", "academic-career", "thesis"]
+    synonyms: ["Doctoral Program"]
+    see_also: ["Research Pathways"]
+
+  - term: "Research Assistantship (RA)"
+    definition: "Funding through faculty research projects. You work on faculty research while completing your degree. This provides research experience and financial support."
+    first_introduced: "P7-C2"
+    category: "general"
+    complexity_level: "beginner"
+    related_terms: ["PhD Program", "funding", "research"]
+    synonyms: ["RA"]
+    see_also: ["Research Pathways"]
+
+  - term: "Teaching Assistantship (TA)"
+    definition: "Funding through course support. You assist professors with teaching, grading, and student support. This develops teaching skills and provides income."
+    first_introduced: "P7-C2"
+    category: "general"
+    complexity_level: "beginner"
+    related_terms: ["PhD Program", "funding", "teaching"]
+    synonyms: ["TA"]
+    see_also: ["Research Pathways"]
+
+  - term: "Fellowship"
+    definition: "A competitive award providing full funding without work requirement. Examples include NSF Graduate Research Fellowships, DoD NDSEG Fellowships. These are prestigious and allow focused research time."
+    first_introduced: "P7-C2"
+    category: "general"
+    complexity_level: "beginner"
+    related_terms: ["PhD Program", "funding", "research"]
+    synonyms: []
+    see_also: ["Research Pathways"]
+
+  - term: "Postdoctoral Position"
+    definition: "A research role after PhD completion, before faculty or industry positions. Typically 2-5 years, allows deepening expertise and building publication record."
+    first_introduced: "P7-C2"
+    category: "general"
+    complexity_level: "intermediate"
+    related_terms: ["PhD Program", "research", "academic-career"]
+    synonyms: ["Postdoc"]
+    see_also: ["Research Pathways"]
+
+  - term: "Grant Writing"
+    definition: "The process of securing research funding through proposals. Essential skill for academic researchers. Requires clear problem statements, methodology, and expected contributions."
+    first_introduced: "P7-C2"
+    category: "general"
+    complexity_level: "intermediate"
+    related_terms: ["funding", "research", "PhD Program"]
+    synonyms: []
+    see_also: ["Research Pathways"]
+
+  - term: "Publication Record"
+    definition: "Academic papers demonstrating research contributions. Critical for academic careers. Includes conference papers (e.g., ICRA, CoRL) and journal articles (e.g., IEEE Transactions on Robotics)."
+    first_introduced: "P7-C2"
+    category: "general"
+    complexity_level: "intermediate"
+    related_terms: ["research", "academic-career", "PhD Program"]
+    synonyms: []
+    see_also: ["Research Pathways"]
+
+  - term: "Qualifying Exam"
+    definition: "A comprehensive examination testing breadth of knowledge. Typically taken after coursework completion, before beginning dissertation research. Tests understanding across robotics domains."
+    first_introduced: "P7-C2"
+    category: "general"
+    complexity_level: "intermediate"
+    related_terms: ["PhD Program", "academic-career"]
+    synonyms: []
+    see_also: ["Research Pathways"]
+
+  - term: "Industry Partnership"
+    definition: "Collaboration between academia and companies. Provides research funding, real-world problems, and career opportunities. Common in robotics due to applied nature of field."
+    first_introduced: "P7-C2"
+    category: "general"
+    complexity_level: "beginner"
+    related_terms: ["research", "funding", "industry"]
+    synonyms: []
+    see_also: ["Research Pathways"]
+
+  - term: "Startup Ecosystem"
+    definition: "A network of early-stage companies and investors. Robotics startups offer unique opportunities: early equity, rapid growth, diverse experience, and potential for significant impact."
+    first_introduced: "P7-C2"
+    category: "general"
+    complexity_level: "beginner"
+    related_terms: ["industry", "career", "startup"]
+    synonyms: []
+    see_also: ["Research Pathways"]
+
+  - term: "Autonomous Material Systems (AMS)"
+    definition: "Materials with embedded sensing, computation, and actuation capabilities. These systems fuse form and function, enabling construction of embodied intelligence machinery with reduced manufacturing complexity."
+    first_introduced: "P7-C3"
+    category: "hardware"
+    complexity_level: "advanced"
+    related_terms: ["embodied-intelligence", "materials", "sensing"]
+    synonyms: ["AMS"]
+    see_also: ["Future of Embodied Intelligence"]
+
+  - term: "Biohybrid Systems"
+    definition: "Systems combining living components (muscle cells, neurons, mycelium, plant cells) with synthetic components. These systems enable capabilities like self-repair, growth, and adaptation impossible with purely synthetic materials."
+    first_introduced: "P7-C3"
+    category: "hardware"
+    complexity_level: "advanced"
+    related_terms: ["embodied-intelligence", "materials", "robotics"]
+    synonyms: []
+    see_also: ["Future of Embodied Intelligence"]
+
+  - term: "Ethics"
+    definition: "Moral principles governing behavior. In robotics, ethics guide how we design, develop, and deploy systems. Ethical principles ensure systems benefit humanity and respect human rights."
+    first_introduced: "P7-C4"
+    category: "general"
+    complexity_level: "beginner"
+    related_terms: ["safety", "responsible-development", "human-agency"]
+    synonyms: []
+    see_also: ["Ethical & Safety Guidelines"]
+
+  - term: "Safety"
+    definition: "Protection from harm. In robotics, safety includes physical safety (preventing injuries), cybersecurity (preventing malicious attacks), and operational safety (ensuring reliable operation)."
+    first_introduced: "P7-C4"
+    category: "safety"
+    complexity_level: "beginner"
+    related_terms: ["ethics", "risk-assessment", "safety-standards"]
+    synonyms: []
+    see_also: ["Ethical & Safety Guidelines"]
+
+  - term: "Human Agency"
+    definition: "Human capacity to act independently and make choices. Ethical robotics supports human agency rather than replacing it. Humans should retain control over robotic systems."
+    first_introduced: "P7-C4"
+    category: "general"
+    complexity_level: "beginner"
+    related_terms: ["ethics", "human-in-the-loop", "autonomy"]
+    synonyms: []
+    see_also: ["Ethical & Safety Guidelines"]
+
+  - term: "Transparency"
+    definition: "Openness about how systems work. Transparency includes explainability (understanding decisions), disclosure (revealing capabilities and limitations), and accountability (identifying responsible parties)."
+    first_introduced: "P7-C4"
+    category: "general"
+    complexity_level: "beginner"
+    related_terms: ["ethics", "explainability", "accountability"]
+    synonyms: []
+    see_also: ["Ethical & Safety Guidelines"]
+
+  - term: "Accountability"
+    definition: "Responsibility for actions and decisions. In robotics, accountability means clear chains of responsibility—knowing who is responsible when things go wrong."
+    first_introduced: "P7-C4"
+    category: "general"
+    complexity_level: "beginner"
+    related_terms: ["ethics", "transparency", "responsible-development"]
+    synonyms: []
+    see_also: ["Ethical & Safety Guidelines"]
+
+  - term: "Bias"
+    definition: "Systematic unfairness in systems. Bias can arise from training data, algorithms, or deployment contexts. Ethical development requires identifying and mitigating bias."
+    first_introduced: "P7-C4"
+    category: "ai"
+    complexity_level: "intermediate"
+    related_terms: ["ethics", "fairness", "machine-learning"]
+    synonyms: []
+    see_also: ["Ethical & Safety Guidelines"]
+
+  - term: "Privacy"
+    definition: "Right to control personal information. Robots with sensors and data collection capabilities must respect privacy rights, collecting only necessary data and protecting it appropriately."
+    first_introduced: "P7-C4"
+    category: "general"
+    complexity_level: "beginner"
+    related_terms: ["ethics", "safety", "data-governance"]
+    synonyms: []
+    see_also: ["Ethical & Safety Guidelines"]
+
+  - term: "Fairness"
+    definition: "Equal treatment and opportunity. Fair systems don't discriminate based on protected characteristics. Fairness requires diverse training data and inclusive design."
+    first_introduced: "P7-C4"
+    category: "general"
+    complexity_level: "beginner"
+    related_terms: ["ethics", "bias", "inclusive-design"]
+    synonyms: []
+    see_also: ["Ethical & Safety Guidelines"]
+
+  - term: "Fail-Safe"
+    definition: "Systems that fail in safe states. Fail-safe mechanisms ensure that when systems fail, they fail safely rather than causing harm."
+    first_introduced: "P7-C4"
+    category: "safety"
+    complexity_level: "intermediate"
+    related_terms: ["safety", "risk-assessment", "safety-standards"]
+    synonyms: []
+    see_also: ["Ethical & Safety Guidelines"]
+
+  - term: "Risk Assessment"
+    definition: "Evaluation of potential hazards and their likelihood. Risk assessment identifies hazards, evaluates risks, and prioritizes mitigation strategies."
+    first_introduced: "P7-C4"
+    category: "safety"
+    complexity_level: "intermediate"
+    related_terms: ["safety", "fail-safe", "safety-standards"]
+    synonyms: []
+    see_also: ["Ethical & Safety Guidelines"]
+
+  - term: "Safety Standards"
+    definition: "Technical specifications for safe design. Examples include ISO 10218 (industrial robots), ISO 13482 (service robots), ISO/TS 15066 (collaborative robots)."
+    first_introduced: "P7-C4"
+    category: "safety"
+    complexity_level: "intermediate"
+    related_terms: ["safety", "risk-assessment", "regulatory-compliance"]
+    synonyms: []
+    see_also: ["Ethical & Safety Guidelines"]
+
+  - term: "Ethics-by-Design"
+    definition: "Integrating ethical considerations from design phase. Ethics-by-design ensures ethical principles guide development rather than being added afterward."
+    first_introduced: "P7-C4"
+    category: "general"
+    complexity_level: "intermediate"
+    related_terms: ["ethics", "responsible-development", "safety-by-design"]
+    synonyms: []
+    see_also: ["Ethical & Safety Guidelines"]
+
+  - term: "Safety-by-Design"
+    definition: "Building safety into architecture from the start. Safety-by-design ensures safety is fundamental to system architecture, not an add-on."
+    first_introduced: "P7-C4"
+    category: "safety"
+    complexity_level: "intermediate"
+    related_terms: ["safety", "ethics-by-design", "responsible-development"]
+    synonyms: []
+    see_also: ["Ethical & Safety Guidelines"]
+
+  - term: "Human-in-the-Loop"
+    definition: "Human oversight of autonomous systems. Human-in-the-loop ensures humans retain control and can override system decisions."
+    first_introduced: "P7-C4"
+    category: "general"
+    complexity_level: "intermediate"
+    related_terms: ["human-agency", "autonomy", "safety"]
+    synonyms: []
+    see_also: ["Ethical & Safety Guidelines"]
+
+  - term: "Explainability"
+    definition: "Ability to understand how systems make decisions. Explainability enables users to understand and trust robotic systems."
+    first_introduced: "P7-C4"
+    category: "ai"
+    complexity_level: "intermediate"
+    related_terms: ["transparency", "accountability", "machine-learning"]
+    synonyms: []
+    see_also: ["Ethical & Safety Guidelines"]
+
+  - term: "Adversarial Robustness"
+    definition: "Resistance to malicious inputs or attacks. Adversarial robustness ensures systems function correctly even when attacked or given unexpected inputs."
+    first_introduced: "P7-C4"
+    category: "safety"
+    complexity_level: "advanced"
+    related_terms: ["safety", "security", "robustness"]
+    synonyms: []
+    see_also: ["Ethical & Safety Guidelines"]
+
+  - term: "Regulatory Compliance"
+    definition: "Adherence to laws and regulations. Compliance with regulations like EU AI Act is required for legal deployment."
+    first_introduced: "P7-C4"
+    category: "general"
+    complexity_level: "intermediate"
+    related_terms: ["ethics", "safety-standards", "responsible-development"]
+    synonyms: []
+    see_also: ["Ethical & Safety Guidelines"]
+
+  - term: "Responsible Development"
+    definition: "Development practices considering ethical and safety implications. Responsible development integrates ethics and safety throughout the development lifecycle."
+    first_introduced: "P7-C4"
+    category: "general"
+    complexity_level: "intermediate"
+    related_terms: ["ethics", "safety", "ethics-by-design", "safety-by-design"]
+    synonyms: []
+    see_also: ["Ethical & Safety Guidelines"]
+
+  - term: "Dual-Domain Ethics"
+    definition: "Ethical considerations for both physical and simulation systems. Understanding how ethics apply to both domains ensures comprehensive ethical development."
+    first_introduced: "P7-C4"
+    category: "general"
+    complexity_level: "intermediate"
+    related_terms: ["ethics", "sim-to-real-transfer", "responsible-development"]
+    synonyms: []
+    see_also: ["Ethical & Safety Guidelines"]
+
+# Categories:
+# - hardware: Physical components (sensors, actuators, motors)
+# - software: Code, algorithms, frameworks
+# - ai: Machine learning, RL, neural networks
+# - simulation: Virtual environments, physics engines
+# - mathematics: Equations, formulas, mathematical concepts
+# - kinematics: Motion, position, velocity
+# - dynamics: Forces, torques, inertia
+# - control: PID, feedback, control theory
+# - perception: Vision, sensing, data processing
+# - safety: Safety protocols, hazards, precautions
+
+# Complexity levels:
+# - beginner: Foundational concepts (introduced in Part 1-2)
+# - intermediate: Building on basics (Part 3-5)
+# - advanced: Specialized/complex topics (Part 6-7)
+
+# Validation rules:
+# 1. No circular definitions (term A defines term B, term B defines term A)
+# 2. Definitions must be beginner-friendly (avoid jargon in definitions)
+# 3. first_introduced must be valid chapter_id (P{1-7}-C{1-N})
+# 4. Each term appears only once (no duplicates)
+# 5. related_terms must reference existing terms in glossary
+
+# Usage:
+# 1. When a chapter is published, extract all technical terms from "Key Terms" section
+# 2. Add each new term to this file (check for duplicates first)
+# 3. Cross-reference with existing terms to populate related_terms
+# 4. Validate definitions for clarity and beginner-friendliness
+# 5. Update metadata.total_terms and metadata.last_updated
+
+# Export formats:
+# - terms.yaml: Master source (this file)
+# - terms.json: JSON export for programmatic access
+# - terms.md: Markdown export for book appendix
+# - terms-by-category.md: Organized by category
+# - terms-by-complexity.md: Organized by complexity level

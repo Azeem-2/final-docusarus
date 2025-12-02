@@ -1,0 +1,16 @@
+graph TD
+    A[Motion Planning] --> B[Path<br/>Geometric Only]
+    A --> C[Trajectory<br/>With Timing]
+    
+    B --> D[Configurations<br/>q1, q2, q3, ...]
+    C --> E[Positions<br/>q(t)]
+    C --> F[Velocities<br/>dq/dt]
+    C --> G[Accelerations<br/>d²q/dt²]
+    
+    H[Path Planning] --> I[Where to Go]
+    J[Trajectory Optimization] --> K[How to Move<br/>Smooth, Fast, Efficient]
+    
+    style A fill:#4A90E2,stroke:#2E5C8A,color:#fff
+    style B fill:#E8F4F8,stroke:#4A90E2
+    style C fill:#F0F8E8,stroke:#7CB342
+

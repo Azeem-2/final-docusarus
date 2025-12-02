@@ -1,0 +1,35 @@
+```mermaid
+graph TD
+    style Base fill:#666666,stroke:#000000,color:#FFFFFF
+    style Upper fill:#0066CC,stroke:#000000,color:#FFFFFF
+    style Fore fill:#0066CC,stroke:#000000,color:#FFFFFF
+    style Gripper fill:#0066CC,stroke:#000000,color:#FFFFFF
+    style ShoulderJ fill:#00CC66,stroke:#000000,color:#000000
+    style ElbowJ fill:#00CC66,stroke:#000000,color:#000000
+    style WristJ fill:#00CC66,stroke:#000000,color:#000000
+
+    Base["base_link (Fixed to World)<br/>━━━━━━━━━━<br/>Properties:<br/>• Visual: base.stl<br/>• Collision: base_simple.obj<br/>• Mass: 0.5 kg"]
+
+    ShoulderJ["shoulder_joint (revolute)<br/>━━━━━━━━━━<br/>• Axis: [0, 0, 1] (Z-axis)<br/>• Range: -90° to +90°<br/>• Max effort: 10 N·m<br/>• Max velocity: 2.0 rad/s"]
+
+    Upper["upper_arm<br/>━━━━━━━━━━<br/>Properties:<br/>• Length: 300mm<br/>• Mass: 0.2 kg<br/>• Inertia: Ixx=0.00154 kg·m²<br/>• CoM: [0.15, 0, 0]"]
+
+    ElbowJ["elbow_joint (revolute)<br/>━━━━━━━━━━<br/>• Axis: [0, 1, 0] (Y-axis)<br/>• Range: 0° to +135°<br/>• Max effort: 8 N·m<br/>• Max velocity: 2.5 rad/s"]
+
+    Fore["forearm<br/>━━━━━━━━━━<br/>Properties:<br/>• Length: 250mm<br/>• Mass: 0.15 kg<br/>• Inertia: Iyy=0.00078 kg·m²<br/>• CoM: [0.125, 0, 0]"]
+
+    WristJ["wrist_joint (prismatic)<br/>━━━━━━━━━━<br/>• Axis: [1, 0, 0] (X-axis)<br/>• Range: 0 to 0.1m<br/>• Max effort: 50 N<br/>• Max velocity: 0.5 m/s"]
+
+    Gripper["gripper_mount<br/>━━━━━━━━━━<br/>Properties:<br/>• Visual: gripper.dae<br/>• Collision: gripper_box<br/>• Mass: 0.1 kg"]
+
+    Base -->|Parent-Child| ShoulderJ
+    ShoulderJ -->|Connects to| Upper
+    Upper -->|Parent-Child| ElbowJ
+    ElbowJ -->|Connects to| Fore
+    Fore -->|Parent-Child| WristJ
+    WristJ -->|Connects to| Gripper
+```
+
+**Figure 3: URDF Tree Structure**
+
+Hierarchical robot description showing parent-child relationships between links (rigid bodies) and joints (connections). Each link contains visual mesh, collision geometry, and inertial properties. Each joint specifies type, axis, range limits, and dynamics parameters.

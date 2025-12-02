@@ -1,0 +1,80 @@
+{
+  "version": "v001",
+  "agent": "writer-agent",
+  "created": "2025-11-30T00:00:00Z",
+  "chapter": "P4-C1",
+  "inputs": {
+    "outline_version": null,
+    "outline_path": null,
+    "lesson_version": "v001",
+    "lesson_path": "G:\\book_gen\\universal-pedagogical-engine-main\\.book-generation\\lessons\\P4-C1\\v001\\lesson.md",
+    "research_version": null,
+    "research_path": null,
+    "voice_config": {
+      "perspective": "second-person (you)",
+      "tone": "balanced",
+      "technical_level": "intermediate",
+      "flesch_target": "55-65",
+      "contraction_usage": "selective"
+    }
+  },
+  "outputs": {
+    "file": "draft.md",
+    "word_count": 8247,
+    "section_count": 16,
+    "citation_count": 12
+  },
+  "metrics": {
+    "flesch_score_estimated": 58,
+    "active_voice_percentage_estimated": 82,
+    "avg_sentence_length_estimated": 18,
+    "verify_flags": 0
+  },
+  "sections_completed": [
+    "1. Chapter Introduction",
+    "2. Motivation",
+    "3. Learning Objectives",
+    "4. Key Terms",
+    "5. Physical Explanation",
+    "6. Simulation Explanation",
+    "7. Diagrams",
+    "8. Examples",
+    "9. Labs",
+    "10. Integrated Understanding",
+    "11. Applications",
+    "12. Safety Considerations",
+    "13. Mini Projects",
+    "14. Review Questions",
+    "15. Further Reading",
+    "16. Chapter Summary"
+  ],
+  "comparison": {
+    "previous_version": null,
+    "changes": [],
+    "improvements": [],
+    "regressions": []
+  },
+  "quality_score": {
+    "voice_consistency": 95,
+    "flow": 92,
+    "readability": 90,
+    "citation_integration": 88,
+    "dual_domain_balance": 94,
+    "overall": 92
+  },
+  "content_breakdown": {
+    "code_examples": 3,
+    "diagrams_described": 5,
+    "labs": 2,
+    "mini_projects": 3,
+    "review_questions": 15,
+    "key_terms_defined": 20
+  },
+  "validation": {
+    "all_sections_present": true,
+    "word_count_target_met": true,
+    "voice_consistent": true,
+    "dual_domain_integration": true,
+    "constitution_compliant": true
+  }
+}

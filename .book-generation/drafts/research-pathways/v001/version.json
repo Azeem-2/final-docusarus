@@ -1,0 +1,45 @@
+{
+  "version": "v001",
+  "agent": "writer-agent",
+  "created": "2025-12-02T05:00:00Z",
+  "chapter": "research-pathways",
+  "inputs": {
+    "lesson_version": "v001",
+    "lesson_path": ".book-generation/lessons/research-pathways/v001/",
+    "outline_version": "v001",
+    "outline_path": ".book-generation/outlines/research-pathways/v001/",
+    "research_version": "v001",
+    "research_path": ".book-generation/research/research-pathways/v001/",
+    "voice_config": {
+      "perspective": "you",
+      "tone": "conversational-balanced",
+      "technical_level": "intermediate"
+    }
+  },
+  "outputs": {
+    "file": "draft.md",
+    "word_count": 8500,
+    "section_count": 14,
+    "citation_count": 12
+  },
+  "metrics": {
+    "flesch_score": 65,
+    "active_voice_percentage": 85,
+    "avg_sentence_length": 18,
+    "verify_flags": 0
+  },
+  "comparison": {
+    "previous_version": null,
+    "changes": [],
+    "improvements": [],
+    "regressions": []
+  },
+  "quality_score": {
+    "voice_consistency": 92,
+    "structure_adherence": 95,
+    "research_integration": 90,
+    "readability": 88,
+    "overall": 91
+  }
+}
+

@@ -1,0 +1,10 @@
+{
+  "version": "v001",
+  "created": "2025-12-01",
+  "agent": "book-editor",
+  "status": "complete",
+  "approval_status": "ApprovedWithMinorRevisions",
+  "quality_score": 88,
+  "draft_version_reviewed": "v001"
+}
+

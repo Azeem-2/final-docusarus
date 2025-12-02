@@ -1,0 +1,14 @@
+{
+  "current_version": "v001",
+  "book": "build-robotic-arm",
+  "last_updated": "2025-01-27T03:21:00Z",
+  "version_history": [
+    {
+      "version": "v001",
+      "created": "2025-01-27T03:21:00Z",
+      "summary": "Initial outline with 14 mandatory sections, dual-domain coverage (physical + simulation), 2 labs, 1 mini-project",
+      "section_count": 14
+    }
+  ]
+}
+

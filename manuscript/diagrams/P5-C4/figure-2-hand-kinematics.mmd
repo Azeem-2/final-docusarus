@@ -1,0 +1,14 @@
+graph LR
+    A[Hand Kinematics] --> B[Forward Kinematics<br/>Joint Angles → Fingertip Positions]
+    A --> C[Inverse Kinematics<br/>Fingertip Positions → Joint Angles]
+    A --> D[Hand Workspace<br/>Reachable Space]
+    
+    B --> E[Calculate Fingertip<br/>Positions]
+    C --> F[Calculate Joint<br/>Angles]
+    D --> G[Plan Grasps<br/>Within Workspace]
+    
+    style A fill:#4A90E2,stroke:#2E5C8A,color:#fff
+    style B fill:#E8F4F8,stroke:#4A90E2
+    style C fill:#F0F8E8,stroke:#7CB342
+    style D fill:#FFF3E0,stroke:#FF9800
+

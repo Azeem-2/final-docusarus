@@ -1,0 +1,29 @@
+{
+  "version": "v002",
+  "agent": "writer-agent",
+  "created": "2025-12-01T00:00:00Z",
+  "chapter_id": "P1-C4",
+  "inputs": {
+    "research_file": ".book-generation/research/role-of-simulation/v001/research.md",
+    "outline_file": ".book-generation/outlines/role-of-simulation/v001/outline.md",
+    "lessons_file": ".book-generation/lessons/P1-C4/v001/lesson.md",
+    "voice_config": {
+      "perspective": "you",
+      "tone": "balanced",
+      "technical_level": "introductory"
+    }
+  },
+  "outputs": {
+    "file": "draft.md",
+    "word_count": 2800,
+    "sections": 14
+  },
+  "status": "Draft",
+  "metrics": {
+    "flesch_score": 55,
+    "active_voice_percentage": 80,
+    "avg_sentence_length": 18
+  }
+}
+
+

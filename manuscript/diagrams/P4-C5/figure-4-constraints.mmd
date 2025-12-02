@@ -1,0 +1,17 @@
+graph TD
+    A[Trajectory Constraints] --> B[Joint Limits<br/>Position, Velocity, Acceleration]
+    A --> C[Obstacles<br/>Collision Avoidance]
+    A --> D[Dynamic Constraints<br/>Torque, Stability, Power]
+    
+    B --> E[Physical Limits<br/>Robot Capabilities]
+    C --> F[Safety Margins<br/>Distance from Objects]
+    D --> G[Actuator Limits<br/>Torque, Power Bounds]
+    
+    H[Constraint Handling] --> I[Optimization Problem<br/>With Constraints]
+    I --> J[Valid Trajectory<br/>Respects All Limits]
+    
+    style A fill:#4A90E2,stroke:#2E5C8A,color:#fff
+    style B fill:#E8F4F8,stroke:#4A90E2
+    style C fill:#F0F8E8,stroke:#7CB342
+    style D fill:#FFF3E0,stroke:#FF9800
+

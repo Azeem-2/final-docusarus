@@ -1,0 +1,67 @@
+{
+  "version": "v001",
+  "chapter": "P2-C1",
+  "chapter_title": "Mechanical Structures",
+  "created_date": "2025-11-30",
+  "created_by": "chapter-structure-architect",
+  "status": "validated",
+  "blueprint_type": "structural",
+  "total_lessons": 8,
+  "concept_density": {
+    "score": 0.189,
+    "classification": "high",
+    "new_concepts": 22,
+    "prerequisites": 4,
+    "math_derivations": 5,
+    "reading_time_minutes": 180
+  },
+  "pedagogical_layers": {
+    "layer_1_manual": {
+      "lessons": [1, 2],
+      "percentage": 25,
+      "time_minutes": 180
+    },
+    "layer_2_ai_collaboration": {
+      "lessons": [3, 4, 5, 6],
+      "percentage": 46,
+      "time_minutes": 330
+    },
+    "layer_3_intelligence_design": {
+      "lessons": [7],
+      "percentage": 17,
+      "time_minutes": 120
+    },
+    "layer_4_spec_driven_integration": {
+      "lessons": [8],
+      "percentage": 12,
+      "time_minutes": 90
+    }
+  },
+  "ai_integration_summary": {
+    "layer_1_restrictions": "Pre-assessment only, no AI in walkthroughs/challenges",
+    "layer_2_full_integration": "All 6 touchpoints active with explicit roles",
+    "sdd_ri_challenges": "Specification-first with dual grading (60% spec + 40% code)",
+    "reusable_intelligence_outputs": 6
+  },
+  "validation_status": {
+    "chapter_type_classified": true,
+    "lesson_count_justified": true,
+    "ai_touchpoints_mapped": true,
+    "ai_role_evolution_defined": true,
+    "pedagogical_progression_enforced": true,
+    "manual_foundation_established": true,
+    "sdd_ri_challenges_spec_driven": true,
+    "ri_components_defined": true,
+    "prerequisites_clear": true,
+    "learning_outcomes_measurable": true,
+    "all_criteria_met": true
+  },
+  "next_agent": "lesson-planner",
+  "input_files": [
+    ".book-generation/outlines/mechanical-structures/v001/outline.md",
+    ".book-generation/research/mechanical-structures/v001/research.md"
+  ],
+  "output_files": [
+    ".book-generation/structures/P2-C1/v001/structure.md"
+  ]
+}

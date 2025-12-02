@@ -1,0 +1,18 @@
+{
+  "version": "v001",
+  "created": "2025-12-01",
+  "agent": "research-agent",
+  "chapter_id": "P5-C4",
+  "title": "Manipulation & Dexterity",
+  "status": "scaffold_complete",
+  "sources": {
+    "mcp_context7": [
+      "/haosulab/maniskill",
+      "/websites/moveit_picknik_ai-humble"
+    ],
+    "mcp_firecrawl": [
+      "https://www.dexhand.org/"
+    ]
+  }
+}
+

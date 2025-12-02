@@ -1,0 +1,23 @@
+graph TD
+    A[Training Methods] --> B[Imitation Learning<br/>Behavioral Cloning]
+    A --> C[Reinforcement Learning<br/>Trial and Error]
+    A --> D[Offline RL<br/>Fixed Datasets]
+    
+    B --> E[Expert Demonstrations<br/>State-Action Pairs]
+    E --> F[Supervised Learning<br/>Predict Expert Actions]
+    
+    C --> G[Agent-Environment Interaction<br/>Rewards]
+    G --> H[Policy Gradients<br/>Maximize Reward]
+    
+    D --> I[Historical Data<br/>No Interaction]
+    I --> J[Conservative Learning<br/>Avoid OOD Actions]
+    
+    K[Trade-offs] --> L[Imitation: Data-Efficient<br/>Distribution Shift Risk]
+    K --> M[RL: Can Explore<br/>Sample Inefficient]
+    K --> N[Offline RL: Safe<br/>Conservative]
+    
+    style A fill:#4A90E2,stroke:#2E5C8A,color:#fff
+    style B fill:#E8F4F8,stroke:#4A90E2
+    style C fill:#F0F8E8,stroke:#7CB342
+    style D fill:#FFF3E0,stroke:#FF9800
+

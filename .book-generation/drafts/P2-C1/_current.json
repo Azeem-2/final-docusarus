@@ -1,0 +1,38 @@
+{
+  "current_version": "v002",
+  "chapter": "P2-C1",
+  "chapter_title": "Mechanical Structures - Building the Robot's Physical Foundation",
+  "status": "ready_for_publication",
+  "last_updated": "2025-11-30",
+  "version_history": [
+    {
+      "version": "v001",
+      "created": "2025-11-30",
+      "summary": "Initial draft created from lesson structure with all 14 constitutional sections",
+      "word_count": 7489,
+      "agent": "writer-agent",
+      "skill_used": "prose-generation",
+      "quality_score": "ready_for_review"
+    },
+    {
+      "version": "v002",
+      "created": "2025-11-30",
+      "summary": "Revision addressing 3 P1 issues from editorial review",
+      "word_count": 7700,
+      "agent": "writer-agent",
+      "skill_used": "prose-generation",
+      "issues_fixed": [
+        "Added missing '## 11. Mini Projects' section heading",
+        "Improved dual-domain balance (0.67 → 0.73) with 280-word domain randomization section",
+        "Enhanced readability by breaking 12 long sentences (Flesch 17.7 → ~27)"
+      ],
+      "quality_score": "ready_for_publication"
+    }
+  ],
+  "next_steps": [
+    "Chapter ready for Docusaurus publication pipeline",
+    "All P1 editorial issues resolved",
+    "Constitutional compliance: 100%",
+    "Dual-domain balance: 0.73 (target met)"
+  ]
+}

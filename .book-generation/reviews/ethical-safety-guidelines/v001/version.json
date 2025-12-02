@@ -1,0 +1,49 @@
+{
+  "version": "v001",
+  "agent": "book-editor",
+  "created": "2025-12-02T06:10:00Z",
+  "chapter": "ethical-safety-guidelines",
+  "inputs": {
+    "draft_version": "v001",
+    "draft_path": ".book-generation/drafts/ethical-safety-guidelines/v001/",
+    "research_path": ".book-generation/research/ethical-safety-guidelines/v001/"
+  },
+  "outputs": {
+    "file": "review.md",
+    "total_changes": 12,
+    "blocking_issues": 0
+  },
+  "metrics": {
+    "before": {
+      "flesch_score": 64,
+      "passive_voice_pct": 14,
+      "citation_coverage_pct": 87
+    },
+    "after": {
+      "flesch_score": 64,
+      "passive_voice_pct": 14,
+      "citation_coverage_pct": 95
+    },
+    "changes_by_category": {
+      "grammar": 0,
+      "citations": 8,
+      "clarity": 0,
+      "consistency": 0,
+      "visual": 0,
+      "factual": 4
+    }
+  },
+  "comparison": {
+    "previous_version": null,
+    "changes": [],
+    "improvements": [],
+    "regressions": []
+  },
+  "quality_score": {
+    "thoroughness": 94,
+    "accuracy": 88,
+    "consistency": 92,
+    "overall": 90
+  }
+}
+

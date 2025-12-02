@@ -1,0 +1,50 @@
+{
+  "version": "v001",
+  "agent": "book-editor",
+  "created": "2025-12-02T06:05:00Z",
+  "chapter": "future-embodied-intelligence",
+  "inputs": {
+    "draft_version": "v001",
+    "draft_path": ".book-generation/drafts/future-embodied-intelligence/v001/",
+    "research_path": ".book-generation/research/future-embodied-intelligence/v001/",
+    "passes_requested": ["all"]
+  },
+  "outputs": {
+    "file": "review.md",
+    "total_changes": 12,
+    "blocking_issues": 0
+  },
+  "metrics": {
+    "before": {
+      "flesch_score": 63,
+      "passive_voice_pct": 13,
+      "citation_coverage_pct": 88
+    },
+    "after": {
+      "flesch_score": 63,
+      "passive_voice_pct": 13,
+      "citation_coverage_pct": 95
+    },
+    "changes_by_category": {
+      "grammar": 0,
+      "citations": 7,
+      "clarity": 0,
+      "consistency": 0,
+      "visual": 0,
+      "factual": 5
+    }
+  },
+  "comparison": {
+    "previous_version": null,
+    "changes": [],
+    "improvements": [],
+    "regressions": []
+  },
+  "quality_score": {
+    "thoroughness": 96,
+    "accuracy": 87,
+    "consistency": 94,
+    "overall": 92
+  }
+}
+

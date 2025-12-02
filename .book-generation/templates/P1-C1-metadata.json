@@ -1,0 +1,100 @@
+{
+  "chapter_id": "P1-C1",
+  "title": "What is Physical AI",
+  "part": 1,
+  "chapter_number": 1,
+  "slug": "/what-is-physical-ai",
+  "status": "Published",
+  "version": 2,
+  "created_date": "2025-11-30",
+  "published_date": "2025-11-30",
+  "word_count": 6847,
+  "estimated_reading_time_minutes": 27,
+  "validation_results": {
+    "constitutional_compliant": true,
+    "sections_count": 14,
+    "dual_domain_present": true,
+    "dual_domain_balance_score": 0.84,
+    "tier1_citation_count": 15,
+    "flesch_kincaid_grade": 14.2,
+    "reading_ease": 17.8,
+    "editorial_quality_score": 97
+  },
+  "content_attributes": {
+    "diagram_count": 5,
+    "lab_count": 2,
+    "has_simulation_lab": true,
+    "has_physical_lab": true,
+    "mini_project_count": 1,
+    "review_question_count": 12,
+    "key_term_count": 15,
+    "learning_objective_count": 7
+  },
+  "agent_pipeline": {
+    "research_agent": {
+      "version": "v001",
+      "quality_score": 91,
+      "word_count": 8547,
+      "source_count": 15
+    },
+    "outliner_agent": {
+      "version": "v001",
+      "quality_score": 95,
+      "section_count": 14
+    },
+    "chapter_structure_architect": {
+      "version": "v001",
+      "quality_score": 93,
+      "concept_density": 0.079,
+      "chapter_type": "Foundational"
+    },
+    "lesson_planner": {
+      "version": "v001",
+      "quality_score": 94,
+      "word_count": 9847,
+      "part_count": 6
+    },
+    "writer_agent": {
+      "version": "v002",
+      "quality_score": 91,
+      "iterations": 2
+    },
+    "book_editor": {
+      "version": "v002",
+      "quality_score": 97,
+      "approval_status": "Approved",
+      "iterations": 2
+    },
+    "diagram_generator": {
+      "version": "v001",
+      "diagram_count": 5
+    }
+  },
+  "file_locations": {
+    "manuscript": "manuscript/part1/chapter1-what-is-physical-ai.md",
+    "diagrams": "manuscript/diagrams/P1-C1/",
+    "research": ".book-generation/research/what-is-physical-ai/v001/",
+    "outline": ".book-generation/outlines/what-is-physical-ai/v001/",
+    "structure": ".book-generation/structures/P1-C1/v001/",
+    "lesson": ".book-generation/lessons/P1-C1/v001/",
+    "draft": ".book-generation/drafts/P1-C1/v002/",
+    "review": ".book-generation/reviews/P1-C1/v002/"
+  },
+  "glossary_terms_added": [
+    "Physical AI",
+    "Embodied Intelligence",
+    "Six Fundamentals",
+    "Sim-to-Real Transfer",
+    "Domain Randomization",
+    "Digital Twin",
+    "Reality Gap",
+    "Foundation Model",
+    "Proprioception",
+    "Actuator Bandwidth",
+    "Sensor Fusion",
+    "Contact Dynamics",
+    "Physics Engine",
+    "Isaac Sim",
+    "MuJoCo"
+  ]
+}

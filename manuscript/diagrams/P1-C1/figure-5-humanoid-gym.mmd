@@ -1,0 +1,39 @@
+%%{init: {'theme':'base','themeVariables':{'primaryColor':'#0066CC','primaryTextColor':'#FFFFFF','primaryBorderColor':'#000000','lineColor':'#000000','secondaryColor':'#00CC66','tertiaryColor':'#FF9900','background':'#FFFFFF','fontFamily':'"Helvetica Neue", Arial, sans-serif','fontSize':'14px'}}}%%
+
+sequenceDiagram
+    participant Isaac as Isaac Gym<br/>(Primary Training)
+    participant MuJoCo as MuJoCo<br/>(Sim-to-Sim)
+    participant Real as Real Unitree H1<br/>(Physical Robot)
+    participant Operator as Human Operator<br/>(Analysis)
+
+    Note over Isaac: Phase 1: Simulation Training
+    Isaac->>Isaac: 4096 parallel environments
+    Isaac->>Isaac: PPO training (10M steps)
+    Isaac->>Isaac: Domain randomization<br/>±20% mass, ±30% friction
+    Note right of Isaac: 95% success<br/>Flat terrain
+
+    Isaac->>MuJoCo: Export trained policy
+    Note over MuJoCo: Phase 2: Sim-to-Sim Validation
+    MuJoCo->>MuJoCo: Zero-shot transfer test<br/>(No retraining)
+    MuJoCo->>MuJoCo: Different physics engine
+    Note right of MuJoCo: 90% success<br/>Validates robustness
+
+    MuJoCo->>Real: Deploy policy to Jetson AGX
+    Note over Real: Phase 3: Physical Deployment
+    Real->>Real: Initial testing
+    Note right of Real: 85% success<br/>Reality gap evident
+
+    Real->>Operator: Report failure modes
+    Operator->>Operator: Analyze failures:<br/>- Slipping (30%)<br/>- Vibration (50%)<br/>- IMU drift (20%)
+
+    Note over Real: Phase 4: Fine-tuning
+    Operator->>Real: Collect 500 real trials
+    Real->>Real: On-policy fine-tuning<br/>(1% of sim training)
+    Note right of Real: 95% success<br/>Matches simulation
+
+    Real-->>Isaac: Real-world data feedback
+    Note over Isaac: Phase 5: Simulation Update
+    Isaac->>Isaac: System identification<br/>Calibrate parameters
+    Isaac->>Isaac: Retrain with updated sim
+
+    Note over Isaac,Real: Continuous improvement cycle

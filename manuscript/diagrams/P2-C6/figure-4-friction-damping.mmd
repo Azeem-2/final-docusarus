@@ -1,0 +1,13 @@
+%% Figure 4: Friction and Damping Effects (Conceptual)
+flowchart LR
+  IDEAL[Ideal Dynamics\n(no friction)] --> RESP1[Smooth but\noscillatory]
+  FRICTION[High Friction] --> RESP2[Sluggish,\nenergy loss]
+  DAMPING[Moderate Damping] --> RESP3[Settled,\nwell-behaved]
+
+  classDef dyn fill=#e3f2fd,stroke:#1565c0,stroke-width:1px;
+  classDef resp fill=#fff3e0,stroke:#ef6c00,stroke-width:1px;
+
+  class IDEAL,FRICTION,DAMPING dyn;
+  class RESP1,RESP2,RESP3 resp;
+
+

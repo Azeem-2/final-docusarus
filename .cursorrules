@@ -1,0 +1,100 @@
+# Cursor Rules for Universal Pedagogical Engine
+
+This file enforces the agent orchestration system and workflow rules for Cursor Agent.
+
+## CRITICAL: Agent Workflow Compliance
+
+When working on book generation or content creation tasks, you MUST follow the MANDATORY 6-agent sequential pipeline:
+
+```
+research-agent → outliner-agent → chapter-structure-architect → lesson-planner → writer-agent → book-editor
+```
+
+**Rules:**
+- NO agent may be skipped
+- Each agent's output is REQUIRED input for the next agent
+- Always check prerequisites before proceeding (read `_current.json` files)
+- Always create versioned outputs (v001, v002, etc.)
+- Always reference agent definitions from `.cursor/agents/`
+- Always reference skill definitions from `.cursor/skills/` when applicable
+
+## Agent Definitions Location
+
+- Agent definitions: `.cursor/agents/[agent-name].md`
+- Skill definitions: `.cursor/skills/[skill-name]/SKILL.md`
+- Workflow definitions: `.cursor/workflows/primary-workflow.md`
+- Development rules: `.cursor/workflows/development-rules.md`
+- Orchestration protocol: `.cursor/workflows/orchestration-protocol.md`
+
+## Skill Assignments (MANDATORY)
+
+- `research-agent` → MUST use `research-methodology` skill
+- `writer-agent` → MUST use `prose-generation` skill
+- `book-editor` → MUST use `content-editing` skill
+
+When acting as these agents, you MUST:
+1. Read the skill file from `.cursor/skills/[skill-name]/SKILL.md`
+2. Follow skill procedures exactly
+3. Reference skill explicitly in your work
+4. Document skill usage in version.json
+
+## Versioning Protocol (MANDATORY)
+
+ALL agent outputs MUST be versioned:
+- Format: `v001`, `v002`, `v003` (3-digit padded)
+- Structure: `.book-generation/[output-type]/[slug]/v[NNN]/[file].md`
+- Include: `version.json` and `_current.json` pointer
+- Never overwrite: Always create new version directory
+
+## Prerequisite Validation (MANDATORY)
+
+Before proceeding as any agent:
+1. Check for required inputs from previous agents
+2. Read `_current.json` to find latest version
+3. Verify inputs are complete (no placeholders)
+4. If prerequisites missing, report clearly and suggest previous agent
+5. DO NOT proceed with incomplete inputs
+
+## Constitution Compliance
+
+All agents must follow `.specify/memory/constitution.md` principles.
+
+## PHR Creation
+
+After every user interaction that results in work, create a Prompt History Record in `history/prompts/`.
+
+## ADR Suggestions
+
+When architecturally significant decisions are detected, suggest documenting with ADR. Never auto-create ADRs.
+
+## File Path References
+
+- Use `.cursor/` instead of `.claude/` for all agent, skill, and workflow references
+- All other paths remain the same (`.book-generation/`, `specs/`, `history/`, etc.)
+
+## When to Read Workflow Files
+
+- **Before starting any book generation task**: Read `.cursor/workflows/primary-workflow.md`
+- **When coordinating between agents**: Read `.cursor/workflows/orchestration-protocol.md`
+- **When creating outputs**: Read `.cursor/workflows/development-rules.md`
+- **When acting as specific agent**: Read `.cursor/agents/[agent-name].md`
+- **When applying skills**: Read `.cursor/skills/[skill-name]/SKILL.md`
+
+## Error Handling
+
+- Missing prerequisites: Report clearly, suggest previous agent, DO NOT proceed
+- Version conflicts: Read `_current.json`, use pointed version
+- Skill application failures: Re-read skill file, re-apply correctly
+- Quality gate failures: Report specific failures, provide fixes, DO NOT proceed until gates pass
+
+## Proactive Agent Suggestions
+
+After completing work as any agent, suggest the next agent in the pipeline:
+- research-agent → "Suggest invoking outliner-agent"
+- outliner-agent → "Suggest invoking chapter-structure-architect"
+- chapter-structure-architect → "Suggest invoking lesson-planner"
+- lesson-planner → "Suggest invoking writer-agent"
+- writer-agent → "Suggest invoking book-editor"
+- book-editor → "Suggest publication or revision loop"
+
+

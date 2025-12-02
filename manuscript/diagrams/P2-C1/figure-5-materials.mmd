@@ -1,0 +1,71 @@
+```mermaid
+graph LR
+    subgraph Materials["Material Properties Comparison"]
+        style Materials fill:#666666,stroke:#000000,color:#FFFFFF
+
+        subgraph Titanium["Titanium Ti-6Al-4V"]
+            style Titanium fill:#0066CC,stroke:#000000,color:#FFFFFF
+            Ti1["Strength: 900 MPa"]
+            Ti2["Density: 4.43 g/cm³"]
+            Ti3["Cost: $35/kg"]
+            Ti4["Machinability: Difficult"]
+            Ti5["Use Case: Medical, Aerospace"]
+        end
+
+        subgraph Carbon["Carbon Fiber (CFRP)"]
+            style Carbon fill:#0066CC,stroke:#000000,color:#FFFFFF
+            CF1["Strength: 600+ MPa"]
+            CF2["Density: 1.6 g/cm³"]
+            CF3["Cost: $40/kg"]
+            CF4["Machinability: Difficult"]
+            CF5["Use Case: Dynamic Robots"]
+        end
+
+        subgraph Steel["Steel 1045"]
+            style Steel fill:#0066CC,stroke:#000000,color:#FFFFFF
+            St1["Strength: 570 MPa"]
+            St2["Density: 7.85 g/cm³"]
+            St3["Cost: $2/kg"]
+            St4["Machinability: Good"]
+            St5["Use Case: Heavy-Duty Industrial"]
+        end
+
+        subgraph Aluminum["Aluminum 6061-T6"]
+            style Aluminum fill:#0066CC,stroke:#000000,color:#FFFFFF
+            Al1["Strength: 310 MPa"]
+            Al2["Density: 2.7 g/cm³"]
+            Al3["Cost: $5/kg"]
+            Al4["Machinability: Excellent"]
+            Al5["Use Case: Prototypes, General"]
+        end
+
+        subgraph Nylon["PA12 Nylon (3D Print)"]
+            style Nylon fill:#0066CC,stroke:#000000,color:#FFFFFF
+            Ny1["Strength: 50 MPa"]
+            Ny2["Density: 1.01 g/cm³"]
+            Ny3["Cost: $80/kg"]
+            Ny4["Machinability: N/A (Printed)"]
+            Ny5["Use Case: Rapid Prototyping"]
+        end
+    end
+
+    subgraph Decision["Selection Decision Matrix"]
+        style Decision fill:#00CC66,stroke:#000000,color:#000000
+
+        D1["Low Cost Priority<br/>→ Aluminum ($5/kg)<br/>Applications: Education, Prototypes"]
+        D2["High Speed Priority<br/>→ Carbon Fiber (Low Inertia)<br/>Applications: Humanoids, Dynamic Motion"]
+        D3["Rapid Iteration Priority<br/>→ 3D Print PA12 (3 days)<br/>Applications: Research Platforms"]
+        D4["Maximum Load Priority<br/>→ Steel (Stiffness)<br/>Applications: Industrial Arms"]
+        D5["Biocompatibility Priority<br/>→ Titanium (Medical Grade)<br/>Applications: Surgical Robots"]
+    end
+
+    Aluminum -.-> D1
+    Carbon -.-> D2
+    Nylon -.-> D3
+    Steel -.-> D4
+    Titanium -.-> D5
+```
+
+**Figure 5: Material Properties Comparison**
+
+Comparison of five common robotics materials across strength, weight, cost, and machinability dimensions. Decision matrix maps application requirements (cost, speed, iteration, load, biocompatibility) to optimal material choices.

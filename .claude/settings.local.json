@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "allow": [
+      "WebSearch",
+      "Bash(python:*)",
+      "Bash(mkdir:*)",
+      "Bash(dir:*)"
+    ],
+    "deny": [],
+    "ask": []
+  },
+  "enableAllProjectMcpServers": true,
+  "enabledMcpjsonServers": [
+    "arxiv",
+    "perplexity",
+    "firecrawl",
+    "puppeteer"
+  ]
+}

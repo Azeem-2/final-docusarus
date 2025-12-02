@@ -1,0 +1,350 @@
+# Agent Invocation Contracts
+
+## General Agent Interface
+
+```yaml
+Input:
+  agent_type: String  # research-agent, outliner-agent, chapter-structure-architect, lesson-planner, writer-agent, book-editor
+  input_context: Object  # Context from previous stage or user specification
+  output_directory: String  # Versioned output path (.book-generation/{stage}/{topic}/v{NNN}/)
+  constitutional_compliance: Boolean  # Enable validation gates (default: true)
+
+Output:
+  status: Enum  # Success, Failed, NeedsReview
+  output_path: String  # Absolute path to generated artifact
+  version: Integer  # Incremental version number
+  validation_results: Object  # Constitutional and quality validation results
+  next_agent: String  # Suggested next agent in pipeline (or null if terminal)
+```
+
+---
+
+## Agent 1: research-agent
+
+**Purpose**: Conduct authenticated web research with minimum 10 Tier 1/2 cited sources.
+
+**Skill**: `research-methodology`
+
+```yaml
+Input:
+  topic: String  # Chapter topic or research question
+  source_requirements:
+    tier1_minimum: Integer  # Default: 10
+    tier2_maximum: Integer  # Default: 5
+    exclude_wikipedia: Boolean  # Default: true (constitutional requirement)
+  domains:
+    physical_robotics: Boolean
+    simulation: Boolean
+    ai_ml: Boolean
+
+Output:
+  research_file: String  # Path: .book-generation/research/[topic]/v[NNN]/research.md
+  sources:
+    - url: String
+      title: String
+      tier: Enum  # Tier1, Tier2
+      citation: String  # IEEE format
+      summary: String  # Key findings from source
+      relevance_score: Float  # 0.0-1.0
+  key_findings: List<String>  # Main research insights
+  recommended_outline: Object  # Suggested chapter structure based on research
+
+Validation:
+  - sources.tier1_count >= 10 (minimum Tier 1 sources)
+  - No Wikipedia or excluded sources found
+  - All URLs verified accessible (HTTP 200)
+  - All citations in IEEE format
+```
+
+---
+
+## Agent 2: outliner-agent
+
+**Purpose**: Create book/chapter outlines from research with logical hierarchy and balanced coverage.
+
+```yaml
+Input:
+  research_file: String  # Output from research-agent
+  chapter_specification: Object  # From spec.md Part/Chapter definition
+
+Output:
+  outline_file: String  # Path: .book-generation/outlines/[book]/v[NNN]/outline.md
+  chapter_hierarchy:
+    - chapter_id: String
+      title: String
+      sections: List<SectionOutline>  # 14 mandatory sections with bullet points
+      estimated_pages: Integer
+  narrative_flow: String  # Description of chapter progression
+  coverage_validation:
+    physical_coverage: Float  # 0.0-1.0 (balanced dual-domain)
+    simulation_coverage: Float  # 0.0-1.0
+    dual_domain_integrated: Boolean  # True if both > 0.7 and integrated
+
+Validation:
+  - All 14 mandatory sections present
+  - physical_coverage >= 0.7 AND simulation_coverage >= 0.7 (dual-domain requirement)
+  - No section is empty (minimum 3 bullet points per section)
+```
+
+---
+
+## Agent 3: chapter-structure-architect
+
+**Purpose**: Design lesson frameworks with pedagogical progression and AI integration touchpoints.
+
+```yaml
+Input:
+  outline_file: String  # Output from outliner-agent
+  chapter_id: String
+
+Output:
+  structure_file: String  # Path: .book-generation/structures/[chapter]/v[NNN]/structure.md
+  concept_density:
+    new_concepts: Integer  # Count from keywords + learning objectives
+    prerequisites: Integer  # Concepts from prior chapters
+    mathematical_derivations: Integer  # Formal proofs
+    density_score: Float  # (New + 0.5*Prereq + 2*Math) / Reading Time
+  chapter_classification: Enum  # LowDensity (<0.05), MediumDensity (0.05-0.10), HighDensity (>0.10)
+  pedagogical_progression:
+    layer_1_introduction: String  # Activate prior knowledge
+    layer_2_theory: String  # Conceptual understanding
+    layer_3_practice: String  # Hands-on application
+    layer_4_projects: String  # Synthesis and evaluation
+  ai_integration_touchpoints:
+    pre_assessment: String  # Diagnostic questions before chapter
+    ai_tutor: String  # Personalized explanations during theory
+    contextual_help: String  # Just-in-time assistance during labs
+    ai_graded_challenge: String  # Immediate feedback on projects
+    spaced_repetition: String  # Long-term retention prompts
+  lesson_count: Integer  # Based on density (1-4 lessons)
+
+Validation:
+  - concept_density.density_score calculated correctly
+  - All 4 pedagogical layers defined
+  - All 5 AI touchpoints defined
+  - If density_score > 0.10, lesson_count >= 3 OR recommendation to split chapter
+```
+
+---
+
+## Agent 4: lesson-planner
+
+**Purpose**: Create complete lesson content with 6-part template (traditional teaching + AI exploration).
+
+```yaml
+Input:
+  structure_file: String  # Output from chapter-structure-architect
+  lesson_number: Integer  # If chapter split into multiple lessons (default: 1)
+
+Output:
+  lesson_file: String  # Path: .book-generation/lessons/[chapter]/v[NNN]/lesson.md
+  lesson_parts:
+    part1_hook: String  # Engagement content (real-world problem, interesting scenario)
+    part2_theory: String  # Conceptual content (dual-domain: physical + simulation)
+    part3_walkthrough: String  # Guided practice (step-by-step examples)
+    part4_challenge: String  # Independent work (exercises, mini-challenges)
+    part5_takeaways: String  # Summary (10-15 key points)
+    part6_learn_with_ai: String  # AI exploration prompts (deeper investigation)
+  diagrams_required: List<DiagramSpec>  # Specifications for diagram-generator
+  labs_required: List<LabSpec>  # Lab outlines (simulation + physical)
+
+Validation:
+  - All 6 parts non-empty
+  - part2_theory includes both physical and simulation content
+  - diagrams_required includes minimum 4 (Architecture, Flow, Mechanical, SimulationPipeline)
+  - labs_required includes exactly 2 (Simulation, Physical)
+```
+
+---
+
+## Agent 5: writer-agent
+
+**Purpose**: Transform lesson outlines into publication-ready prose using prose-generation skill.
+
+**Skill**: `prose-generation`
+
+```yaml
+Input:
+  lesson_file: String  # Output from lesson-planner
+  voice_guidelines: String  # From prose-generation skill (expert yet friendly, simple, motivational)
+
+Output:
+  draft_file: String  # Path: .book-generation/drafts/[chapter]/v[NNN]/draft.md
+  word_count: Integer
+  readability_metrics:
+    flesch_kincaid_grade: Float  # Target: 12-14 (university undergraduate)
+    avg_sentence_length: Float  # Target: 15-20 words
+    avg_word_length: Float  # Target: 4-6 characters
+  dual_domain_coverage:
+    physical_word_count: Integer
+    simulation_word_count: Integer
+    balance_ratio: Float  # simulation/physical, target: 0.8-1.2 (balanced)
+
+Validation:
+  - word_count within 2000-4000 range (per chapter content constraints)
+  - flesch_kincaid_grade within 12-14 (readable by target audience)
+  - balance_ratio within 0.8-1.2 (dual-domain balance)
+  - All sections from lesson plan present in draft
+```
+
+---
+
+## Agent 6: book-editor
+
+**Purpose**: Perform comprehensive 5-pass editorial review using content-editing skill.
+
+**Skill**: `content-editing`
+
+```yaml
+Input:
+  draft_file: String  # Output from writer-agent
+  review_passes: List<Enum>  # [Structural, Content, Citation, Consistency, Accuracy] (default: all 5)
+
+Output:
+  review_file: String  # Path: .book-generation/reviews/[chapter]/v[NNN]/review.md
+  tracked_changes: List<Change>  # Detailed edits with line numbers
+  issues_found:
+    - pass_number: Integer  # 1-5
+      issue_type: String  # e.g., "Missing section", "Unclear explanation", "Broken citation"
+      severity: Enum  # Critical, Major, Minor
+      location: String  # Section name or line number
+      description: String  # What's wrong
+      suggested_fix: String  # How to fix it
+  approval_status: Enum  # Approved, MinorRevisions, MajorRevisions, Rejected
+  constitutional_violations: List<Violation>  # Should be empty array for approval
+
+Change:
+  line_number: Integer
+  change_type: Enum  # Addition, Deletion, Modification
+  original_text: String
+  revised_text: String
+  rationale: String
+
+Violation:
+  article_number: Integer  # 1-20
+  article_name: String
+  violation_description: String
+  content_location: String
+
+Review Passes (in order):
+  Pass 1 - Structural Analysis:
+    - All 14 mandatory sections present
+    - Section order correct
+    - Logical flow within and between sections
+  Pass 2 - Content Quality:
+    - Clarity and beginner-friendliness
+    - Dual-domain integration (physical + simulation)
+    - Accuracy of technical claims
+    - Safety warnings present (for physical content)
+  Pass 3 - Citation Verification:
+    - All citations in IEEE format
+    - URLs verified accessible
+    - No Wikipedia or excluded sources
+    - Minimum 10 Tier 1 citations
+  Pass 4 - Consistency Checking:
+    - Terminology matches glossary
+    - Tone and voice consistent (expert yet friendly, simple, motivational)
+    - Diagram style compliant
+    - Math notation standard
+  Pass 5 - Factual Accuracy:
+    - Physics equations correct
+    - Robotics principles accurate
+    - AI/ML claims reflect current research
+    - No pseudoscience or unverified techniques
+
+Validation:
+  - All 5 passes completed (unless subset specified)
+  - approval_status cannot be "Approved" if constitutional_violations is non-empty
+  - Critical issues must be addressed before approval
+```
+
+---
+
+## Agent Pipeline Sequencing
+
+**Mandatory Sequential Order** (per CLAUDE.md workflows):
+
+```
+User Input (Chapter Topic)
+  ↓
+1. research-agent (gather sources, key findings)
+  ↓ research.md
+2. outliner-agent (create chapter structure)
+  ↓ outline.md
+3. chapter-structure-architect (pedagogical framework, AI touchpoints)
+  ↓ structure.md
+4. lesson-planner (6-part lesson content)
+  ↓ lesson.md
+5. writer-agent (prose generation)
+  ↓ draft.md
+6. book-editor (5-pass review)
+  ↓ review.md
+Final Output (published chapter OR revision loop)
+```
+
+**No agent may be skipped. All 6 agents MUST be invoked in order.**
+
+**Revision Loops**:
+```
+If book-editor approval_status = MinorRevisions:
+  → writer-agent revises draft based on tracked_changes
+  → book-editor re-reviews (fast-track: only affected passes)
+
+If book-editor approval_status = MajorRevisions:
+  → lesson-planner adjusts structure based on issues_found
+  → writer-agent re-generates draft
+  → book-editor performs full 5-pass review
+
+If book-editor approval_status = Rejected:
+  → outliner-agent or chapter-structure-architect may need to revise
+  → Full pipeline restart from that point
+```
+
+---
+
+## Version Management
+
+Each agent invocation creates new version:
+- **v001**: Initial generation
+- **v002**: After first revision
+- **v003**: After second revision
+- etc.
+
+**Directory Structure**:
+```
+.book-generation/
+  research/
+    kinematics/
+      v001/research.md
+      v002/research.md (if research updated)
+  outlines/
+    kinematics/
+      v001/outline.md
+  structures/
+    P2-C5/
+      v001/structure.md
+  lessons/
+    P2-C5/
+      v001/lesson.md
+      v002/lesson.md (if revised)
+  drafts/
+    P2-C5/
+      v001/draft.md
+      v002/draft.md (after editorial feedback)
+  reviews/
+    P2-C5/
+      v001/review.md (first review)
+      v002/review.md (re-review after revisions)
+```
+
+**Traceability**: Each output file includes metadata header:
+```yaml
+---
+agent: writer-agent
+input_version: lessons/P2-C5/v002/lesson.md
+output_version: v003
+timestamp: 2025-11-30T12:34:56Z
+constitutional_compliance: true
+validation_passed: true
+---
+```

@@ -15,7 +15,7 @@ export const ChatWidget = () => {
     /**
      * Function to send selected text to iframe
      * 
-     * The iframe at https://frontend-delta-pied-64.vercel.app needs to implement the following:
+     * The iframe at https://chatkit-frontend-dusky.vercel.app needs to implement the following:
      * 
      * 1. Listen for postMessage events:
      *    window.addEventListener('message', (event) => {
@@ -24,43 +24,95 @@ export const ChatWidget = () => {
      *      if (!allowedOrigins.includes(event.origin)) return;
      * 
      *      if (event.data.type === 'SET_SELECTED_TEXT') {
-     *        // Display the selected text in a visible area of the chatbot UI
-     *        // Example: Show it in a banner/box above the input field
+     *        // IMPORTANT: Display the selected text at the TOP of the chatbot UI
+     *        // Show it in a prominent banner/box above the chat messages area
      *        // Store it in state so it can be included with user messages
      *        setSelectedText(event.data.text);
-     *        displaySelectedText(event.data.text); // Show in UI
+     *        
+     *        // Display at top of chatbot UI (above messages, below header)
+     *        displaySelectedTextBanner(event.data.text);
+     *        // Example UI structure:
+     *        // <div className="selected-text-banner">
+     *        //   <strong>📄 Selected Text:</strong>
+     *        //   <p>{event.data.text}</p>
+     *        //   <button onClick={clearSelectedText}>×</button>
+     *        // </div>
      *      }
      * 
      *      if (event.data.type === 'CLEAR_SELECTED_TEXT') {
      *        // Clear the displayed selected text
      *        setSelectedText('');
-     *        hideSelectedTextDisplay();
+     *        hideSelectedTextBanner();
      *      }
      *    });
      * 
-     * 2. When user sends a message, combine selected text with user input:
+     * 2. When user sends a message, AUTOMATICALLY append selected text:
      *    const sendMessage = () => {
+     *      // ALWAYS combine selected text with user message
      *      const fullMessage = selectedText 
-     *        ? `${selectedText}\n\nUser question: ${userInput}`
+     *        ? `${selectedText}\n\n---\n\nUser question: ${userInput}`
      *        : userInput;
-     *      // Send fullMessage to chat API
+     *      
+     *      // Send fullMessage to chat API (includes both selected text and user input)
+     *      sendToAPI(fullMessage);
      *    };
      */
     const sendSelectedTextToIframe = useCallback((text: string) => {
-        if (iframeRef.current?.contentWindow) {
-            try {
-                iframeRef.current.contentWindow.postMessage(
-                    {
+        if (!text || text.trim().length === 0) return;
+        
+        const sendMessage = (attempt: number = 1) => {
+            if (iframeRef.current?.contentWindow) {
+                try {
+                    const message = {
                         type: 'SET_SELECTED_TEXT',
                         text: text,
-                        timestamp: Date.now()
-                    },
-                    'https://frontend-delta-pied-64.vercel.app'
-                );
-            } catch (error) {
-                console.warn('Failed to send selected text to iframe:', error);
+                        timestamp: Date.now(),
+                        instruction: 'Display this text at the top of the chatbot UI and append it to user messages when sending',
+                        displayAtTop: true,
+                        appendToMessages: true
+                    };
+                    
+                    // Send to specific origin
+                    iframeRef.current.contentWindow.postMessage(
+                        message,
+                        'https://chatkit-frontend-dusky.vercel.app'
+                    );
+                    
+                    // Also try with wildcard origin as fallback (less secure but more reliable)
+                    try {
+                        iframeRef.current.contentWindow.postMessage(
+                            message,
+                            '*'
+                        );
+                    } catch (e) {
+                        // Ignore wildcard errors
+                    }
+                    
+                    console.log(`[ChatWidget] Selected text sent to chatbot (attempt ${attempt}):`, {
+                        text: text.substring(0, 50) + '...',
+                        fullLength: text.length,
+                        timestamp: new Date().toISOString()
+                    });
+                } catch (error) {
+                    console.warn('[ChatWidget] Failed to send selected text to iframe:', error);
+                }
+            } else {
+                console.warn('[ChatWidget] Iframe contentWindow not available, retrying...');
             }
-        }
+        };
+
+        // Try to send immediately
+        sendMessage(1);
+
+        // Multiple retries with increasing delays
+        const retries = [100, 300, 500, 1000, 2000];
+        const timers = retries.map((delay, index) => 
+            setTimeout(() => sendMessage(index + 2), delay)
+        );
+
+        return () => {
+            timers.forEach(timer => clearTimeout(timer));
+        };
     }, []);
 
     // Listen for text selection on the page
@@ -82,8 +134,10 @@ export const ChatWidget = () => {
                 // If chat is not open, open it when text is selected
                 if (!isOpen) {
                     setIsOpen(true);
-                } else {
-                    // If chat is already open, send the selected text immediately
+                }
+                
+                // Always send selected text immediately (will retry if chat is opening)
+                if (isOpen && iframeRef.current) {
                     sendSelectedTextToIframe(text);
                 }
             }
@@ -102,17 +156,49 @@ export const ChatWidget = () => {
         };
     }, [isOpen, selectedText, sendSelectedTextToIframe, isAuthenticated]);
 
-    // Send selected text to iframe when it opens
+    // Send selected text to iframe when it opens or when iframe loads
     useEffect(() => {
-        if (isOpen && selectedText && iframeRef.current) {
-            // Wait a bit for iframe to load, then send message
-            const timer = setTimeout(() => {
+        if (isOpen && selectedText && selectedText.length > 3) {
+            // Wait for iframe to load, then send message with multiple retries
+            const sendWithRetries = () => {
+                console.log('[ChatWidget] Sending selected text with retries:', selectedText.substring(0, 50));
+                // Multiple attempts to ensure message is received
                 sendSelectedTextToIframe(selectedText);
-            }, 500);
+            };
 
-            return () => clearTimeout(timer);
+            // Check if iframe is already loaded
+            if (iframeRef.current?.contentWindow) {
+                // Small delay to ensure iframe is fully ready
+                const timer = setTimeout(() => {
+                    sendWithRetries();
+                }, 100);
+                return () => clearTimeout(timer);
+            } else {
+                // Wait for iframe to load
+                const handleIframeLoad = () => {
+                    console.log('[ChatWidget] Iframe loaded, sending selected text');
+                    setTimeout(() => {
+                        sendWithRetries();
+                    }, 200);
+                };
+                
+                if (iframeRef.current) {
+                    iframeRef.current.addEventListener('load', handleIframeLoad);
+                    return () => {
+                        iframeRef.current?.removeEventListener('load', handleIframeLoad);
+                    };
+                }
+            }
         }
     }, [isOpen, selectedText, sendSelectedTextToIframe]);
+
+    // Also send selected text immediately when it changes (if chat is already open)
+    useEffect(() => {
+        if (selectedText && selectedText.length > 3 && isOpen && iframeRef.current?.contentWindow) {
+            // Send immediately when text is selected and chat is open
+            sendSelectedTextToIframe(selectedText);
+        }
+    }, [selectedText, isOpen, sendSelectedTextToIframe]);
 
     const handleToggle = () => {
         // Check authentication before opening
@@ -133,7 +219,7 @@ export const ChatWidget = () => {
                         {
                             type: 'CLEAR_SELECTED_TEXT'
                         },
-                        'https://frontend-delta-pied-64.vercel.app'
+                        'https://chatkit-frontend-dusky.vercel.app'
                     );
                 } catch (error) {
                     console.warn('Failed to clear selected text in iframe:', error);
@@ -194,11 +280,22 @@ export const ChatWidget = () => {
                 <div className={styles.chatFrame}>
                     <iframe
                         ref={iframeRef}
-                        src="https://frontend-delta-pied-64.vercel.app/embed"
+                        src="https://chatkit-frontend-dusky.vercel.app/embed"
                         width="400"
                         height="600"
                         frameBorder="0"
                         title="Chat Assistant"
+                        onLoad={() => {
+                            console.log('[ChatWidget] Iframe onLoad event fired');
+                            // When iframe loads, send any selected text immediately
+                            if (selectedText && selectedText.length > 3) {
+                                console.log('[ChatWidget] Sending selected text on iframe load:', selectedText.substring(0, 50));
+                                // Multiple attempts with delays
+                                setTimeout(() => sendSelectedTextToIframe(selectedText), 200);
+                                setTimeout(() => sendSelectedTextToIframe(selectedText), 500);
+                                setTimeout(() => sendSelectedTextToIframe(selectedText), 1000);
+                            }
+                        }}
                     ></iframe>
                 </div>
             )}

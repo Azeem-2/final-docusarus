@@ -1,0 +1,17 @@
+graph TD
+    A[Disturbance Rejection] --> B[Detect Disturbance<br/>Force Sensors, IMU]
+    B --> C[Assess Magnitude<br/>Small/Medium/Large]
+    C --> D[Choose Strategy<br/>Ankle/Hip/Step]
+    D --> E[Execute Recovery<br/>Maintain Balance]
+    
+    F[Multi-Strategy Coordination] --> G[Ankle + Hip<br/>Combined Response]
+    F --> H[Adaptive Selection<br/>Based on Disturbance]
+    
+    I[Robustness] --> J[Handle Pushes<br/>Bumps, External Forces]
+    I --> K[Recovery to Stable State<br/>Maintain Balance]
+    
+    style A fill:#4A90E2,stroke:#2E5C8A,color:#fff
+    style B fill:#E8F4F8,stroke:#4A90E2
+    style D fill:#F0F8E8,stroke:#7CB342
+    style E fill:#E8F5E9,stroke:#4CAF50
+

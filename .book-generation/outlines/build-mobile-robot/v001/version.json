@@ -1,0 +1,53 @@
+{
+  "version": "v001",
+  "agent": "outliner-agent",
+  "created": "2025-12-01T08:20:00Z",
+  "book": "build-mobile-robot",
+  "inputs": {
+    "research_version": "v001",
+    "research_path": ".book-generation/research/build-mobile-robot/v001/",
+    "target_audience": "University undergraduates with basic robotics knowledge (Parts 1-5)",
+    "estimated_length": "8,500-10,500 words"
+  },
+  "outputs": {
+    "file": "outline.md",
+    "structure": {
+      "part_count": 0,
+      "chapter_count": 1,
+      "section_count": 16,
+      "lesson_count": 0
+    },
+    "estimated_pages": 35-45
+  },
+  "metrics": {
+    "research_coverage": 95,
+    "balance_score": 90,
+    "depth_consistency": 85,
+    "gaps_identified": 0
+  },
+  "comparison": {
+    "previous_version": null,
+    "changes": [
+      "Initial outline created",
+      "16 sections defined (all mandatory sections present)",
+      "Dual-domain coverage: Simulation (Section 6) and Physical (Section 7)",
+      "Labs: Both simulation (Section 9) and physical (Section 10)",
+      "3 mini-projects defined"
+    ],
+    "improvements": [
+      "Comprehensive coverage of kinematics, dynamics, hardware, and software",
+      "Clear progression from theory to implementation",
+      "Practical labs and projects"
+    ],
+    "regressions": []
+  },
+  "quality_score": {
+    "completeness": 95,
+    "balance": 90,
+    "flow": 92,
+    "clarity": 93,
+    "overall": 92
+  }
+}
+
+

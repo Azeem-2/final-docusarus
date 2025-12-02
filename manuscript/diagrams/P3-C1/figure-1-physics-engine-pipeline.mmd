@@ -1,0 +1,13 @@
+graph LR
+    A[State Input<br/>q, q̇] --> B[Forward<br/>Kinematics]
+    B --> C[Contact<br/>Detection]
+    C --> D[Contact<br/>Resolution]
+    D --> E[Time<br/>Integration]
+    E --> F[State Output<br/>q', q̇']
+
+    style A fill:#e1f5ff,stroke:#0066cc,stroke-width:2px
+    style F fill:#e1f5ff,stroke:#0066cc,stroke-width:2px
+    style B fill:#fff4e6,stroke:#ff9800,stroke-width:2px
+    style C fill:#fff4e6,stroke:#ff9800,stroke-width:2px
+    style D fill:#fff4e6,stroke:#ff9800,stroke-width:2px
+    style E fill:#fff4e6,stroke:#ff9800,stroke-width:2px

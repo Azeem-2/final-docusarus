@@ -1,0 +1,15 @@
+%% Figure 1 – Basic feedback control loop for a robot joint
+%% Style: follows `.book-generation/style-guide/diagrams.md`
+flowchart LR
+    R[Reference\n(desired position)] --> E[Error\n(comparison)]
+    M[Measurement\n(actual position)] --> E
+    E --> C[Controller\n(PID)]
+    C --> U[Control Signal\n(motor command)]
+    U --> P[Plant\n(robot joint + load)]
+    P --> M
+
+    classDef block fill:#0b7285,stroke:#0b7285,color:#ffffff;
+    classDef signal fill:#ffffff,stroke:#0b7285,color:#0b7285,stroke-dasharray: 3 3;
+
+    class R,M,E,C,U,P block;
+

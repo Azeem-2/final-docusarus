@@ -1,0 +1,17 @@
+graph TD
+    A[Policy Learning] --> B[On-Policy<br/>PPO]
+    A --> C[Off-Policy<br/>SAC, TD3]
+    
+    B --> D[Use Current Policy Data<br/>Discard Old Data]
+    C --> E[Experience Replay<br/>Reuse Past Data]
+    
+    D --> F[Advantages:<br/>Stable, Simple]
+    D --> G[Disadvantages:<br/>Sample Inefficient]
+    
+    E --> H[Advantages:<br/>Sample Efficient]
+    E --> I[Disadvantages:<br/>More Complex]
+    
+    style A fill:#4A90E2,stroke:#2E5C8A,color:#fff
+    style B fill:#E8F4F8,stroke:#4A90E2
+    style C fill:#F0F8E8,stroke:#7CB342
+

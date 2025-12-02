@@ -1,0 +1,122 @@
+{
+  "version": "v001",
+  "created": "2025-11-30",
+  "chapter_id": "P2-C1",
+  "chapter_title": "Mechanical Structures",
+  "part": 2,
+  "chapter_number": 1,
+  "lesson_metadata": {
+    "pedagogical_layer": "Layer 1 (Manual Foundation - 30%) + Layer 2 (AI Collaboration - 35%)",
+    "total_duration_hours": 12,
+    "lesson_count": 8,
+    "concept_density": 0.189,
+    "concept_density_classification": "High",
+    "target_audience": "University undergraduates",
+    "prerequisites": ["P1-C1: What is Physical AI"]
+  },
+  "word_counts": {
+    "part_1_hook": 850,
+    "part_2_theory": 2100,
+    "part_3_walkthrough": 1800,
+    "part_4_challenge": 1900,
+    "part_5_takeaways": 950,
+    "part_6_ai_learning": 1200,
+    "total": 8800
+  },
+  "content_features": {
+    "diagrams_specified": 7,
+    "code_examples": 12,
+    "lab_exercises": 2,
+    "mini_projects": 1,
+    "ai_touchpoints": 9,
+    "real_world_examples": 6
+  },
+  "learning_objectives": [
+    "Identify and classify joint types in real robots",
+    "Calculate degrees of freedom using Grubler's formula",
+    "Map physical properties to simulation parameters (URDF/MJCF)",
+    "Design simple link-joint systems meeting specifications",
+    "Validate designs through dual-domain testing",
+    "Explain sim-to-real gap sources"
+  ],
+  "key_concepts_covered": [
+    "Links and joints",
+    "Degrees of freedom (DOF)",
+    "Serial vs parallel mechanisms",
+    "Material selection (aluminum, carbon fiber, 3D printing)",
+    "URDF structure and syntax",
+    "MJCF format and advantages",
+    "Physical-to-simulation mapping",
+    "Inertial properties (mass, CoM, inertia tensor)",
+    "Collision vs visual geometry",
+    "Sim-to-real gap and mitigation strategies"
+  ],
+  "labs_and_projects": {
+    "lab_1": {
+      "title": "Create URDF for 3-DOF Arm in Gazebo",
+      "duration_minutes": 90,
+      "type": "Simulation",
+      "deliverables": [
+        "Design document",
+        "Complete URDF file",
+        "Simulation validation screenshots",
+        "Physics test results"
+      ]
+    },
+    "lab_2": {
+      "title": "Build 2-DOF Arm from Servo Kit",
+      "duration_minutes": 120,
+      "type": "Physical",
+      "deliverables": [
+        "Assembled arm (photos)",
+        "Measurement tables",
+        "URDF from measurements",
+        "Lab report"
+      ]
+    },
+    "mini_project": {
+      "title": "Custom Gripper Design",
+      "duration_hours": "3-5",
+      "type": "Simulation + Design",
+      "deliverables": [
+        "Design sketch",
+        "Complete URDF file",
+        "Test results table",
+        "Gazebo video",
+        "Optimization report"
+      ]
+    }
+  },
+  "ai_integration_points": {
+    "pre_assessment": "Knowledge check on joint types and DOF",
+    "concept_tutor": "Alternative explanations for complex concepts",
+    "contextual_help": "URDF debugging and troubleshooting",
+    "ai_graded_challenge": "Spec-driven evaluation (60% alignment + 40% quality)",
+    "spaced_repetition": "Flashcard generation for long-term retention",
+    "reusable_intelligence": "Material Selector assistant creation",
+    "deep_dive": "Exploration of unsolved research problems",
+    "real_world_connection": "Industry application examples",
+    "extension_challenge": "Progressive difficulty scaling"
+  },
+  "source_materials": {
+    "structure_blueprint": ".book-generation/structures/P2-C1/v001/structure.md",
+    "outline": ".book-generation/outlines/mechanical-structures/v001/outline.md",
+    "research": ".book-generation/research/mechanical-structures/v001/research.md"
+  },
+  "validation": {
+    "pedagogical_template_compliance": true,
+    "six_part_structure_complete": true,
+    "ai_prompts_lesson_specific": true,
+    "visual_formatting_contextual": true,
+    "hands_on_components_included": true,
+    "dual_domain_coverage": true
+  },
+  "notes": [
+    "Lesson integrates Layer 1 (Manual Foundation) for basic concepts and Layer 2 (AI Collaboration) for advanced topics",
+    "High concept density (0.189) justified by 8-lesson chapter structure",
+    "Dual-domain approach (physical + simulation) maintained throughout",
+    "AI touchpoints in Part 6 are specific to mechanical structures, not generic",
+    "Labs provide both simulation (Lab 1) and physical (Lab 2) experience",
+    "Mini project enables iterative design through simulation validation"
+  ]
+}

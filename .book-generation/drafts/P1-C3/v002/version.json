@@ -1,0 +1,20 @@
+{
+  "version": "v002",
+  "agent": "writer-agent",
+  "created": "2025-12-01T00:00:00Z",
+  "chapter_id": "P1-C3",
+  "inputs": {
+    "research_file": ".book-generation/research/evolution-of-humanoid-robotics/v001/research.md",
+    "outline_file": ".book-generation/outlines/evolution-of-humanoid-robotics/v001/outline.md",
+    "lessons_file": ".book-generation/lessons/P1-C3/v001/lesson.md",
+    "previous_draft": ".book-generation/drafts/P1-C3/v001/draft.md"
+  },
+  "outputs": {
+    "file": "draft.md",
+    "word_count": 0,
+    "sections": 14
+  },
+  "status": "FullDraft"
+}
+
+

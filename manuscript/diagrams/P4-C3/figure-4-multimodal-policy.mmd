@@ -1,0 +1,25 @@
+graph TD
+    A[Multi-Modal Control Policy] --> B[Vision<br/>Camera Images]
+    A --> C[Proprioception<br/>Joint Angles, Forces]
+    A --> D[Language<br/>Commands, Descriptions]
+    
+    B --> E[Fusion Strategy]
+    C --> E
+    D --> E
+    
+    E --> F[Early Fusion<br/>Concatenate Inputs]
+    E --> G[Late Fusion<br/>Process Separately]
+    E --> H[Attention-Based<br/>Learn Interactions]
+    
+    F --> I[Policy Network]
+    G --> I
+    H --> I
+    I --> J[Action Output<br/>Joint Torques/Poses]
+    
+    style A fill:#4A90E2,stroke:#2E5C8A,color:#fff
+    style B fill:#E8F4F8,stroke:#4A90E2
+    style C fill:#F0F8E8,stroke:#7CB342
+    style D fill:#FFF3E0,stroke:#FF9800
+    style I fill:#F3E5F5,stroke:#9C27B0
+    style J fill:#E8F5E9,stroke:#4CAF50
+

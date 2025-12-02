@@ -1,0 +1,24 @@
+{
+  "version": "v001",
+  "agent": "writer-agent",
+  "created": "2025-12-01T00:00:00Z",
+  "chapter_id": "P2-C5",
+  "inputs": {
+    "research_file": null,
+    "outline_file": null,
+    "lessons_file": ".book-generation/lessons/P2-C5/v001/lesson.md",
+    "voice_config": {
+      "perspective": "we",
+      "tone": "balanced",
+      "technical_level": "introductory"
+    }
+  },
+  "outputs": {
+    "file": "draft.md",
+    "word_count": 1700,
+    "sections": 8
+  },
+  "status": "Draft"
+}
+
+

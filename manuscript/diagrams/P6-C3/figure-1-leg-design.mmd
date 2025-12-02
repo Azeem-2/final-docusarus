@@ -1,0 +1,22 @@
+graph TD
+    A[Humanoid Leg Design] --> B[Hip Joint<br/>3 DOF: Roll, Pitch, Yaw]
+    A --> C[Thigh Link<br/>Upper Leg Segment]
+    A --> D[Knee Joint<br/>1 DOF: Pitch]
+    A --> E[Shank Link<br/>Lower Leg Segment]
+    A --> F[Ankle Joint<br/>2 DOF: Pitch, Roll]
+    A --> G[Foot<br/>End-Effector]
+    
+    B --> C
+    C --> D
+    D --> E
+    E --> F
+    F --> G
+    
+    style A fill:#4A90E2,stroke:#2E5C8A,color:#fff
+    style B fill:#E8F4F8,stroke:#4A90E2
+    style C fill:#F0F8E8,stroke:#7CB342
+    style D fill:#FFF3E0,stroke:#FF9800
+    style E fill:#F0F8E8,stroke:#7CB342
+    style F fill:#FFF3E0,stroke:#FF9800
+    style G fill:#F3E5F5,stroke:#9C27B0
+

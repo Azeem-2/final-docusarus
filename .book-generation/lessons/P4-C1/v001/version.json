@@ -1,0 +1,145 @@
+{
+  "version": "1.0.0",
+  "created": "2025-11-30",
+  "agent": "lesson-planner",
+  "chapter": "P4-C1",
+  "chapter_title": "Vision Models for Robotics",
+  "lesson_count": 8,
+  "word_count": 9200,
+  "pedagogical_structure": {
+    "template": "6-part",
+    "parts": [
+      "Part 1: The Hook (Diagnostic Assessment)",
+      "Part 2: The Concept (Theory)",
+      "Part 3: The Walkthrough (Guided Practice)",
+      "Part 4: The Challenge (SDD-RI Practice)",
+      "Part 5: Key Takeaways (Retention)",
+      "Part 6: Learn with AI (Reusable Intelligence)"
+    ]
+  },
+  "pedagogical_layers": {
+    "layer_1_manual_foundation": ["Lesson 1: Camera Systems and Image Formation"],
+    "layer_2_ai_collaboration": [
+      "Lesson 2: Real-Time Object Detection with YOLO",
+      "Lesson 3: Promptable Segmentation with SAM 3",
+      "Lesson 4: Depth Estimation and 3D Vision",
+      "Lesson 5: Visual SLAM and Localization",
+      "Lesson 6: Synthetic Vision and Domain Randomization"
+    ],
+    "layer_3_intelligence_design": ["Lesson 7: 3D Reconstruction with NeRF and Gaussian Splatting"],
+    "layer_4_spec_driven_integration": ["Lesson 8: Multi-Sensor Fusion and Integration (CAPSTONE)"]
+  },
+  "ai_touchpoints": {
+    "lesson_1": {
+      "part_1_evaluator": true,
+      "part_2_tutor": false,
+      "part_3_collaborator": false,
+      "part_4_generator_grader": false,
+      "part_5_retention_partner": false,
+      "part_6_apprentice": true
+    },
+    "lesson_2_to_8": {
+      "part_1_evaluator": true,
+      "part_2_tutor": true,
+      "part_3_collaborator": true,
+      "part_4_generator_grader": true,
+      "part_5_retention_partner": true,
+      "part_6_apprentice": true
+    }
+  },
+  "ri_components": [
+    {
+      "lesson": 1,
+      "component": "Camera Calibration Skill",
+      "type": "skill",
+      "instructions": 3
+    },
+    {
+      "lesson": 2,
+      "component": "Object Detector Skill",
+      "type": "skill",
+      "instructions": 3
+    },
+    {
+      "lesson": 3,
+      "component": "Promptable Segmentation Skill",
+      "type": "skill",
+      "instructions": 3
+    },
+    {
+      "lesson": 4,
+      "component": "Depth Estimator Skill",
+      "type": "skill",
+      "instructions": 3
+    },
+    {
+      "lesson": 5,
+      "component": "SLAM Navigator Subagent",
+      "type": "subagent",
+      "instructions": 3
+    },
+    {
+      "lesson": 6,
+      "component": "Synthetic Dataset Generator Skill",
+      "type": "skill",
+      "instructions": 3
+    },
+    {
+      "lesson": 7,
+      "component": "3D Scene Reconstructor Component Specification",
+      "type": "component_spec",
+      "instructions": 3
+    },
+    {
+      "lesson": 8,
+      "component": "Multi-Sensor Perception System Specification",
+      "type": "system_spec",
+      "instructions": 3,
+      "integrates": [
+        "Camera Calibration Skill",
+        "Object Detector Skill",
+        "Promptable Segmentation Skill",
+        "Depth Estimator Skill",
+        "SLAM Navigator Subagent",
+        "Synthetic Dataset Generator Skill",
+        "3D Scene Reconstructor Component"
+      ]
+    }
+  ],
+  "concept_density": {
+    "value": 0.248,
+    "classification": "HIGH",
+    "new_concepts": 22,
+    "prerequisites": 6,
+    "math_formulas": 8,
+    "reading_time_minutes": 165
+  },
+  "methodology_principles_applied": [
+    "Visual Intuition First",
+    "Stepwise Scaffolding",
+    "Pattern-Based Chunking",
+    "Active Recall Integration",
+    "Specification-Driven Development with Reusable Intelligence (SDD-RI)"
+  ],
+  "input_artifacts": {
+    "structure": "G:\\book_gen\\universal-pedagogical-engine-main\\.book-generation\\structures\\P4-C1\\v001\\structure.md",
+    "outline": "G:\\book_gen\\universal-pedagogical-engine-main\\.book-generation\\outlines\\vision-models\\v001\\outline.md",
+    "research": "G:\\book_gen\\universal-pedagogical-engine-main\\.book-generation\\research\\vision-models\\v001\\research.md",
+    "constitution": "G:\\book_gen\\universal-pedagogical-engine-main\\.specify\\memory\\constitution.md"
+  },
+  "quality_metrics": {
+    "all_8_lessons_completed": true,
+    "6_part_structure_applied": true,
+    "word_count_target_met": true,
+    "pedagogical_layers_enforced": true,
+    "ai_touchpoints_mapped": true,
+    "ri_components_defined": true,
+    "code_examples_included": true,
+    "diagrams_specified": true,
+    "research_citations_included": true,
+    "dual_domain_integration": true
+  },
+  "next_agent": "writer-agent",
+  "next_input": "G:\\book_gen\\universal-pedagogical-engine-main\\.book-generation\\lessons\\P4-C1\\v001\\lesson.md",
+  "validation_status": "ready_for_writer"
+}

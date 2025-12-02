@@ -1,0 +1,21 @@
+graph TD
+    A[Physics Engine<br/>MuJoCo, Bullet, etc.] --> B[Core Mechanics<br/>Forces, Collisions, Dynamics]
+    
+    C[Simulation Toolchain<br/>Isaac Sim, Webots, Gazebo] --> D[Physics Engine]
+    C --> E[Sensor Simulation<br/>Cameras, Lidar, IMUs]
+    C --> F[Visualization<br/>3D Rendering, Debugging]
+    C --> G[Integration<br/>ROS2, Python API, ML]
+    C --> H[Tooling<br/>Scene Editors, Domain Randomization]
+    C --> I[Workflow Support<br/>Data Logging, Experiments]
+    
+    J[Analogy] --> K[Physics Engine = Car Engine<br/>Essential but incomplete]
+    J --> L[Toolchain = Complete Vehicle<br/>Ready to drive]
+    
+    style A fill:#4A90E2,stroke:#2E5C8A,color:#fff
+    style C fill:#E8F4F8,stroke:#4A90E2
+    style D fill:#F0F8E8,stroke:#7CB342
+    style E fill:#FFF3E0,stroke:#FF9800
+    style F fill:#F3E5F5,stroke:#9C27B0
+    style G fill:#E8F5E9,stroke:#4CAF50
+    style L fill:#FFEBEE,stroke:#E53935
+

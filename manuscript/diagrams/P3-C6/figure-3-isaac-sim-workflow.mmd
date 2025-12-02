@@ -1,0 +1,22 @@
+graph TD
+    A[Isaac Sim Workflow] --> B[Create Scene<br/>USD-Based]
+    B --> C[Add Robot<br/>URDF/USD/Built-in]
+    C --> D[Configure Sensors<br/>Cameras, Lidar, IMUs]
+    D --> E[Set Up RL Environment<br/>State/Action Spaces, Reward]
+    E --> F[Run Parallel Simulation<br/>1000+ Instances on GPU]
+    F --> G[Train Policy<br/>Isaac Gym Integration]
+    
+    H[Isaac Sim Architecture] --> I[Omniverse Foundation<br/>USD Scene Description]
+    I --> J[Extensions<br/>Custom Functionality]
+    I --> K[Replicators<br/>Domain Randomization]
+    I --> L[Python API<br/>ML Framework Integration]
+    
+    style A fill:#4A90E2,stroke:#2E5C8A,color:#fff
+    style B fill:#E8F4F8,stroke:#4A90E2
+    style C fill:#F0F8E8,stroke:#7CB342
+    style D fill:#FFF3E0,stroke:#FF9800
+    style E fill:#F3E5F5,stroke:#9C27B0
+    style F fill:#E8F5E9,stroke:#4CAF50
+    style G fill:#FFEBEE,stroke:#E53935
+    style I fill:#E8F4F8,stroke:#4A90E2
+

@@ -1,0 +1,38 @@
+{
+  "version": "v001",
+  "agent": "research-agent",
+  "created": "2025-11-30T14:30:00Z",
+  "topic": "mechanical-structures",
+  "inputs": {
+    "research_question": "What are the fundamental mechanical design principles, structural components, materials, and simulation modeling approaches for robotic systems?",
+    "scope": "Chapter P2-C1: Mechanical Structures - Introduction to mechanical design for robots",
+    "time_budget": "3-4 hours"
+  },
+  "outputs": {
+    "file": "research.md",
+    "word_count": 6847,
+    "source_count": {
+      "tier1": 12,
+      "tier2": 3,
+      "total": 15
+    }
+  },
+  "metrics": {
+    "time_spent_hours": 3.5,
+    "tier1_percentage": 80,
+    "claims_with_multiple_sources": 18,
+    "gaps_identified": 5
+  },
+  "comparison": {
+    "previous_version": null,
+    "changes": [],
+    "improvements": [],
+    "regressions": []
+  },
+  "quality_score": {
+    "source_quality": 95,
+    "coverage": 90,
+    "synthesis": 88,
+    "overall": 91
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "version": "v001",
+  "agent": "research-agent",
+  "created": "2025-12-01T00:00:00Z",
+  "topic": "role-of-simulation",
+  "inputs": {
+    "research_question": "Lifecycle roles of simulation in robotics for P1-C4.",
+    "scope": "P1-C4 Role of Simulation in Robotics",
+    "time_budget": "3-4 hours"
+  },
+  "outputs": {
+    "file": "research.md",
+    "word_count": 0,
+    "source_count": {
+      "tier1": 7,
+      "tier2": 3,
+      "total": 10
+    }
+  },
+  "metrics": {
+    "time_spent_hours": 1.5,
+    "tier1_percentage": 0.7,
+    "claims_with_multiple_sources": 4,
+    "gaps_identified": 1
+  },
+  "comparison": {
+    "previous_version": null,
+    "changes": [],
+    "improvements": [],
+    "regressions": []
+  },
+  "quality_score": {
+    "source_quality": 0.92,
+    "coverage": 0.85,
+    "synthesis": 0.88,
+    "overall": 0.88
+  }
+}
+
+

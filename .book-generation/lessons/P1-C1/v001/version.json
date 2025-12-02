@@ -1,0 +1,150 @@
+{
+  "version": "v001",
+  "chapter_id": "P1-C1",
+  "title": "What is Physical AI",
+  "created": "2025-11-30",
+  "agent": "lesson-planner",
+  "word_count": 9847,
+  "parts": {
+    "part_1_hook": {
+      "word_count": 387,
+      "section": "Hook and motivation"
+    },
+    "part_2_theory": {
+      "word_count": 2876,
+      "section": "Six Fundamentals + Dual-Domain Theory",
+      "subsections": [
+        "What Makes Physical AI Different",
+        "Six Fundamentals of Physical AI",
+        "Dual-Domain Necessity"
+      ]
+    },
+    "part_3_walkthrough": {
+      "word_count": 2143,
+      "section": "Case Studies and Examples",
+      "examples": [
+        "Boston Dynamics Spot - Warehouse Navigation",
+        "Humanoid-Gym - Bipedal Locomotion Training"
+      ]
+    },
+    "part_4_challenge": {
+      "word_count": 2891,
+      "section": "Hands-on Challenges",
+      "challenges": [
+        "Challenge 1: Isaac Sim Lab (60 min)",
+        "Challenge 2: Raspberry Pi Sensor-Actuator Loop (90 min)",
+        "Challenge 3: Sim-to-Real Gripper Project (4-6 hours)"
+      ]
+    },
+    "part_5_takeaways": {
+      "word_count": 1124,
+      "section": "Key Takeaways and Common Mistakes",
+      "takeaways_count": 12,
+      "common_mistakes": 5
+    },
+    "part_6_ai_learning": {
+      "word_count": 426,
+      "section": "Learn with AI",
+      "prompts_count": 6,
+      "prompt_categories": [
+        "Understand It Better",
+        "Get Feedback on Code",
+        "Go Deeper",
+        "See It in Action",
+        "Test Your Understanding",
+        "Extend Your Challenge"
+      ]
+    }
+  },
+  "pedagogical_structure": {
+    "blooms_taxonomy_layers": [
+      "Remember/Understand (Part 2)",
+      "Apply (Part 3)",
+      "Analyze (Part 4)",
+      "Create (Part 4 Challenge 3)"
+    ],
+    "dual_domain_balance": {
+      "physical_coverage": 0.45,
+      "simulation_coverage": 0.45,
+      "integration_coverage": 0.10,
+      "meets_requirement": true
+    },
+    "ai_touchpoints": {
+      "part_6_prompts": 6,
+      "integrated_throughout": false,
+      "dedicated_section": true
+    }
+  },
+  "diagrams_specified": 4,
+  "diagram_types": [
+    "Six Fundamentals Closed Loop (ASCII)",
+    "Traditional AI vs Physical AI Comparison (Table)",
+    "Sim-to-Real Workflow Pipeline (Text)",
+    "Physical-First vs Sim-First Comparison Table"
+  ],
+  "labs_included": 2,
+  "lab_specifications": [
+    {
+      "name": "Lab 1: Isaac Sim Basics",
+      "duration": "60 minutes",
+      "equipment": "NVIDIA GPU (RTX 2060+), Isaac Sim software",
+      "safety_warnings": 0,
+      "deliverables": "Screenshot + observations"
+    },
+    {
+      "name": "Lab 2: Raspberry Pi Sensor-Actuator Loop",
+      "duration": "90 minutes",
+      "equipment": "Raspberry Pi 4, MPU6050 IMU, SG90 servo, breadboard (~$85)",
+      "safety_warnings": 3,
+      "deliverables": "Code + video + performance data"
+    }
+  ],
+  "projects_included": 1,
+  "project_specification": {
+    "name": "Virtual-to-Real Gripper Controller",
+    "phases": 4,
+    "total_duration": "4-6 hours",
+    "phase_4_optional": true,
+    "technologies": ["MuJoCo", "Reinforcement Learning (PPO/SAC)", "Python"],
+    "success_criteria": [
+      "Simulation success rate ≥80%",
+      "Code documented and functional",
+      "Performance report with analysis"
+    ]
+  },
+  "research_citations": 15,
+  "research_integration": {
+    "tier_1_sources": 12,
+    "tier_2_sources": 3,
+    "key_frameworks": [
+      "Salehi (2025) - Six Fundamentals",
+      "Long et al. (2025) - Simulation Survey",
+      "NVIDIA Cosmos-Reason1 (2025)",
+      "Humanoid-Gym (2024)"
+    ]
+  },
+  "quality_metrics": {
+    "reading_time_minutes": 18,
+    "total_time_hours": 7.5,
+    "concept_density": 0.079,
+    "concept_density_class": "Medium",
+    "new_concepts_introduced": 15,
+    "blooms_progression": true,
+    "dual_domain_verified": true,
+    "ai_touchpoints_count": 6,
+    "safety_emphasis": true
+  },
+  "validation_checklist": {
+    "part_1_hook_present": true,
+    "part_2_theory_1200w": true,
+    "part_3_walkthrough_800w": true,
+    "part_4_challenge_600w_plus_labs": true,
+    "part_5_takeaways_12_points": true,
+    "part_6_ai_prompts_5_plus": true,
+    "diagrams_4_plus": true,
+    "labs_2_complete": true,
+    "dual_domain_balance_ok": true,
+    "safety_warnings_included": true,
+    "word_count_in_range": true
+  }
+}

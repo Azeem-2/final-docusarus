@@ -1,0 +1,40 @@
+{
+  "version": "v001",
+  "agent": "research-agent",
+  "created": "2025-12-01T00:00:00Z",
+  "topic": "introduction-to-digital-twins",
+  "inputs": {
+    "research_question": "Foundational concepts and applications of digital twins for P1-C5.",
+    "scope": "P1-C5 Introduction to Digital Twins",
+    "time_budget": "3-4 hours"
+  },
+  "outputs": {
+    "file": "research.md",
+    "word_count": 0,
+    "source_count": {
+      "tier1": 7,
+      "tier2": 3,
+      "total": 10
+    }
+  },
+  "metrics": {
+    "time_spent_hours": 1.5,
+    "tier1_percentage": 0.7,
+    "claims_with_multiple_sources": 4,
+    "gaps_identified": 1
+  },
+  "comparison": {
+    "previous_version": null,
+    "changes": [],
+    "improvements": [],
+    "regressions": []
+  },
+  "quality_score": {
+    "source_quality": 0.93,
+    "coverage": 0.87,
+    "synthesis": 0.89,
+    "overall": 0.89
+  }
+}
+
+

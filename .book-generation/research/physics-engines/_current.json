@@ -1,0 +1,12 @@
+{
+  "current_version": "v001",
+  "topic": "physics-engines",
+  "last_updated": "2025-11-30T18:00:00Z",
+  "version_history": [
+    {
+      "version": "v001",
+      "created": "2025-11-30T18:00:00Z",
+      "summary": "Initial comprehensive research covering physics engine fundamentals, major platforms (MuJoCo, Bullet, Isaac Sim), reality gap mitigation, and GPU acceleration. 15 Tier 1/2 sources (80% Tier 1)."
+    }
+  ]
+}

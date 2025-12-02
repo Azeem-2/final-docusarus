@@ -1,0 +1,19 @@
+graph TD
+    A[Vision-Based Control Policy] --> B[Camera Image<br/>RGB/Depth]
+    B --> C[Vision Encoder<br/>CNN/ViT]
+    C --> D[Visual Features]
+    D --> E[Policy Head<br/>Feature → Action]
+    E --> F[Action Output<br/>End-Effector Pose]
+    F --> G[Robot Execution<br/>Manipulation]
+    
+    H[End-to-End Learning] --> I[No Explicit Perception<br/>Learns Relevant Features]
+    I --> J[Robust to Variations<br/>Lighting, Viewpoint]
+    J --> K[Optimized for Task<br/>Direct Image → Action]
+    
+    style A fill:#4A90E2,stroke:#2E5C8A,color:#fff
+    style B fill:#E8F4F8,stroke:#4A90E2
+    style C fill:#F0F8E8,stroke:#7CB342
+    style E fill:#FFF3E0,stroke:#FF9800
+    style F fill:#F3E5F5,stroke:#9C27B0
+    style G fill:#E8F5E9,stroke:#4CAF50
+

@@ -1,0 +1,27 @@
+%%{init: {'theme':'base','themeVariables':{'primaryColor':'#0066CC','primaryTextColor':'#FFFFFF','primaryBorderColor':'#000000','lineColor':'#000000','secondaryColor':'#00CC66','tertiaryColor':'#FF9900','background':'#FFFFFF','fontFamily':'"Helvetica Neue", Arial, sans-serif','fontSize':'14px'}}}%%
+
+graph TD
+    style E fill:#0066CC,stroke:#000000,stroke-width:2px,color:#FFFFFF
+    style P fill:#0066CC,stroke:#000000,stroke-width:2px,color:#FFFFFF
+    style A fill:#0066CC,stroke:#000000,stroke-width:2px,color:#FFFFFF
+    style L fill:#FF9900,stroke:#000000,stroke-width:2px,color:#FFFFFF
+    style AU fill:#FF9900,stroke:#000000,stroke-width:2px,color:#FFFFFF
+    style C fill:#00CC66,stroke:#000000,stroke-width:2px,color:#FFFFFF
+
+    E["1. EMBODIMENT<br/>Physical form determines<br/>function and capabilities"]
+    P["2. PERCEPTION<br/>Sensing the physical world<br/>through sensors"]
+    A["3. ACTION<br/>Actuating in physical<br/>space with motors"]
+    L["4. LEARNING<br/>Adaptation through<br/>experience and data"]
+    AU["5. AUTONOMY<br/>Self-regulation without<br/>human intervention"]
+    C["6. CONTEXT<br/>Adapting to diverse<br/>environments"]
+
+    E ==> P
+    P ==> A
+    A ==> L
+    L ==> AU
+    AU ==> C
+    C ==> E
+
+    classDef physical fill:#0066CC,stroke:#000000,stroke-width:2px,color:#FFFFFF
+    classDef ai fill:#FF9900,stroke:#000000,stroke-width:2px,color:#FFFFFF
+    classDef sim fill:#00CC66,stroke:#000000,stroke-width:2px,color:#FFFFFF

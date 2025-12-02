@@ -1,0 +1,15 @@
+{
+  "version": "v001",
+  "agent": "lesson-planner",
+  "created": "2025-12-01T00:00:00Z",
+  "chapter_id": "P1-C3",
+  "inputs": {
+    "structure_file": ".book-generation/structures/P1-C3/v001/structure.md"
+  },
+  "outputs": {
+    "file": "lesson.md",
+    "lesson_count": 4
+  }
+}
+
+

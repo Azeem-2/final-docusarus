@@ -1,0 +1,16 @@
+%% Figure 4: Safety and Protection Elements
+flowchart LR
+  SRC[Battery / Supply] --> FUSE[Fuse / Breaker]
+  FUSE --> SW[Main Switch]
+  SW --> ESTOP[Emergency Stop]
+  ESTOP --> LOADS[Loads\n(motors, compute,\nsensors)]
+
+  classDef source fill=#e8f5e9,stroke=#2e7d32,stroke-width:1px;
+  classDef protect fill=#fff3e0,stroke:#ef6c00,stroke-width:1px;
+  classDef load fill=#ede7f6,stroke:#5e35b1,stroke-width:1px;
+
+  class SRC source;
+  class FUSE,SW,ESTOP protect;
+  class LOADS load;
+
+

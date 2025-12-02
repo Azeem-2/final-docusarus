@@ -1,0 +1,24 @@
+graph LR
+    A[ROS 2 Digital Twin] --> B[Control Node<br/>Joint Commands]
+    A --> C[Sensor Node<br/>Joint States, IMU]
+    A --> D[State Node<br/>Robot State]
+    A --> E[Planning Node<br/>Motion Planning]
+    A --> F[Visualization Node<br/>Rviz2]
+    
+    B --> G[ROS 2 Topics<br/>Communication]
+    C --> G
+    D --> G
+    E --> G
+    F --> G
+    
+    G --> H[Simulation Environment<br/>Gazebo / Isaac Sim]
+    
+    style A fill:#4A90E2,stroke:#2E5C8A,color:#fff
+    style B fill:#E8F4F8,stroke:#4A90E2
+    style C fill:#F0F8E8,stroke:#7CB342
+    style D fill:#FFF3E0,stroke:#FF9800
+    style E fill:#F3E5F5,stroke:#9C27B0
+    style F fill:#E0F2F1,stroke:#009688
+    style G fill:#FFEBEE,stroke:#F44336
+    style H fill:#ECEFF1,stroke:#607D8B
+

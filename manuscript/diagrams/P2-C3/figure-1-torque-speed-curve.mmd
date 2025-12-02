@@ -1,0 +1,18 @@
+%% Figure 1: Generic Motor Torque–Speed Curve
+%% Conceptual illustration only; not to scale.
+graph LR
+  subgraph Axes
+    T[Torque]
+    S[Speed]
+  end
+
+  %% Use a simple line to convey inverse relationship
+  A((Max Torque\n(stall))) --> B((Nominal Point))
+  B --> C((Max Speed\n(no load)))
+
+  classDef curve fill=#e3f2fd,stroke:#1565c0,stroke-width:2px;
+  classDef axis fill=#ffffff,stroke:#424242,stroke-width:1px,stroke-dasharray: 4 2;
+  class A,B,C curve;
+  class T,S axis;
+
+

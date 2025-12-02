@@ -1,0 +1,22 @@
+graph TD
+    A[Multi-modal Model] --> B[Vision Encoder<br/>ViT/CNN]
+    A --> C[Language Encoder<br/>Transformer LLM]
+    B --> D[Visual Features]
+    C --> E[Text Features]
+    D --> F[Cross-Modal Fusion<br/>Attention/Concatenation]
+    E --> F
+    F --> G[Unified Representation]
+    G --> H[Output Tasks]
+    H --> I[VQA<br/>Question Answering]
+    H --> J[Object Grounding<br/>Location]
+    H --> K[Language-to-Action<br/>Commands]
+    
+    style A fill:#4A90E2,stroke:#2E5C8A,color:#fff
+    style B fill:#E8F4F8,stroke:#4A90E2
+    style C fill:#F0F8E8,stroke:#7CB342
+    style F fill:#FFF3E0,stroke:#FF9800
+    style G fill:#F3E5F5,stroke:#9C27B0
+    style I fill:#E8F5E9,stroke:#4CAF50
+    style J fill:#E8F5E9,stroke:#4CAF50
+    style K fill:#E8F5E9,stroke:#4CAF50
+

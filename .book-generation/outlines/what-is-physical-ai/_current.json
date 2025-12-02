@@ -1,0 +1,17 @@
+{
+  "current_version": "v001",
+  "chapter": "what-is-physical-ai",
+  "chapter_id": "P1-C1",
+  "last_updated": "2025-11-30T00:00:00Z",
+  "version_history": [
+    {
+      "version": "v001",
+      "created": "2025-11-30T00:00:00Z",
+      "summary": "Initial comprehensive chapter outline following all 14 constitutional sections",
+      "section_count": 14,
+      "estimated_word_count": 3150,
+      "dual_domain_coverage": 90,
+      "research_sources": 15
+    }
+  ]
+}

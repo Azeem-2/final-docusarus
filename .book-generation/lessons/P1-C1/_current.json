@@ -1,0 +1,10 @@
+{
+  "current_version": "v001",
+  "version_path": ".book-generation/lessons/P1-C1/v001/",
+  "lesson_file": "lesson.md",
+  "last_updated": "2025-11-30",
+  "status": "complete",
+  "agent": "lesson-planner",
+  "next_agent": "writer-agent",
+  "ready_for_prose": true
+}

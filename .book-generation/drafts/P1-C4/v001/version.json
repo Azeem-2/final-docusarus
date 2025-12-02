@@ -1,0 +1,19 @@
+{
+  "version": "v001",
+  "agent": "writer-agent",
+  "created": "2025-12-01T00:00:00Z",
+  "chapter_id": "P1-C4",
+  "inputs": {
+    "research_file": ".book-generation/research/role-of-simulation/v001/research.md",
+    "outline_file": ".book-generation/outlines/role-of-simulation/v001/outline.md",
+    "lessons_file": ".book-generation/lessons/P1-C4/v001/lesson.md"
+  },
+  "outputs": {
+    "file": "draft.md",
+    "word_count": 0,
+    "sections": 14
+  },
+  "status": "Scaffold"
+}
+
+

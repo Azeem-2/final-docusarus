@@ -1,0 +1,23 @@
+graph TD
+    A[Platform Workflows] --> B[Isaac Sim<br/>Python API]
+    A --> C[Webots<br/>GUI-Driven]
+    A --> D[Gazebo<br/>SDF + ROS2]
+    
+    B --> E[1. Create Scene<br/>2. Add Robot<br/>3. Configure Sensors<br/>4. Set Up RL<br/>5. Parallel Training]
+    
+    C --> F[1. Visual Editor<br/>2. Built-in Models<br/>3. GUI Sensor Config<br/>4. Python/C++ Controller<br/>5. Real-time Execution]
+    
+    D --> G[1. SDF World File<br/>2. ROS2 Launch<br/>3. ROS2 Plugins<br/>4. Navigation Stack<br/>5. rviz2 Monitoring]
+    
+    H[Workflow Characteristics] --> I[Isaac Sim:<br/>Programmatic, GPU-Accelerated]
+    H --> J[Webots:<br/>Visual, Beginner-Friendly]
+    H --> K[Gazebo:<br/>File-Based, ROS2-Native]
+    
+    style A fill:#4A90E2,stroke:#2E5C8A,color:#fff
+    style B fill:#E8F4F8,stroke:#4A90E2
+    style C fill:#F0F8E8,stroke:#7CB342
+    style D fill:#FFF3E0,stroke:#FF9800
+    style I fill:#E8F5E9,stroke:#4CAF50
+    style J fill:#E8F5E9,stroke:#4CAF50
+    style K fill:#E8F5E9,stroke:#4CAF50
+

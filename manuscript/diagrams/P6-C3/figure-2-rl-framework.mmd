@@ -1,0 +1,19 @@
+graph LR
+    A[RL Framework] --> B[State Space<br/>Joint Angles, Velocities, IMU]
+    A --> C[Action Space<br/>Joint Torques]
+    A --> D[Reward Function<br/>Balance, Progress, Energy]
+    
+    B --> E[Policy Network<br/>PPO or SAC]
+    C --> E
+    D --> E
+    
+    E --> F[Simulation Environment<br/>Isaac Sim / MuJoCo]
+    F --> B
+    
+    style A fill:#4A90E2,stroke:#2E5C8A,color:#fff
+    style B fill:#E8F4F8,stroke:#4A90E2
+    style C fill:#F0F8E8,stroke:#7CB342
+    style D fill:#FFF3E0,stroke:#FF9800
+    style E fill:#F3E5F5,stroke:#9C27B0
+    style F fill:#E0F2F1,stroke:#009688
+

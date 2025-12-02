@@ -1,0 +1,18 @@
+graph LR
+    A[Advanced RL Algorithms] --> B[PPO<br/>On-Policy<br/>Stable]
+    A --> C[SAC<br/>Off-Policy<br/>Sample Efficient]
+    A --> D[TD3<br/>Off-Policy<br/>Twin Critics]
+    
+    E[Characteristics] --> F[PPO: Clipped Objective<br/>Trust Region]
+    E --> G[SAC: Entropy Regularization<br/>Continuous Actions]
+    E --> H[TD3: Twin Critics<br/>Delayed Updates]
+    
+    I[When to Use] --> J[PPO: General Purpose<br/>Stability Critical]
+    I --> K[SAC: Continuous Control<br/>Sample Efficiency]
+    I --> L[TD3: Off-Policy<br/>Value Overestimation]
+    
+    style A fill:#4A90E2,stroke:#2E5C8A,color:#fff
+    style B fill:#E8F4F8,stroke:#4A90E2
+    style C fill:#F0F8E8,stroke:#7CB342
+    style D fill:#FFF3E0,stroke:#FF9800
+

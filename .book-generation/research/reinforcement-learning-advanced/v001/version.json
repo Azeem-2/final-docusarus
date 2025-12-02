@@ -1,0 +1,14 @@
+{
+  "version": "v001",
+  "created": "2025-12-01",
+  "agent": "research-agent",
+  "chapter_id": "P4-C4",
+  "title": "Reinforcement Learning (Advanced)",
+  "status": "scaffold_complete",
+  "sources": {
+    "mcp_context7": [
+      "/dlr-rm/stable-baselines3"
+    ]
+  }
+}
+

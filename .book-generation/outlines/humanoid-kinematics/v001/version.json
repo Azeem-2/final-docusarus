@@ -1,0 +1,71 @@
+{
+  "version": "v001",
+  "agent": "outliner-agent",
+  "created": "2025-11-30T00:00:00Z",
+  "book": "humanoid-kinematics",
+  "inputs": {
+    "research_version": "v001",
+    "research_path": ".book-generation/research/humanoid-kinematics/v001/",
+    "target_audience": "Computer science students new to robotics with Python programming experience",
+    "estimated_length": "8000-10000 words"
+  },
+  "outputs": {
+    "file": "outline.md",
+    "structure": {
+      "part_count": 0,
+      "chapter_count": 1,
+      "lesson_count": 16
+    },
+    "estimated_pages": 32,
+    "word_count": 9450
+  },
+  "metrics": {
+    "research_coverage": 0.95,
+    "balance_score": 0.88,
+    "depth_consistency": 0.92,
+    "gaps_identified": 0
+  },
+  "comparison": {
+    "previous_version": null,
+    "changes": [],
+    "improvements": [],
+    "regressions": []
+  },
+  "quality_score": {
+    "completeness": 1.0,
+    "balance": 0.9,
+    "flow": 0.88,
+    "clarity": 0.92,
+    "overall": 0.92
+  },
+  "constitutional_compliance": {
+    "all_16_sections_present": true,
+    "dual_domain_balance": 0.72,
+    "dual_domain_threshold_met": true,
+    "learning_objectives_count": 8,
+    "diagram_count": 8,
+    "simulation_mentions": {
+      "mujoco": 18,
+      "isaac_sim": 14,
+      "pybullet": 10,
+      "drake": 5,
+      "total": 47
+    },
+    "physical_mentions": 34,
+    "lab_exercises": {
+      "simulation": 3,
+      "physical": 3,
+      "total": 6
+    },
+    "mini_projects": 3,
+    "review_questions": 15,
+    "glossary_terms": 32
+  },
+  "content_analysis": {
+    "foundational_content_pct": 33,
+    "implementation_pct": 31,
+    "hands_on_pct": 12,
+    "applications_projects_pct": 15,
+    "review_reference_pct": 10
+  }
+}

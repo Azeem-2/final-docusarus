@@ -1,0 +1,14 @@
+{
+  "version": "v001",
+  "created": "2025-12-01",
+  "agent": "research-agent",
+  "chapter_id": "P4-C5",
+  "title": "Trajectory Optimization",
+  "status": "scaffold_complete",
+  "sources": {
+    "mcp_context7": [
+      "/pantor/ruckig"
+    ]
+  }
+}
+

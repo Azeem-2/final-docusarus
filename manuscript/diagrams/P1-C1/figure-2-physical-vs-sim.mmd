@@ -1,0 +1,37 @@
+%%{init: {'theme':'base','themeVariables':{'primaryColor':'#0066CC','primaryTextColor':'#FFFFFF','primaryBorderColor':'#000000','lineColor':'#000000','secondaryColor':'#00CC66','tertiaryColor':'#FF9900','background':'#FFFFFF','fontFamily':'"Helvetica Neue", Arial, sans-serif','fontSize':'14px'}}}%%
+
+graph LR
+    style PS fill:#0066CC,stroke:#000000,stroke-width:2px,color:#FFFFFF
+    style PA fill:#0066CC,stroke:#000000,stroke-width:2px,color:#FFFFFF
+    style PE fill:#0066CC,stroke:#000000,stroke-width:2px,color:#FFFFFF
+    style SS fill:#00CC66,stroke:#000000,stroke-width:2px,color:#FFFFFF
+    style SA fill:#00CC66,stroke:#000000,stroke-width:2px,color:#FFFFFF
+    style SE fill:#00CC66,stroke:#000000,stroke-width:2px,color:#FFFFFF
+    style INT fill:#FF9900,stroke:#000000,stroke-width:2px,color:#FFFFFF
+
+    subgraph Physical["PHYSICAL ROBOTICS"]
+        PS["Real Sensors<br/>RGB-D cameras<br/>Force sensors<br/>IMU"]
+        PA["Real Actuators<br/>Servo motors<br/>Hydraulics<br/>Pneumatics"]
+        PE["Real Environment<br/>Gravity, friction<br/>Material properties<br/>Safety constraints"]
+    end
+
+    subgraph Simulation["SIMULATION"]
+        SS["Virtual Sensors<br/>Synthetic vision<br/>Ray-traced LIDAR<br/>Simulated forces"]
+        SA["Virtual Actuators<br/>PD controllers<br/>Torque limits<br/>Dynamics models"]
+        SE["Virtual Environment<br/>Physics engine<br/>Domain randomization<br/>Parallel training"]
+    end
+
+    subgraph Integration["INTEGRATION POINTS"]
+        INT["Digital Twin<br/>Sim-to-Real Transfer<br/>System Identification<br/>Fine-tuning"]
+    end
+
+    PS -.->|Calibration Data| INT
+    SA -.->|Control Policies| INT
+    SE -.->|Training Data| INT
+    INT -->|Validated Policies| PA
+    INT -->|Updated Parameters| SE
+    PE -->|Ground Truth| INT
+
+    classDef physical fill:#0066CC,stroke:#000000,stroke-width:2px,color:#FFFFFF
+    classDef sim fill:#00CC66,stroke:#000000,stroke-width:2px,color:#FFFFFF
+    classDef integration fill:#FF9900,stroke:#000000,stroke-width:2px,color:#FFFFFF

@@ -1,0 +1,43 @@
+{
+  "version": 1,
+  "created": "2025-11-30T00:00:00Z",
+  "agent": "chapter-structure-architect",
+  "input_files": {
+    "research": ".book-generation/research/what-is-physical-ai/v001/research.md",
+    "outline": ".book-generation/outlines/what-is-physical-ai/v001/outline.md"
+  },
+  "outputs": {
+    "structure": ".book-generation/structures/P1-C1/v001/structure.md"
+  },
+  "metrics": {
+    "concept_density": 0.079,
+    "concept_density_class": "Medium",
+    "chapter_type": "Foundational",
+    "recommended_lessons": 2,
+    "layer_count": 4,
+    "ai_touchpoints": 5,
+    "total_estimated_time_hours": 7.5,
+    "reading_time_minutes": 18,
+    "labs_time_minutes": 150,
+    "project_time_minutes": 300,
+    "layer_allocation": {
+      "layer_1_foundation_percent": 30,
+      "layer_2_application_percent": 35,
+      "layer_3_analysis_percent": 20,
+      "layer_4_synthesis_percent": 65
+    }
+  },
+  "validation": {
+    "concept_density_calculated": true,
+    "chapter_type_justified": true,
+    "four_layer_progression_defined": true,
+    "ai_touchpoints_mapped": true,
+    "learning_flow_diagram_created": true,
+    "prerequisites_clear": true,
+    "learning_outcomes_measurable": true,
+    "dual_domain_coverage_verified": true,
+    "time_estimates_realistic": true,
+    "handoff_ready": true
+  },
+  "status": "validated_and_ready"
+}

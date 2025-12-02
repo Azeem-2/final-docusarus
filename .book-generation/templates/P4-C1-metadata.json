@@ -1,0 +1,122 @@
+{
+  "chapter_id": "P4-C1",
+  "title": "Vision Models for Robotics",
+  "part": 4,
+  "chapter_number": 1,
+  "slug": "/vision-models",
+  "status": "Published",
+  "version": 2,
+  "created_date": "2025-11-30",
+  "published_date": "2025-11-30",
+  "word_count": 10800,
+  "estimated_reading_time_minutes": 43,
+  "validation_results": {
+    "constitutional_compliant": true,
+    "sections_count": 16,
+    "dual_domain_present": true,
+    "dual_domain_balance_score": 0.78,
+    "tier1_citation_count": 12,
+    "flesch_kincaid_grade": 15.2,
+    "reading_ease": 44,
+    "editorial_quality_score": 92
+  },
+  "content_attributes": {
+    "diagram_count": 5,
+    "lab_count": 2,
+    "has_simulation_lab": true,
+    "has_physical_lab": true,
+    "mini_project_count": 3,
+    "review_question_count": 15,
+    "key_term_count": 20,
+    "learning_objective_count": 8,
+    "code_example_count": 12,
+    "callout_count": 6
+  },
+  "agent_pipeline": {
+    "research_agent": {
+      "version": "v001",
+      "quality_score": 92,
+      "word_count": 6847,
+      "source_count": 15
+    },
+    "outliner_agent": {
+      "version": "v001",
+      "quality_score": 97,
+      "section_count": 14
+    },
+    "chapter_structure_architect": {
+      "version": "v001",
+      "quality_score": 94,
+      "concept_density": 0.248,
+      "chapter_type": "Technical/Code-Focused",
+      "lesson_count": 8
+    },
+    "lesson_planner": {
+      "version": "v001",
+      "quality_score": 93,
+      "word_count": 9200,
+      "part_count": 6
+    },
+    "writer_agent": {
+      "version": "v002",
+      "quality_score": 88,
+      "iterations": 2
+    },
+    "book_editor": {
+      "version": "v002",
+      "quality_score": 92,
+      "approval_status": "Approved",
+      "iterations": 2
+    },
+    "diagram_generator": {
+      "version": "v001",
+      "diagram_count": 5
+    }
+  },
+  "file_locations": {
+    "manuscript": "manuscript/part4/chapter1-vision-models.md",
+    "diagrams": "manuscript/diagrams/P4-C1/",
+    "research": ".book-generation/research/vision-models/v001/",
+    "outline": ".book-generation/outlines/vision-models/v001/",
+    "structure": ".book-generation/structures/P4-C1/v001/",
+    "lesson": ".book-generation/lessons/P4-C1/v001/",
+    "draft": ".book-generation/drafts/P4-C1/v002/",
+    "review": ".book-generation/reviews/P4-C1/v002/"
+  },
+  "glossary_terms_added": [
+    "Camera Calibration",
+    "Intrinsic Matrix",
+    "Extrinsic Matrix",
+    "Pinhole Camera Model",
+    "Object Detection",
+    "YOLO",
+    "Non-Maximum Suppression (NMS)",
+    "Semantic Segmentation",
+    "Instance Segmentation",
+    "Segment Anything Model (SAM)",
+    "Depth Estimation",
+    "Stereo Vision",
+    "Disparity",
+    "Visual SLAM",
+    "ORB-SLAM3",
+    "Loop Closure",
+    "Bundle Adjustment",
+    "Domain Randomization",
+    "Sim-to-Real Transfer",
+    "Reality Gap"
+  ],
+  "vision_models_covered": [
+    "YOLO (v1-v11)",
+    "SAM 3",
+    "ORB-SLAM3",
+    "DINOv2",
+    "NeRF",
+    "3D Gaussian Splatting"
+  ],
+  "pedagogical_layers": {
+    "layer_1_manual_foundation": [1],
+    "layer_2_ai_collaboration": [2, 3, 4, 5, 6],
+    "layer_3_intelligence_design": [7],
+    "layer_4_spec_driven_integration": [8]
+  }
+}

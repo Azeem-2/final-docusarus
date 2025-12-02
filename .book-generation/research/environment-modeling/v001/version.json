@@ -1,0 +1,16 @@
+{
+  "version": "v001",
+  "agent": "research-agent",
+  "skill": "research-methodology",
+  "created": "2025-12-01T00:00:00Z",
+  "topic": "Environment Modeling",
+  "chapter_id": "P3-C2",
+  "outputs": {
+    "file": "research.md",
+    "status": "Scaffold",
+    "tier1_sources": 0,
+    "tier2_sources": 0
+  }
+}
+
+

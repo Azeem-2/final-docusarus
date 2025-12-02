@@ -1,0 +1,57 @@
+{
+  "version": "v001",
+  "agent": "research-agent",
+  "created": "2025-11-30T18:00:00Z",
+  "topic": "physics-engines",
+  "inputs": {
+    "research_question": "What are the fundamental concepts, implementations, and practical applications of physics engines (MuJoCo, Bullet, Isaac Sim) for robot simulation and training?",
+    "scope": "Chapter P3-C1: Physics Engines (MuJoCo, Bullet, Isaac Sim)",
+    "time_budget": "3-4 hours"
+  },
+  "outputs": {
+    "file": "research.md",
+    "word_count": 5847,
+    "source_count": {
+      "tier1": 12,
+      "tier2": 3,
+      "total": 15
+    }
+  },
+  "metrics": {
+    "time_spent_hours": 3.5,
+    "tier1_percentage": 80,
+    "claims_with_multiple_sources": 5,
+    "gaps_identified": 6
+  },
+  "comparison": {
+    "previous_version": null,
+    "changes": [],
+    "improvements": [],
+    "regressions": []
+  },
+  "quality_score": {
+    "source_quality": 95,
+    "coverage": 90,
+    "synthesis": 88,
+    "overall": 91
+  },
+  "topic_coverage": {
+    "physics_fundamentals": "comprehensive",
+    "mujoco": "detailed",
+    "bullet_pybullet": "detailed",
+    "isaac_sim": "comprehensive",
+    "reality_gap": "comprehensive",
+    "gpu_acceleration": "detailed",
+    "contact_dynamics": "comprehensive",
+    "domain_randomization": "comprehensive",
+    "physical_validation": "moderate",
+    "deformable_simulation": "gap_identified"
+  },
+  "notable_sources": [
+    "Todorov MuJoCo 2012 (8144 citations)",
+    "Le Lidec Contact Models 2024 (comprehensive survey)",
+    "Aljalbout Reality Gap 2025 (Annual Review)",
+    "OpenAI Dactyl 2018 (landmark sim-to-real)",
+    "NVIDIA Isaac Lab 2025 (state-of-art GPU framework)"
+  ]
+}

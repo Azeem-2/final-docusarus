@@ -1,0 +1,97 @@
+{
+  "version": "v001",
+  "agent": "research-agent",
+  "created": "2025-11-30T00:00:00Z",
+  "topic": "vision-models",
+  "inputs": {
+    "research_question": "What are the state-of-the-art vision models and techniques used in robotics for perception, manipulation, and navigation, covering both physical robotics applications and simulation-based approaches?",
+    "scope": "Part 4, Chapter 1: Vision Models for Robotics",
+    "time_budget": "3-4 hours"
+  },
+  "outputs": {
+    "file": "research.md",
+    "word_count": 6847,
+    "source_count": {
+      "tier1": 11,
+      "tier2": 4,
+      "total": 15
+    }
+  },
+  "metrics": {
+    "time_spent_hours": 3.5,
+    "tier1_percentage": 73,
+    "claims_with_multiple_sources": 12,
+    "gaps_identified": 5
+  },
+  "comparison": {
+    "previous_version": null,
+    "changes": [],
+    "improvements": [],
+    "regressions": []
+  },
+  "quality_score": {
+    "source_quality": 95,
+    "coverage": 92,
+    "synthesis": 88,
+    "overall": 92
+  },
+  "coverage_domains": {
+    "physical_robotics": {
+      "score": 95,
+      "topics_covered": [
+        "Object detection and segmentation (YOLO, SAM 3, Mask R-CNN)",
+        "Visual SLAM and odometry (ORB-SLAM3 configurations)",
+        "Depth estimation (DINO-SD, monocular/stereo)",
+        "Multi-sensor fusion (Camera-LiDAR, visual-inertial)",
+        "Manipulation (VIP, point cloud processing)",
+        "Real-time constraints and performance"
+      ]
+    },
+    "simulation_synthetic": {
+      "score": 85,
+      "topics_covered": [
+        "Synthetic data generation (Isaac Sim Replicator)",
+        "Domain randomization techniques",
+        "Sim-to-real transfer methods",
+        "3D scene representation (3DGS, NeRF)",
+        "Virtual sensor simulation"
+      ]
+    },
+    "integration_points": {
+      "score": 90,
+      "identified": [
+        "Synthetic pre-training to real fine-tuning pipeline",
+        "Virtual sensor calibration to physical sensors",
+        "3D reconstruction cross-domain applications",
+        "Foundation model transfer (SAM, DINOv2)",
+        "Visuomotor policy sim-to-real deployment"
+      ]
+    }
+  },
+  "key_statistics": {
+    "accuracy_benchmarks": {
+      "orb_slam3_stereo_inertial_euroc": "3.5 cm",
+      "orb_slam3_stereo_inertial_tumvi": "9 mm",
+      "sam3_improvement": "2x over existing methods",
+      "orb_slam3_vs_previous": "2-10x more accurate"
+    },
+    "performance_metrics": {
+      "sam3_inference": "30 ms per image (H200 GPU, >100 objects)",
+      "3dgs_rendering": "30 ms per frame",
+      "orb_slam3_framerate": "30-40 fps",
+      "domain_randomization_speedup": "5x faster annotation"
+    },
+    "dataset_scales": {
+      "sam3_training_concepts": "4 million unique concepts",
+      "orb_slam3_max_distance": "900 m (magistrale sequences)"
+    }
+  },
+  "recent_developments_2024_2025": [
+    "SAM 3 with promptable segmentation (November 2025)",
+    "YOLOv11 latest iteration (August 2025)",
+    "Vision Transformer integration in robotics (2024)",
+    "3D Gaussian Splatting robotics adoption (2024)",
+    "Foundation model adaptation (DINOv2, 2024-2025)",
+    "Improved sim-to-real domain adaptation (2024)"
+  ]
+}

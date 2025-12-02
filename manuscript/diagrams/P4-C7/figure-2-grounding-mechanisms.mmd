@@ -1,0 +1,19 @@
+graph TD
+    A[Language Command] --> B[Visual Grounding]
+    A --> C[Action Grounding]
+    
+    B --> D[Object Grounding<br/>"red cup" → Location]
+    B --> E[Spatial Grounding<br/>"on the table" → Spatial]
+    
+    C --> F[Action Primitives<br/>"pick up" → Grasp]
+    C --> G[Action Sequences<br/>"move to table" → Sequence]
+    
+    H[Grounding Output] --> I[Object Location<br/>Bounding Box/3D]
+    H --> J[Spatial Constraints<br/>Position/Orientation]
+    H --> K[Action Mapping<br/>Primitive/Sequence]
+    
+    style A fill:#4A90E2,stroke:#2E5C8A,color:#fff
+    style B fill:#E8F4F8,stroke:#4A90E2
+    style C fill:#F0F8E8,stroke:#7CB342
+    style H fill:#FFF3E0,stroke:#FF9800
+

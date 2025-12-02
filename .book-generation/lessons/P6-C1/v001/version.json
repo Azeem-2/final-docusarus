@@ -1,0 +1,49 @@
+{
+  "version": "v001",
+  "agent": "lesson-planner",
+  "created": "2025-12-01T08:45:00Z",
+  "chapter": "P6-C1",
+  "inputs": {
+    "structure_version": "v001",
+    "structure_path": ".book-generation/structures/P6-C1/v001/",
+    "outline_version": "v001",
+    "outline_path": ".book-generation/outlines/build-mobile-robot/v001/",
+    "research_path": ".book-generation/research/build-mobile-robot/v001/"
+  },
+  "outputs": {
+    "file": "lesson.md",
+    "parts": 6,
+    "estimated_reading_time": "50 minutes",
+    "estimated_total_time": "18 hours"
+  },
+  "metrics": {
+    "word_count": 3500,
+    "code_examples": 4,
+    "ai_touchpoints": 8,
+    "dual_domain_coverage": 100
+  },
+  "comparison": {
+    "previous_version": null,
+    "changes": [
+      "Initial lesson content created",
+      "6-part structure implemented (Hook, Concept, Walkthrough, Challenge, Takeaways, Learn with AI)",
+      "All AI integration touchpoints included",
+      "Dual-domain coverage maintained"
+    ],
+    "improvements": [
+      "Comprehensive coverage of kinematics, dynamics, and implementation",
+      "Practical code examples for simulation and hardware",
+      "AI prompts for deeper exploration"
+    ],
+    "regressions": []
+  },
+  "quality_score": {
+    "completeness": 90,
+    "pedagogical_value": 92,
+    "ai_integration": 88,
+    "practical_applicability": 95,
+    "overall": 91
+  }
+}
+
+

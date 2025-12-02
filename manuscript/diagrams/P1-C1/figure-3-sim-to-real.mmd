@@ -1,0 +1,32 @@
+%%{init: {'theme':'base','themeVariables':{'primaryColor':'#0066CC','primaryTextColor':'#FFFFFF','primaryBorderColor':'#000000','lineColor':'#000000','secondaryColor':'#00CC66','tertiaryColor':'#FF9900','background':'#FFFFFF','fontFamily':'"Helvetica Neue", Arial, sans-serif','fontSize':'14px'}}}%%
+
+graph LR
+    style TRAIN fill:#00CC66,stroke:#000000,stroke-width:2px,color:#FFFFFF
+    style VAL fill:#00CC66,stroke:#000000,stroke-width:2px,color:#FFFFFF
+    style RAND fill:#00CC66,stroke:#000000,stroke-width:2px,color:#FFFFFF
+    style TRANSFER fill:#FF9900,stroke:#000000,stroke-width:2px,color:#FFFFFF
+    style DEPLOY fill:#0066CC,stroke:#000000,stroke-width:2px,color:#FFFFFF
+    style FINETUNE fill:#FF9900,stroke:#000000,stroke-width:2px,color:#FFFFFF
+    style FEEDBACK fill:#666666,stroke:#000000,stroke-width:2px,color:#FFFFFF
+
+    TRAIN["Train in Simulation<br/>10M steps<br/>Parallel environments<br/>Rapid iteration"]
+    VAL["Sim-to-Sim Validation<br/>Test on different<br/>physics engine<br/>Verify robustness"]
+    RAND["Domain Randomization<br/>Physics ±20-30%<br/>Visual variation<br/>Terrain diversity"]
+    TRANSFER["Transfer Analysis<br/>Compare sim metrics<br/>Identify gaps<br/>Calibrate models"]
+    DEPLOY["Physical Deployment<br/>Real robot testing<br/>Monitor failures<br/>Collect data"]
+    FINETUNE["Fine-tune Policy<br/>500 real trials<br/>Residual learning<br/>Bridge reality gap"]
+    FEEDBACK["Update Simulation<br/>System identification<br/>Parameter calibration<br/>Improve fidelity"]
+
+    TRAIN ==> VAL
+    RAND -.-> TRAIN
+    VAL ==> TRANSFER
+    TRANSFER ==> DEPLOY
+    DEPLOY ==> FINETUNE
+    FINETUNE --> DEPLOY
+    DEPLOY -.->|Real-world data| FEEDBACK
+    FEEDBACK -.->|Updated parameters| TRAIN
+
+    classDef sim fill:#00CC66,stroke:#000000,stroke-width:2px,color:#FFFFFF
+    classDef transfer fill:#FF9900,stroke:#000000,stroke-width:2px,color:#FFFFFF
+    classDef physical fill:#0066CC,stroke:#000000,stroke-width:2px,color:#FFFFFF
+    classDef framework fill:#666666,stroke:#000000,stroke-width:2px,color:#FFFFFF

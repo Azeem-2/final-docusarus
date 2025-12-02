@@ -1,0 +1,13 @@
+graph LR
+    A[Agent<br/>Robot Controller] -->|Action a_t| B[Environment<br/>Simulation + Robot]
+    B -->|State s_t+1<br/>Reward r_t| A
+    B -->|Observation| C[State<br/>Joint angles, velocities,<br/>sensor readings]
+    C --> A
+    A -->|Policy Update| D[Learning<br/>Value/Policy]
+    D --> A
+    
+    style A fill:#4A90E2,stroke:#2E5C8A,color:#fff
+    style B fill:#E8F4F8,stroke:#4A90E2
+    style C fill:#F0F8E8,stroke:#7CB342
+    style D fill:#FFF3E0,stroke:#FF9800
+

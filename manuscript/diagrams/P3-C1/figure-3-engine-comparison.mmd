@@ -1,0 +1,33 @@
+graph TB
+    subgraph "Physics Engine Comparison"
+        subgraph MuJoCo
+            M1["Speed: Very Fast"]
+            M2["GPU: Limited"]
+            M3["Use Case: Model-based control<br/>Contact-rich manipulation"]
+            M4["Strength: Analytical derivatives"]
+        end
+
+        subgraph PyBullet
+            P1["Speed: Fast"]
+            P2["GPU: CPU-only"]
+            P3["Use Case: General robotics<br/>Rapid prototyping"]
+            P4["Strength: Accessibility & docs"]
+        end
+
+        subgraph "Isaac Lab"
+            I1["Speed: Fastest parallel"]
+            I2["GPU: Full GPU"]
+            I3["Use Case: Large-scale RL<br/>Sim-to-real transfer"]
+            I4["Strength: Massive parallelization"]
+        end
+    end
+
+    A[Choose Engine Based On] --> B{Primary Need?}
+    B -->|Accuracy + Speed| MuJoCo
+    B -->|Ease of Use| PyBullet
+    B -->|Scale + GPU| "Isaac Lab"
+
+    style M1 fill:#e3f2fd,stroke:#1976d2,stroke-width:2px
+    style P1 fill:#f3e5f5,stroke:#7b1fa2,stroke-width:2px
+    style I1 fill:#e8f5e9,stroke:#388e3c,stroke-width:2px
+    style A fill:#fff3e0,stroke:#f57c00,stroke-width:2px

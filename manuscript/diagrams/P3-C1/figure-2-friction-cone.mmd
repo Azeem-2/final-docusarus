@@ -1,0 +1,23 @@
+graph TD
+    subgraph "Friction Cone Geometry"
+        A[Normal Force fn<br/>perpendicular to surface]
+        B[Tangential Force ft<br/>parallel to surface]
+        C{Force Relationship}
+        D["Static Friction<br/>ft < μ fn<br/>No Slip"]
+        E["Sliding Friction<br/>ft = μ fn<br/>Sliding Boundary"]
+
+        A --> C
+        B --> C
+        C -->|Inside Cone| D
+        C -->|On Cone Boundary| E
+    end
+
+    subgraph "Friction Coefficient μ"
+        F["μ = tan(α)<br/>α = cone half-angle"]
+    end
+
+    style A fill:#e8f5e9,stroke:#4caf50,stroke-width:2px
+    style B fill:#fff3e0,stroke:#ff9800,stroke-width:2px
+    style D fill:#e3f2fd,stroke:#2196f3,stroke-width:2px
+    style E fill:#ffebee,stroke:#f44336,stroke-width:2px
+    style F fill:#f3e5f5,stroke:#9c27b0,stroke-width:2px

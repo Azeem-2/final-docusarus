@@ -1,0 +1,17 @@
+{
+  "version": "v001",
+  "agent": "outliner-agent",
+  "created": "2025-12-01T00:00:00Z",
+  "chapter_id": "P3-C2",
+  "title": "Environment Modeling",
+  "inputs": {
+    "research_topic": "Environment Modeling",
+    "research_version": "v001"
+  },
+  "outputs": {
+    "file": "outline.md",
+    "sections": 10
+  }
+}
+
+

@@ -1,0 +1,15 @@
+{
+  "current_version": "v001",
+  "topic": "Reinforcement Learning Basics",
+  "chapter_id": "P3-C3",
+  "last_updated": "2025-12-01T00:00:00Z",
+  "version_history": [
+    {
+      "version": "v001",
+      "created": "2025-12-01T00:00:00Z",
+      "summary": "Initial scaffold research notes for reinforcement learning basics in robotics simulation."
+    }
+  ]
+}
+
+

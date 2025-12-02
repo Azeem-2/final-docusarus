@@ -1,0 +1,50 @@
+graph TD
+    subgraph "3D World"
+        P["3D Point P<br/>(X, Y, Z)"]
+    end
+
+    subgraph "Left Camera"
+        CL["Left Camera<br/>Center"]
+        IL["Left Image<br/>Point p_left"]
+        EL["Epipolar Line<br/>(left)"]
+    end
+
+    subgraph "Right Camera"
+        CR["Right Camera<br/>Center"]
+        IR["Right Image<br/>Point p_right"]
+        ER["Epipolar Line<br/>(right)"]
+    end
+
+    subgraph "Geometry"
+        B["Baseline B<br/>(distance between cameras)"]
+        D["Disparity d<br/>(horizontal offset)"]
+    end
+
+    P -->|"Ray 1"| CL
+    P -->|"Ray 2"| CR
+    CL --> IL
+    CR --> IR
+
+    CL -.->|"Baseline B"| CR
+
+    IL -.->|"Disparity d = |u_left - u_right|"| IR
+
+    subgraph "Depth Formula"
+        Formula["Z = (f × B) / d<br/><br/>where:<br/>Z = depth (meters)<br/>f = focal length (pixels)<br/>B = baseline (meters)<br/>d = disparity (pixels)"]
+    end
+
+    IL --> EL
+    IR --> ER
+    EL -.->|"Epipolar constraint"| ER
+
+    D --> Formula
+    B --> Formula
+
+    style P fill:#e1f5ff
+    style CL fill:#d4edda
+    style CR fill:#d4edda
+    style IL fill:#fff3cd
+    style IR fill:#fff3cd
+    style Formula fill:#f8d7da
+    style D fill:#d1ecf1
+    style B fill:#d1ecf1

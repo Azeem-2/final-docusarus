@@ -1,0 +1,18 @@
+graph LR
+    A[Start Config<br/>q_start] --> B[RRT Tree Growth]
+    B --> C[Random Sample<br/>q_rand]
+    C --> D[Find Nearest<br/>q_near]
+    D --> E[Extend Toward<br/>q_rand]
+    E --> F{Collision<br/>Free?}
+    F -->|Yes| G[Add to Tree]
+    F -->|No| C
+    G --> H{Reached<br/>Goal?}
+    H -->|No| C
+    H -->|Yes| I[Path Found]
+    
+    style A fill:#4A90E2,stroke:#2E5C8A,color:#fff
+    style B fill:#E8F4F8,stroke:#4A90E2
+    style C fill:#F0F8E8,stroke:#7CB342
+    style F fill:#FFF3E0,stroke:#FF9800
+    style I fill:#E8F5E9,stroke:#4CAF50
+

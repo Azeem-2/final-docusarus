@@ -1,0 +1,17 @@
+{
+  "current_version": "v001",
+  "book": "physics-engines",
+  "chapter_code": "P3-C1",
+  "last_updated": "2025-11-30T00:00:00Z",
+  "version_history": [
+    {
+      "version": "v001",
+      "created": "2025-11-30T00:00:00Z",
+      "summary": "Initial comprehensive outline for Physics Engines chapter",
+      "section_count": 14,
+      "word_estimate": 8500,
+      "dual_domain_balance": "45% physical / 55% simulation",
+      "quality_score": 97.5
+    }
+  ]
+}

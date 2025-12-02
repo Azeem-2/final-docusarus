@@ -1,0 +1,15 @@
+%% Figure 1: Sensing Chain from Physical Quantity to Digital Signal
+flowchart LR
+  A[Physical World\n(angles, forces,\nlight, distance)] --> B[Transducer\n(sensor element)]
+  B --> C[Analog Signal\n(voltage/current)]
+  C --> D[Signal Conditioning\n(filtering, amplification)]
+  D --> E[ADC\n(analog-to-digital\nconverter)]
+  E --> F[Controller\n(microcontroller/IPC)]
+  F --> G[Estimation & Control\n(state, decisions)]
+
+  classDef physical fill=#f5f5f5,stroke=#333,stroke-width:1px;
+  classDef processing fill=#e0f3ff,stroke=#005b96,stroke-width:1px;
+  class A physical;
+  class B,C,D,E,F,G processing;
+
+

@@ -1,0 +1,41 @@
+```mermaid
+graph TD
+    style CAD fill:#666666,stroke:#000000,color:#FFFFFF
+    style Extract fill:#00CC66,stroke:#000000,color:#000000
+    style Mesh fill:#0066CC,stroke:#000000,color:#FFFFFF
+    style URDF fill:#FF9900,stroke:#000000,color:#000000
+    style Sim fill:#00CC66,stroke:#000000,color:#FFFFFF
+    style Decision fill:#666666,stroke:#000000,color:#FFFFFF
+    style Refine fill:#FF9900,stroke:#000000,color:#000000
+    style Build fill:#0066CC,stroke:#000000,color:#FFFFFF
+
+    CAD["CAD Design<br/>━━━━━━━━━━<br/>• SolidWorks / Fusion 360<br/>• Link geometry definition<br/>• Assembly constraints<br/>• Material assignment"]
+
+    Extract["Parameter Extraction<br/>━━━━━━━━━━<br/>Physical Properties:<br/>• Mass (kg) - Auto-compute<br/>• Center of Mass (m) - Centroid<br/>• Inertia Tensor (kg·m²) - Export<br/>• Joint Axes - Assembly constraints<br/>• Material Density (g/cm³) - Lookup"]
+
+    Mesh["Mesh Export<br/>━━━━━━━━━━<br/>Visual Mesh:<br/>• Detailed STL (10,000+ vertices)<br/>• For rendering/display<br/><br/>Collision Mesh:<br/>• Simplified convex hull (500 vertices)<br/>• For physics computation"]
+
+    URDF["URDF/MJCF Creation<br/>━━━━━━━━━━<br/>XML Structure:<br/>• &lt;link&gt; ← Geometry + Inertia<br/>• &lt;joint&gt; ← Axes + Limits<br/>• &lt;collision&gt; ← Simplified mesh<br/>• &lt;visual&gt; ← Detailed mesh<br/>• &lt;inertial&gt; ← Mass + CoM + Tensor"]
+
+    Sim["Simulation Testing<br/>━━━━━━━━━━<br/>Platforms:<br/>• Gazebo / MuJoCo / Isaac Sim<br/>Tests:<br/>• Forward kinematics accuracy<br/>• Dynamic motion validation<br/>• Contact force verification"]
+
+    Decision{"Behavior<br/>Matches<br/>Expected?"}
+
+    Refine["Refine Parameters<br/>━━━━━━━━━━<br/>Common Adjustments:<br/>• Friction (increase 2-5×)<br/>• Damping (add joint damping)<br/>• Inertia (verify calculations)<br/>• Compliance (add virtual springs)"]
+
+    Build["Physical Build<br/>━━━━━━━━━━<br/>Validated Design:<br/>• CNC machining<br/>• 3D printing<br/>• Assembly with fixtures<br/>• Install actuators & sensors"]
+
+    CAD -->|Export STEP/STL| Extract
+    Extract -->|Properties extracted| Mesh
+    Mesh -->|Files ready| URDF
+    URDF -->|Load model| Sim
+    Sim -->|Test results| Decision
+    Decision -->|No - Mismatch| Refine
+    Refine -->|Update parameters| URDF
+    Decision -->|Yes - Match| Build
+    Build -.->|Empirical data| Refine
+```
+
+**Figure 4: Physical-to-Simulation Mapping Flowchart**
+
+Complete workflow from CAD design to physical build, showing the iterative refinement loop between simulation and reality. Critical parameters (mass, inertia, friction) are extracted from CAD, encoded in URDF/MJCF, validated in simulation, and refined based on testing.

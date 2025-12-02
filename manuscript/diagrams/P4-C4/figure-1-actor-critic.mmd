@@ -1,0 +1,16 @@
+graph TD
+    A[Actor-Critic Method] --> B[Actor<br/>Policy Network]
+    A --> C[Critic<br/>Value Network]
+    B --> D[Actions]
+    C --> E[Value Estimates]
+    D --> F[Environment]
+    F --> G[Rewards, Next State]
+    G --> H[Advantage Function<br/>Q - V]
+    H --> I[Update Actor<br/>Increase Good Actions]
+    E --> J[Update Critic<br/>Improve Value Estimates]
+    
+    style A fill:#4A90E2,stroke:#2E5C8A,color:#fff
+    style B fill:#E8F4F8,stroke:#4A90E2
+    style C fill:#F0F8E8,stroke:#7CB342
+    style H fill:#FFF3E0,stroke:#FF9800
+

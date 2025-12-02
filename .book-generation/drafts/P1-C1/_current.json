@@ -1,0 +1,25 @@
+{
+  "current_version": "v002",
+  "chapter": "P1-C1",
+  "last_updated": "2025-11-30T00:00:00Z",
+  "status": "ready_for_review",
+  "version_history": [
+    {
+      "version": "v001",
+      "created": "2025-11-30",
+      "summary": "Initial prose draft transformed from lesson plan",
+      "word_count": 5106,
+      "agent": "writer-agent",
+      "skill_used": "prose-generation"
+    },
+    {
+      "version": "v002",
+      "created": "2025-11-30",
+      "summary": "Major revision addressing editorial feedback: Added 6 missing constitutional sections, improved readability (Flesch 18.7→52), shortened sentences (28→18 words), added citations and visual formatting",
+      "word_count": 6847,
+      "agent": "writer-agent",
+      "skill_used": "prose-generation",
+      "issues_addressed": ["P0-missing-sections", "P1-readability", "P1-citations", "P1-text-walls"]
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "version": "v001",
+  "agent": "book-editor",
+  "created": "2025-12-01T09:15:00Z",
+  "chapter": "P6-C1",
+  "inputs": {
+    "draft_version": "v001",
+    "draft_path": ".book-generation/drafts/P6-C1/v001/",
+    "research_path": ".book-generation/research/build-mobile-robot/v001/",
+    "passes_requested": ["all"]
+  },
+  "outputs": {
+    "file": "review.md",
+    "total_changes": 7,
+    "blocking_issues": 0,
+    "major_issues": 1,
+    "minor_issues": 6
+  },
+  "metrics": {
+    "before": {
+      "flesch_score": 57,
+      "passive_voice_pct": 18,
+      "citation_coverage_pct": 40
+    },
+    "after": {
+      "flesch_score": 57,
+      "passive_voice_pct": 18,
+      "citation_coverage_pct": 75
+    },
+    "changes_by_category": {
+      "grammar": 0,
+      "citations": 4,
+      "clarity": 1,
+      "consistency": 2,
+      "factual": 2
+    }
+  },
+  "comparison": {
+    "previous_version": null,
+    "changes": [
+      "Initial editorial review completed",
+      "6-pass system applied",
+      "Quality score: 91/100"
+    ],
+    "improvements": [
+      "Identified citation gaps",
+      "Noted terminology inconsistencies",
+      "Verified mathematical accuracy"
+    ],
+    "regressions": []
+  },
+  "quality_score": {
+    "structure": 95,
+    "content_quality": 95,
+    "citations": 70,
+    "consistency": 90,
+    "visual_formatting": 92,
+    "factual_accuracy": 85,
+    "overall": 91
+  },
+  "approval_status": "ApprovedWithMinorRevisions",
+  "constitutional_violations": [],
+  "skill_applied": "content-editing",
+  "skill_version": "1.3.0"
+}
+
+

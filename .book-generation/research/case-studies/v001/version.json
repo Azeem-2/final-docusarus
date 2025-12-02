@@ -1,0 +1,16 @@
+{
+  "version": "v001",
+  "created": "2025-12-01",
+  "agent": "research-agent",
+  "chapter_id": "P5-C7",
+  "title": "Case Studies",
+  "status": "scaffold_complete",
+  "sources": {
+    "mcp_firecrawl": [
+      "https://www.tesla.com/AI",
+      "https://robotsguide.com/robots/figure",
+      "https://robotsguide.com/robots/atlas"
+    ]
+  }
+}
+

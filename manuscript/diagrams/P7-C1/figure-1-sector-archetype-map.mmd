@@ -1,0 +1,64 @@
+```mermaid
+graph LR
+    subgraph Manufacturing
+        M1[Welding & Cutting]
+        M2[Assembly & Machine Tending]
+        M3[Material Handling & Palletizing]
+        M4[Inspection & QC]
+        M5[Painting & Coating]
+    end
+
+    subgraph Logistics & Warehousing
+        L1[AMRs & AGVs]
+        L2[Goods-to-Person Systems]
+        L3[Robotic Picking]
+        L4[Logistics Inspection]
+    end
+
+    subgraph Healthcare & Pharma
+        H1[Hospital Logistics Robots]
+        H2[Lab Automation]
+        H3[Sterile Filling & Packaging]
+    end
+
+    subgraph Food & Beverage
+        F1[Food Handling & Sorting]
+        F2[Hygienic Packaging]
+        F3[Food Palletizing]
+    end
+
+    subgraph Construction & Agriculture
+        C1[Bricklaying & Concrete Printing]
+        C2[Field Robots & Harvesting]
+    end
+
+    %% Cross-cutting archetypes
+    MH[Material Handling]
+    WELD[Welding/Cutting]
+    ASSY[Assembly/Tending]
+    INSP[Inspection/QC]
+    LOGI[Logistics Tasks]
+
+    MH --- M3
+    MH --- L2
+    MH --- F1
+
+    WELD --- M1
+    ASSY --- M2
+    ASSY --- L3
+
+    INSP --- M4
+    INSP --- F2
+    INSP --- H2
+
+    LOGI --- L1
+    LOGI --- H1
+
+    classDef sector fill:#1f77b4,stroke:#0d3d73,color:#fff;
+    classDef archetype fill:#ff7f0e,stroke:#a7550a,color:#fff,stroke-width:1px;
+
+    class M1,M2,M3,M4,M5,L1,L2,L3,L4,H1,H2,H3,F1,F2,F3,C1,C2 sector;
+    class MH,WELD,ASSY,INSP,LOGI archetype;
+```
+
+

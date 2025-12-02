@@ -1,0 +1,17 @@
+%% Figure 3 – Actuator saturation and effect on control
+flowchart LR
+    subgraph Commands
+        C1[Low command\nwithin limits]:::ok --> A1[Actuator\noutputs requested torque]:::ok
+        C2[High command\nhits limit]:::sat --> A2[Actuator\nclipped at max torque]:::sat
+    end
+
+    subgraph Effects
+        A1 --> E1[Linear-like response\npredictable behavior]:::ok
+        A2 --> E2[Nonlinear behavior\nintegrator windup,\nlonger settling time]:::warn
+    end
+
+    classDef ok fill:#d3f9d8,stroke:#2b8a3e,color:#000000;
+    classDef sat fill:#ffc9c9,stroke:#c92a2a,color:#000000;
+    classDef warn fill:#fff3bf,stroke:#f08c00,color:#000000;
+
+

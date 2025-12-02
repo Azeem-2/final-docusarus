@@ -1,0 +1,18 @@
+graph TD
+    A[Task: Navigate to Goal] --> B[Reward Components]
+    B --> C[Progress Reward<br/>-distance to goal]
+    B --> D[Collision Penalty<br/>-100 if hit]
+    B --> E[Action Penalty<br/>-0.1 per step]
+    B --> F[Success Bonus<br/>+100 at goal]
+    
+    G[Poor Reward Design] --> H[Only speed reward]
+    H --> I[Robot crashes<br/>into obstacles]
+    
+    J[Good Reward Design] --> K[Balanced components]
+    K --> L[Safe, efficient<br/>navigation]
+    
+    style A fill:#4A90E2,stroke:#2E5C8A,color:#fff
+    style B fill:#E8F4F8,stroke:#4A90E2
+    style G fill:#FFEBEE,stroke:#E53935
+    style J fill:#E8F5E9,stroke:#4CAF50
+

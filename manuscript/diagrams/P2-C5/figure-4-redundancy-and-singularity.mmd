@@ -1,0 +1,20 @@
+%% Figure 4: Redundancy and Singularity (Conceptual)
+flowchart TD
+  subgraph Redundant["Redundant Configurations"]
+    R1[Elbow-Up\nPose] --> P[(Same\nEnd-Effector\nPosition)]
+    R2[Elbow-Down\nPose] --> P
+  end
+
+  subgraph Singular["Singular Configuration"]
+    S1[Arm Fully\nStretched]
+  end
+
+  classDef config fill=#fff3e0,stroke:#ef6c00,stroke-width:1px;
+  classDef ee fill=#e3f2fd,stroke:#1565c0,stroke-width:1px;
+  classDef sing fill=#ffebee,stroke:#c62828,stroke-width:1px;
+
+  class R1,R2 config;
+  class P ee;
+  class S1 sing;
+
+

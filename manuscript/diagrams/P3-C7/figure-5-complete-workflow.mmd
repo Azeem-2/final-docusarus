@@ -1,0 +1,23 @@
+graph TD
+    A[Complete Sim-to-Real Workflow] --> B[1. Train in Simulation<br/>Domain Randomization]
+    B --> C[2. Sim-to-Sim Validation<br/>Test Across Simulators]
+    C --> D[3. System Identification<br/>Calibrate Simulation]
+    D --> E[4. Teacher-Student<br/>Remove Privileged Obs]
+    E --> F[5. Deploy to Physical<br/>Safety Mechanisms]
+    F --> G[6. Collect Real Data<br/>Successes + Failures]
+    G --> H[7. Fine-Tune Policy<br/>Adapt with Real Data]
+    H --> I[8. Iterate<br/>Deploy → Collect → Improve]
+    I --> F
+    
+    J[Safety Mechanisms] --> K[Torque Limits]
+    J --> L[Attitude Protection]
+    J --> M[Joint Mapping Verification]
+    J --> N[Emergency Stops]
+    
+    style A fill:#4A90E2,stroke:#2E5C8A,color:#fff
+    style B fill:#E8F4F8,stroke:#4A90E2
+    style C fill:#F0F8E8,stroke:#7CB342
+    style F fill:#FFEBEE,stroke:#E53935
+    style H fill:#E8F5E9,stroke:#4CAF50
+    style J fill:#FFF3E0,stroke:#FF9800
+

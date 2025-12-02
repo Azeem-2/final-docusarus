@@ -1,0 +1,14 @@
+graph TD
+    A[Grasp Planning] --> B[Object Recognition<br/>Identify Object]
+    B --> C[Grasp Synthesis<br/>Generate Grasp Candidates]
+    C --> D[Grasp Evaluation<br/>Assess Quality]
+    D --> E[Select Best Grasp<br/>Execute]
+    
+    F[Evaluation Criteria] --> G[Stability<br/>Reachability<br/>Robustness]
+    
+    style A fill:#4A90E2,stroke:#2E5C8A,color:#fff
+    style B fill:#E8F4F8,stroke:#4A90E2
+    style C fill:#F0F8E8,stroke:#7CB342
+    style D fill:#FFF3E0,stroke:#FF9800
+    style E fill:#E8F5E9,stroke:#4CAF50
+

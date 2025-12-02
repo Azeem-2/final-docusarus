@@ -1,0 +1,19 @@
+﻿{
+  "compliant": false,
+  "violations": [
+    {
+      "article_number": 7,
+      "article_name": "Article 7: Chapter Format",
+      "violation_description": "Missing required sections: Introduction, Motivation, Learning Objectives, Key Terms, Physical Explanation, Simulation Explanation, Integrated Understanding, Diagrams, Labs, Mini Projects, Applications, Summary, Review Questions",
+      "content_location": "Chapter structure",
+      "severity": "Critical"
+    }
+  ],
+  "suggestions": [
+    "Add the following sections to comply with Article 7: Introduction, Motivation, Learning Objectives, Key Terms, Physical Explanation, Simulation Explanation, Integrated Understanding, Diagrams, Labs, Mini Projects, Applications, Summary, Review Questions"
+  ],
+  "file": "G:\\book_gen\\universal-pedagogical-engine-main\\.book-generation\\drafts\\P1-C1\\v001\\draft.md",
+  "total_violations": 1,
+  "critical_count": 1,
+  "warning_count": 0
+}

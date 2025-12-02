@@ -1,0 +1,16 @@
+{
+  "current_version": "v001",
+  "chapter": "P6-C1",
+  "last_updated": "2025-12-01T08:45:00Z",
+  "version_history": [
+    {
+      "version": "v001",
+      "created": "2025-12-01T08:45:00Z",
+      "summary": "Initial lesson content - 6-part structure, comprehensive coverage of mobile robot building",
+      "parts": 6,
+      "word_count": 3500
+    }
+  ]
+}
+
+

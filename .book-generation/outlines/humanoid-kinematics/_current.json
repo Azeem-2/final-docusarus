@@ -1,0 +1,16 @@
+{
+  "current_version": "v001",
+  "book": "humanoid-kinematics",
+  "last_updated": "2025-11-30T00:00:00Z",
+  "version_history": [
+    {
+      "version": "v001",
+      "created": "2025-11-30T00:00:00Z",
+      "summary": "Initial outline for P5-C1 Humanoid Kinematics & Dynamics",
+      "chapter_count": 1,
+      "section_count": 16,
+      "word_count": 9450,
+      "dual_domain_balance": 0.72
+    }
+  ]
+}

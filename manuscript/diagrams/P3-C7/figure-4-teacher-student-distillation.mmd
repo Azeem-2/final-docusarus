@@ -1,0 +1,25 @@
+graph TD
+    A[Teacher Policy] --> B[Trained with<br/>Privileged Observations]
+    B --> C[High Performance<br/>in Simulation]
+    
+    D[Student Policy] --> E[Trained to Mimic<br/>Teacher Behavior]
+    E --> F[Uses Only<br/>Real-Sensor Observations]
+    
+    G[Distillation Process] --> H[1. Train Teacher<br/>with Privileged Info]
+    H --> I[2. Collect Teacher Actions<br/>on Real-Sensor States]
+    I --> J[3. Train Student via<br/>Behavior Cloning]
+    J --> K[4. Fine-Tune Student<br/>with RL]
+    
+    L[Privileged Observations] --> M[Ground Truth Velocities]
+    L --> N[Contact Forces]
+    L --> O[Perfect State Estimates]
+    
+    P[Real Sensors] --> Q[Joint Angles]
+    P --> R[IMU Data]
+    P --> S[Camera Images]
+    
+    style A fill:#4A90E2,stroke:#2E5C8A,color:#fff
+    style D fill:#E8F4F8,stroke:#4A90E2
+    style C fill:#E8F5E9,stroke:#4CAF50
+    style K fill:#E8F5E9,stroke:#4CAF50
+

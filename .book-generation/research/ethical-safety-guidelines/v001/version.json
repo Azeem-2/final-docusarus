@@ -1,0 +1,40 @@
+{
+  "version": "v001",
+  "agent": "research-agent",
+  "created": "2025-12-02T03:40:00Z",
+  "topic": "ethical-safety-guidelines",
+  "inputs": {
+    "research_question": "What are the ethical principles, safety guidelines, and responsible development practices for Physical AI, Simulation AI, and Humanoid Robotics?",
+    "scope": "Part 7, Chapter 4 - Ethical & Safety Guidelines",
+    "time_budget": "3-4 hours",
+    "mcp_servers_used": ["firecrawl", "context7"]
+  },
+  "outputs": {
+    "file": "research.md",
+    "word_count": 3000,
+    "source_count": {
+      "tier1": 7,
+      "tier2": 3,
+      "total": 10
+    }
+  },
+  "metrics": {
+    "time_spent_hours": 2.0,
+    "tier1_percentage": 70,
+    "claims_with_multiple_sources": 14,
+    "gaps_identified": 6
+  },
+  "comparison": {
+    "previous_version": null,
+    "changes": [],
+    "improvements": [],
+    "regressions": []
+  },
+  "quality_score": {
+    "source_quality": 85,
+    "coverage": 82,
+    "synthesis": 78,
+    "overall": 82
+  }
+}
+

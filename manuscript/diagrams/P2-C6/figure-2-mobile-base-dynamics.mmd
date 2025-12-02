@@ -1,0 +1,18 @@
+%% Figure 2: Dynamics of a Differential-Drive Base (Conceptual)
+flowchart TD
+  BASE[Robot Base\n(mass m)] --> V[Velocity v]
+  W1((Wheel L)) --> BASE
+  W2((Wheel R)) --> BASE
+  F1[Drive Force L] --> W1
+  F2[Drive Force R] --> W2
+  Rz[Turning\n(moment)] --> BASE
+
+  classDef base fill=#e3f2fd,stroke:#1565c0,stroke-width:1px;
+  classDef wheel fill=#e8f5e9,stroke:#2e7d32,stroke-width:1px;
+  classDef force fill=#fff3e0,stroke:#ef6c00,stroke-width:1px;
+
+  class BASE,V base;
+  class W1,W2 wheel;
+  class F1,F2,Rz force;
+
+

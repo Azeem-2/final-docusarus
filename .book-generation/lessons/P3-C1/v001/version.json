@@ -1,0 +1,117 @@
+{
+  "version": "v001",
+  "chapter_code": "P3-C1",
+  "chapter_title": "Physics Engines for Robotics Simulation",
+  "created_date": "2025-11-30",
+  "agent": "lesson-planner",
+  "word_count": 8500,
+  "lesson_count": 9,
+  "pedagogical_layers": {
+    "layer_1_manual_foundation": {
+      "lessons": [1, 2],
+      "description": "Manual learning only - rigid body dynamics and contact dynamics"
+    },
+    "layer_2_ai_collaboration": {
+      "lessons": [3, 4, 5, 6, 7],
+      "description": "Full AI support - MuJoCo, PyBullet, Isaac Lab, validation, randomization"
+    },
+    "layer_3_intelligence_design": {
+      "lessons": [8],
+      "description": "Component specification - multi-engine validation protocol"
+    },
+    "layer_4_spec_driven_integration": {
+      "lessons": [9],
+      "description": "Capstone - specification-first orchestration workflow"
+    }
+  },
+  "input_files": {
+    "structure": ".book-generation/structures/P3-C1/v001/structure.md",
+    "research": ".book-generation/research/physics-engines/v001/research.md",
+    "outline": ".book-generation/outlines/physics-engines/v001/outline.md",
+    "constitution": ".specify/memory/constitution.md"
+  },
+  "lesson_structure": {
+    "part_1_hook": "Diagnostic assessment with AI Evaluator role",
+    "part_2_concept": "Theory with AI Tutor (Lessons 3-9 only)",
+    "part_3_walkthrough": "Guided practice with AI Collaboration (Lessons 3-9 only)",
+    "part_4_challenge": "SDD-RI practice with AI Generator + Grader (Lessons 3-9 only)",
+    "part_5_takeaways": "Retention with AI Partner (Lessons 3-9 only)",
+    "part_6_reusable_intelligence": "RI component output for all lessons"
+  },
+  "ai_integration_summary": {
+    "lesson_1": {
+      "layer": 1,
+      "ai_roles": ["Evaluator"],
+      "restriction": "Manual learning only in Parts 2-6"
+    },
+    "lesson_2": {
+      "layer": 1,
+      "ai_roles": ["Evaluator"],
+      "restriction": "Manual learning only in Parts 2-6"
+    },
+    "lesson_3": {
+      "layer": 2,
+      "ai_roles": ["Evaluator", "Tutor", "Code Refiner", "Contextual Debugger", "System Analyzer", "Generator", "Grader", "Retention Partner", "Apprentice"],
+      "ri_component": "MuJoCo Model Generator skill"
+    },
+    "lesson_4": {
+      "layer": 2,
+      "ai_roles": ["Evaluator", "Tutor", "Code Refiner", "Contextual Debugger", "System Analyzer", "Generator", "Grader", "Retention Partner", "Apprentice"],
+      "ri_component": "PyBullet Gym Environment Generator skill"
+    },
+    "lesson_5": {
+      "layer": 2,
+      "ai_roles": ["Evaluator", "Tutor", "Code Refiner", "Contextual Debugger", "System Analyzer", "Generator", "Grader", "Retention Partner", "Apprentice"],
+      "ri_component": "GPU-Parallel Environment Scaler skill"
+    },
+    "lesson_6": {
+      "layer": 2,
+      "ai_roles": ["Evaluator", "Tutor", "Code Refiner", "Contextual Debugger", "System Analyzer", "Generator", "Grader", "Retention Partner", "Apprentice"],
+      "ri_component": "Reality Gap Analyzer skill"
+    },
+    "lesson_7": {
+      "layer": 2,
+      "ai_roles": ["Evaluator", "Tutor", "Code Refiner", "Contextual Debugger", "System Analyzer", "Generator", "Grader", "Retention Partner", "Apprentice"],
+      "ri_component": "Domain Randomization Config Generator skill"
+    },
+    "lesson_8": {
+      "layer": 3,
+      "ai_roles": ["Evaluator", "Tutor", "Code Refiner", "Contextual Debugger", "System Analyzer", "Generator", "Grader", "Retention Partner", "Apprentice"],
+      "ri_component": "Multi-Engine Validation Orchestrator (full component specification)"
+    },
+    "lesson_9": {
+      "layer": 4,
+      "ai_roles": ["Evaluator", "Tutor", "Co-Designer", "System Analyzer", "Orchestrator", "Grader", "Retention Partner", "Apprentice"],
+      "ri_component": "Physics Simulation Orchestrator (master skill)"
+    }
+  },
+  "constitutional_compliance": {
+    "dual_domain_balance": "45% Physical (Lessons 1-2), 55% Simulation (Lessons 3-9)",
+    "all_14_sections": true,
+    "safety_emphasis": "Included in physical validation protocols",
+    "clarity_standard": "First principles approach, no unexplained jargon",
+    "accuracy_standard": "Aligned with research findings (MuJoCo, PyBullet, Isaac Lab papers)",
+    "practicality": "9 hands-on lessons with implementations",
+    "modernity": "2024-2025 platforms (Isaac Lab, MuJoCo open-source era)"
+  },
+  "key_features": {
+    "diagrams_specified": 5,
+    "code_examples": "Python (MuJoCo, PyBullet, Isaac Lab)",
+    "labs": "Simulation + Physical validation guidance",
+    "grading_system": "Dual grading (40% Code Quality, 60% Spec Alignment)",
+    "sdd_ri_progression": "Mental blueprints (L1-2) → Skills (L3-7) → Component (L8) → Master orchestrator (L9)"
+  },
+  "validation": {
+    "word_count_target": "8000-9000",
+    "word_count_actual": 8500,
+    "lesson_count": 9,
+    "constitutional_sections": 14,
+    "ai_touchpoints_per_lesson": 6,
+    "manual_foundation_lessons": 2,
+    "ai_collaboration_lessons": 5,
+    "intelligence_design_lessons": 1,
+    "capstone_lessons": 1
+  },
+  "next_agent": "writer-agent",
+  "next_agent_task": "Transform lesson content into publication-ready prose using prose-generation skill"
+}

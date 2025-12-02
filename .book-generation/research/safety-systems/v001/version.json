@@ -1,0 +1,14 @@
+{
+  "version": "v001",
+  "created": "2025-12-01",
+  "agent": "research-agent",
+  "chapter_id": "P5-C6",
+  "title": "Safety Systems",
+  "status": "scaffold_complete",
+  "sources": {
+    "mcp_firecrawl": [
+      "https://www.mdpi.com/2079-9292/14/23/4734"
+    ]
+  }
+}
+

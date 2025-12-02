@@ -1,0 +1,16 @@
+{
+  "version": "v001",
+  "agent": "chapter-structure-architect",
+  "created": "2025-12-01T00:00:00Z",
+  "chapter_id": "P3-C2",
+  "title": "Environment Modeling",
+  "inputs": {
+    "outline_path": ".book-generation/outlines/environment-modeling/v001/outline.md"
+  },
+  "outputs": {
+    "file": "structure.md",
+    "lessons": 3
+  }
+}
+
+

@@ -1,0 +1,285 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Chapter Metadata Schema",
+  "description": "Metadata template for book chapters tracking status, validation, and content attributes",
+  "type": "object",
+  "required": ["chapter_id", "title", "part", "status", "created", "updated"],
+  "properties": {
+    "chapter_id": {
+      "type": "string",
+      "pattern": "^P[1-7]-C[0-9]{1,2}$",
+      "description": "Unique chapter identifier (format: P{part}-C{chapter}, e.g., P1-C1, P2-C10)",
+      "examples": ["P1-C1", "P2-C5", "P7-C4"]
+    },
+    "title": {
+      "type": "string",
+      "minLength": 3,
+      "maxLength": 100,
+      "description": "Chapter title",
+      "examples": ["What is Physical AI", "Kinematics and Dynamics"]
+    },
+    "part": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 7,
+      "description": "Part number (1-7)"
+    },
+    "chapter_number": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "Chapter number within part"
+    },
+    "status": {
+      "type": "string",
+      "enum": ["Planned", "Research", "Outline", "Structure", "Lesson", "Draft", "Review", "Published"],
+      "description": "Current stage in the 6-agent pipeline",
+      "default": "Planned"
+    },
+    "created": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO 8601 timestamp when chapter was created"
+    },
+    "updated": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO 8601 timestamp when chapter was last updated"
+    },
+    "version": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "Version number (incremented on each major revision)",
+      "default": 1
+    },
+    "word_count": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Total word count in final draft"
+    },
+    "concept_density": {
+      "type": "number",
+      "minimum": 0,
+      "description": "Calculated concept density score (CD formula from research.md)"
+    },
+    "concept_density_class": {
+      "type": "string",
+      "enum": ["Low", "Medium", "High"],
+      "description": "Classification based on concept density score"
+    },
+    "agents_completed": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "research-agent",
+          "outliner-agent",
+          "chapter-structure-architect",
+          "lesson-planner",
+          "writer-agent",
+          "book-editor"
+        ]
+      },
+      "description": "List of agents that have successfully completed their tasks"
+    },
+    "validation_results": {
+      "type": "object",
+      "description": "Results from automated validators",
+      "properties": {
+        "constitutional_compliant": {
+          "type": "boolean",
+          "description": "Passed constitutional compliance check"
+        },
+        "dual_domain_present": {
+          "type": "boolean",
+          "description": "Dual-domain integration verified"
+        },
+        "dual_domain_balance_score": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "description": "Balance ratio (min/max of physical vs simulation keywords)"
+        },
+        "safety_compliant": {
+          "type": "boolean",
+          "description": "Safety warnings present in physical labs"
+        },
+        "citations_valid": {
+          "type": "boolean",
+          "description": "Citation standards met (Tier 1/2, no Wikipedia)"
+        },
+        "tier1_citation_count": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Count of Tier 1 academic citations"
+        },
+        "readability_passed": {
+          "type": "boolean",
+          "description": "Readability metrics in target range"
+        },
+        "flesch_kincaid_grade": {
+          "type": "number",
+          "description": "FK Grade Level score"
+        },
+        "flesch_reading_ease": {
+          "type": "number",
+          "description": "Flesch Reading Ease score"
+        }
+      }
+    },
+    "content_attributes": {
+      "type": "object",
+      "description": "Content-specific metadata",
+      "properties": {
+        "diagram_count": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Total number of diagrams (minimum 4 required)"
+        },
+        "lab_count": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Number of labs (2 required: 1 simulation, 1 physical)"
+        },
+        "has_simulation_lab": {
+          "type": "boolean",
+          "description": "Simulation lab present"
+        },
+        "has_physical_lab": {
+          "type": "boolean",
+          "description": "Physical lab present"
+        },
+        "mini_project_count": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Number of mini-projects (1 required)"
+        },
+        "example_count": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Number of examples (2 required)"
+        },
+        "review_questions_count": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Number of review questions"
+        }
+      }
+    },
+    "agent_outputs": {
+      "type": "object",
+      "description": "Paths to agent output files",
+      "properties": {
+        "research_output": {
+          "type": "string",
+          "description": "Path to research-agent output (e.g., .book-generation/research/{topic}/v{NNN}/)"
+        },
+        "outline_output": {
+          "type": "string",
+          "description": "Path to outliner-agent output"
+        },
+        "structure_output": {
+          "type": "string",
+          "description": "Path to chapter-structure-architect output"
+        },
+        "lesson_output": {
+          "type": "string",
+          "description": "Path to lesson-planner output"
+        },
+        "draft_output": {
+          "type": "string",
+          "description": "Path to writer-agent output"
+        },
+        "review_output": {
+          "type": "string",
+          "description": "Path to book-editor output"
+        }
+      }
+    },
+    "glossary_terms": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "List of technical terms introduced in this chapter (added to master glossary)"
+    },
+    "dependencies": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^P[1-7]-C[0-9]{1,2}$"
+      },
+      "description": "Chapter IDs that should be completed before this one (prerequisite knowledge)"
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Categorical tags (e.g., ['kinematics', 'simulation', 'beginner'])"
+    },
+    "notes": {
+      "type": "string",
+      "description": "Freeform notes or special instructions"
+    }
+  },
+  "examples": [
+    {
+      "chapter_id": "P1-C1",
+      "title": "What is Physical AI",
+      "part": 1,
+      "chapter_number": 1,
+      "status": "Published",
+      "created": "2025-11-30T10:00:00Z",
+      "updated": "2025-12-15T14:30:00Z",
+      "version": 1,
+      "word_count": 3200,
+      "concept_density": 0.06,
+      "concept_density_class": "Medium",
+      "agents_completed": [
+        "research-agent",
+        "outliner-agent",
+        "chapter-structure-architect",
+        "lesson-planner",
+        "writer-agent",
+        "book-editor"
+      ],
+      "validation_results": {
+        "constitutional_compliant": true,
+        "dual_domain_present": true,
+        "dual_domain_balance_score": 0.92,
+        "safety_compliant": true,
+        "citations_valid": true,
+        "tier1_citation_count": 12,
+        "readability_passed": true,
+        "flesch_kincaid_grade": 13.2,
+        "flesch_reading_ease": 54.3
+      },
+      "content_attributes": {
+        "diagram_count": 5,
+        "lab_count": 2,
+        "has_simulation_lab": true,
+        "has_physical_lab": true,
+        "mini_project_count": 1,
+        "example_count": 3,
+        "review_questions_count": 10
+      },
+      "agent_outputs": {
+        "research_output": ".book-generation/research/what-is-physical-ai/v001/",
+        "outline_output": ".book-generation/outlines/what-is-physical-ai/v001/",
+        "structure_output": ".book-generation/structures/P1-C1/v001/",
+        "lesson_output": ".book-generation/lessons/P1-C1/v001/",
+        "draft_output": ".book-generation/drafts/P1-C1/v001/",
+        "review_output": ".book-generation/reviews/P1-C1/v001/"
+      },
+      "glossary_terms": [
+        "Physical AI",
+        "Embodied Intelligence",
+        "Sim-to-Real Transfer",
+        "Digital Twin"
+      ],
+      "dependencies": [],
+      "tags": ["foundations", "beginner", "dual-domain"],
+      "notes": "Pilot chapter - used to validate agent pipeline"
+    }
+  ]
+}

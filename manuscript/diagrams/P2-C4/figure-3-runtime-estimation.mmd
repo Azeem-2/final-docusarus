@@ -1,0 +1,15 @@
+%% Figure 3: Conceptual Runtime Estimation Flow
+flowchart TD
+  A[Power Budget\n(average power per load)] --> B[Total Avg Power\nP_avg]
+  B --> C[Battery Pack Spec\n(V, Ah)]
+  C --> D[Stored Energy\nE ≈ V × Ah]
+  D --> E[Runtime Estimate\nt ≈ E × η / P_avg]
+  E --> F[Check Against\nMission Requirements]
+
+  classDef step fill=#e3f2fd,stroke:#1565c0,stroke-width:1px;
+  classDef decision fill=#fff3e0,stroke:#ef6c00,stroke-width:1px;
+
+  class A,B,C,D,E step;
+  class F decision;
+
+

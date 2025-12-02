@@ -1,0 +1,37 @@
+```mermaid
+flowchart LR
+    subgraph Warehouse
+        ORD[Orders\n(WMS/ERP)]
+        INV[Inventory\nRacks/Totes]
+        AMR[AMR Fleet\nNavigation, SLAM]
+        STN[Picking Stations]
+        ARM[Robotic Arms\nat Stations]
+        PACK[Packing & Sorting]
+        SHIP[Shipping Dock]
+    end
+
+    ORD -->|Tasks & Routes| AMR
+    INV -->|Shelves/Totes| AMR
+    AMR -->|Brings totes| STN
+    STN --> ARM
+    ARM --> PACK
+    PACK --> SHIP
+
+    subgraph Cloud / Control
+        CTRL[Fleet Manager\n& Scheduler]
+        ANALYTICS[Analytics & Monitoring]
+    end
+
+    ORD --> CTRL
+    AMR <-->|Missions| CTRL
+    CTRL --> ANALYTICS
+    PACK --> ANALYTICS
+
+    classDef node fill:#4e79a7,stroke:#2f4f73,color:#fff;
+    classDef ctrl fill:#f28e2c,stroke:#a86019,color:#fff;
+
+    class ORD,INV,AMR,STN,ARM,PACK,SHIP node;
+    class CTRL,ANALYTICS ctrl;
+```
+
+

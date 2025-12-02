@@ -1,0 +1,23 @@
+graph TD
+    A[Simulation Training<br/>95% Success] --> B[Reality Gap]
+    B --> C[Physical Deployment<br/>60% Success]
+    
+    D[Gap Sources] --> E[Modeling Inaccuracies<br/>Contact, Friction, Cables]
+    D --> F[Unmodeled Dynamics<br/>Wear, Temperature]
+    D --> G[Sensor Differences<br/>Noise, Calibration]
+    D --> H[Actuator Dynamics<br/>Delays, Limits]
+    D --> I[Environmental Variations<br/>Lighting, Surfaces]
+    
+    J[Techniques to Bridge Gap] --> K[Domain Randomization]
+    J --> L[System Identification]
+    J --> M[Sim-to-Sim Validation]
+    J --> N[Fine-Tuning]
+    
+    style A fill:#4A90E2,stroke:#2E5C8A,color:#fff
+    style B fill:#FFEBEE,stroke:#E53935
+    style C fill:#FFF3E0,stroke:#FF9800
+    style K fill:#E8F5E9,stroke:#4CAF50
+    style L fill:#E8F5E9,stroke:#4CAF50
+    style M fill:#E8F5E9,stroke:#4CAF50
+    style N fill:#E8F5E9,stroke:#4CAF50
+

@@ -1,0 +1,48 @@
+graph TD
+    Start["Start: Define<br/>Vision Task"] --> SimEnv["Create Simulation<br/>Environment<br/>(Isaac Sim)"]
+
+    SimEnv --> DR["Apply Domain<br/>Randomization"]
+
+    subgraph "Domain Randomization"
+        DR --> L["Lighting<br/>(100-10,000 lux)"]
+        DR --> Tex["Textures<br/>(100+ materials)"]
+        DR --> Cam["Camera Params<br/>(±20% exposure)"]
+        DR --> Pos["Object Poses<br/>(Random 6-DOF)"]
+    end
+
+    L --> GenData["Generate Synthetic<br/>Training Data<br/>(10K+ images)"]
+    Tex --> GenData
+    Cam --> GenData
+    Pos --> GenData
+
+    GenData --> Train["Train Vision<br/>Model<br/>(YOLO/SAM/DepthNet)"]
+
+    Train --> EvalSim["Evaluate on<br/>Synthetic Test Set<br/>(mAP_sim)"]
+
+    EvalSim --> Transfer["Transfer Model<br/>to Real Hardware"]
+
+    Transfer --> EvalReal["Evaluate on<br/>Real Test Set<br/>(mAP_real)"]
+
+    EvalReal --> Gap{Sim-to-Real<br/>Gap Check}
+
+    Gap -->|"Gap > 10%"| Diagnose["Diagnose:<br/>• Insufficient randomization<br/>• Unrealistic simulation<br/>• Missing noise models"]
+
+    Diagnose --> Improve["Improve<br/>Randomization<br/>Strategy"]
+
+    Improve --> DR
+
+    Gap -->|"Gap ≤ 10%"| Deploy["Deploy to<br/>Physical Robot<br/>✓ Success"]
+
+    subgraph "Validation Metrics"
+        EvalSim
+        EvalReal
+        Gap
+    end
+
+    style Start fill:#e1f5ff
+    style SimEnv fill:#fff3cd
+    style DR fill:#d4edda
+    style Train fill:#f8d7da
+    style Gap fill:#ffeaa7
+    style Deploy fill:#55efc4
+    style Diagnose fill:#ff7675

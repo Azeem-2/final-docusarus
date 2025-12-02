@@ -1,0 +1,16 @@
+{
+  "version": "v001",
+  "agent": "outliner-agent",
+  "created": "2025-12-01T00:00:00Z",
+  "chapter_id": "P1-C2",
+  "inputs": {
+    "research_file": ".book-generation/research/robotics-vs-ai/v001/research.md",
+    "target_word_count": "7000-9000"
+  },
+  "outputs": {
+    "file": "outline.md",
+    "section_count": 14
+  }
+}
+
+

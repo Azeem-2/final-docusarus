@@ -1,0 +1,29 @@
+{
+  "version": "v001",
+  "agent": "book-editor",
+  "created": "2025-12-01T00:00:00Z",
+  "chapter": "P1-C5",
+  "inputs": {
+    "draft_version": "v002",
+    "draft_path": ".book-generation/drafts/P1-C5/v002/",
+    "passes_requested": ["structure", "content", "consistency"]
+  },
+  "outputs": {
+    "file": "review.md",
+    "total_changes": 0,
+    "blocking_issues": 0
+  },
+  "approval_status": "ApprovedWithMinorRevisions",
+  "metrics": {
+    "before": {
+      "flesch_score": 55,
+      "passive_voice_pct": 20
+    },
+    "after": {
+      "flesch_score": 55,
+      "passive_voice_pct": 20
+    }
+  }
+}
+
+

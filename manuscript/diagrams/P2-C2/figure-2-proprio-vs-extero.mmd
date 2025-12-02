@@ -1,0 +1,25 @@
+%% Figure 2: Proprioceptive vs Exteroceptive Sensing
+flowchart LR
+  subgraph Proprioceptive["Proprioceptive Sensors\n(Internal State)"]
+    E1[Joint Encoders]
+    E2[IMU]
+    E3[Force/Torque Sensor]
+  end
+
+  subgraph Exteroceptive["Exteroceptive Sensors\n(Environment)"]
+    C1[Camera]
+    C2[Depth Sensor]
+    C3[LiDAR]
+    C4[Proximity/Bump]
+  end
+
+  Proprioceptive --> R[Robot Controller]
+  Exteroceptive --> R
+  R --> A[Actions\n(motion, grasping,\ninteraction)]
+
+  classDef proprio fill=#e0f7fa,stroke=#00796b,stroke-width:1px;
+  classDef extero fill=#f3e5f5,stroke=#6a1b9a,stroke-width:1px;
+  class E1,E2,E3 proprio;
+  class C1,C2,C3,C4 extero;
+
+

@@ -1,0 +1,124 @@
+{
+  "chapter_id": "P3-C1",
+  "title": "Physics Engines for Robotics Simulation",
+  "part": 3,
+  "chapter_number": 1,
+  "slug": "/physics-engines",
+  "status": "Published",
+  "version": 2,
+  "created_date": "2025-11-30",
+  "published_date": "2025-11-30",
+  "word_count": 9200,
+  "estimated_reading_time_minutes": 37,
+  "validation_results": {
+    "constitutional_compliant": true,
+    "sections_count": 16,
+    "dual_domain_present": true,
+    "dual_domain_balance_score": 0.87,
+    "tier1_citation_count": 4,
+    "flesch_kincaid_grade": 15.4,
+    "reading_ease": 11.3,
+    "editorial_quality_score": 92
+  },
+  "content_attributes": {
+    "diagram_count": 5,
+    "lab_count": 5,
+    "has_simulation_lab": true,
+    "has_physical_lab": true,
+    "mini_project_count": 3,
+    "review_question_count": 6,
+    "key_term_count": 14,
+    "learning_objective_count": 8,
+    "code_example_count": 12,
+    "callout_count": 4
+  },
+  "agent_pipeline": {
+    "research_agent": {
+      "version": "v001",
+      "quality_score": 91,
+      "word_count": 5847,
+      "source_count": 15
+    },
+    "outliner_agent": {
+      "version": "v001",
+      "quality_score": 94,
+      "section_count": 14
+    },
+    "chapter_structure_architect": {
+      "version": "v001",
+      "quality_score": 95,
+      "concept_density": 0.22,
+      "chapter_type": "Technical/Code-Focused",
+      "lesson_count": 9
+    },
+    "lesson_planner": {
+      "version": "v001",
+      "quality_score": 93,
+      "word_count": 8500,
+      "part_count": 6
+    },
+    "writer_agent": {
+      "version": "v002",
+      "quality_score": 88,
+      "iterations": 2
+    },
+    "book_editor": {
+      "version": "v002",
+      "quality_score": 92,
+      "approval_status": "Approved",
+      "iterations": 2
+    },
+    "diagram_generator": {
+      "version": "v001",
+      "diagram_count": 5
+    }
+  },
+  "file_locations": {
+    "manuscript": "manuscript/part3/chapter1-physics-engines.md",
+    "diagrams": "manuscript/diagrams/P3-C1/",
+    "research": ".book-generation/research/physics-engines/v001/",
+    "outline": ".book-generation/outlines/physics-engines/v001/",
+    "structure": ".book-generation/structures/P3-C1/v001/",
+    "lesson": ".book-generation/lessons/P3-C1/v001/",
+    "draft": ".book-generation/drafts/P3-C1/v002/",
+    "review": ".book-generation/reviews/P3-C1/v002/"
+  },
+  "glossary_terms_added": [
+    "Rigid Body Dynamics",
+    "Generalized Coordinates",
+    "Inertia Matrix M(q)",
+    "Coriolis and Centrifugal Forces",
+    "Complementarity Constraint",
+    "Signorini Condition",
+    "Coulomb Friction",
+    "Friction Cone",
+    "Velocity-Stepping",
+    "Convex Optimization",
+    "Real-Time Factor",
+    "Domain Randomization",
+    "Reality Gap",
+    "Dynamic Time Warping (DTW)"
+  ],
+  "physics_engines_covered": [
+    "MuJoCo",
+    "PyBullet",
+    "NVIDIA Isaac Lab"
+  ],
+  "pedagogical_layers": {
+    "layer_1_manual_foundation": [1, 2],
+    "layer_2_ai_collaboration": [3, 4, 5, 6, 7],
+    "layer_3_intelligence_design": [8],
+    "layer_4_spec_driven_integration": [9]
+  },
+  "reusable_intelligence_components": [
+    "Dynamics Equation Solver (mental blueprint)",
+    "Contact Constraint Validator (mental blueprint)",
+    "MuJoCo Model Generator (skill)",
+    "PyBullet Gym Environment Generator (skill)",
+    "GPU-Parallel Environment Scaler (skill)",
+    "Reality Gap Analyzer (skill)",
+    "Domain Randomization Config Generator (skill)",
+    "Multi-Engine Validation Orchestrator (component)",
+    "Physics Simulation Orchestrator (master skill)"
+  ]
+}

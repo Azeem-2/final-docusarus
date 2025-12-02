@@ -1,0 +1,16 @@
+%% Figure 2: Gearmotor Exploded View (Motor + Gearbox)
+flowchart LR
+  M[Electric Motor\n(DC / BLDC)] --> G1[Gear Stage 1\n(High speed,\nlow torque)]
+  G1 --> G2[Gear Stage 2]
+  G2 --> G3[Final Stage\n(Low speed,\nhigh torque)]
+  G3 --> O[Output Shaft\n(to joint or wheel)]
+
+  classDef motor fill=#e8f5e9,stroke:#2e7d32,stroke-width:1px;
+  classDef gear fill=#fff3e0,stroke:#ef6c00,stroke-width:1px;
+  classDef output fill=#ede7f6,stroke:#5e35b1,stroke-width:1px;
+
+  class M motor;
+  class G1,G2,G3 gear;
+  class O output;
+
+

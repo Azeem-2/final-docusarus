@@ -1,0 +1,40 @@
+{
+  "version": "v001",
+  "agent": "research-agent",
+  "created": "2025-12-01T00:00:00Z",
+  "topic": "industry-applications",
+  "inputs": {
+    "research_question": "How are robots applied across major industries (manufacturing, logistics, healthcare, agriculture, construction, etc.) and what patterns, benefits, and challenges should be highlighted in a chapter on Industry Applications?",
+    "scope": "P7-C1 Industry Applications chapter",
+    "time_budget": "3-4 hours"
+  },
+  "outputs": {
+    "file": "research.md",
+    "word_count": 0,
+    "source_count": {
+      "tier1": 7,
+      "tier2": 4,
+      "total": 11
+    }
+  },
+  "metrics": {
+    "time_spent_hours": 2.5,
+    "tier1_percentage": 0.64,
+    "claims_with_multiple_sources": 6,
+    "gaps_identified": 4
+  },
+  "comparison": {
+    "previous_version": null,
+    "changes": [],
+    "improvements": [],
+    "regressions": []
+  },
+  "quality_score": {
+    "source_quality": 0.9,
+    "coverage": 0.85,
+    "synthesis": 0.85,
+    "overall": 0.87
+  }
+}
+
+

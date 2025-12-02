@@ -1,0 +1,39 @@
+graph TD
+    subgraph "World Space"
+        P["3D Point P<br/>(X, Y, Z)"]
+    end
+
+    subgraph "Camera Space"
+        O["Optical Center<br/>(Pinhole)"]
+        F["Focal Point<br/>f"]
+    end
+
+    subgraph "Image Plane"
+        IP["Image Point p<br/>(u, v)"]
+    end
+
+    P -->|"Projection Ray"| O
+    O -->|"Distance f"| F
+    F --> IP
+
+    subgraph "Intrinsic Matrix K"
+        K["K = [fx  0   cx]<br/>    [0  fy  cy]<br/>    [0   0   1]"]
+    end
+
+    subgraph "Extrinsic Parameters"
+        R["Rotation R<br/>(3×3 matrix)"]
+        T["Translation t<br/>(3×1 vector)"]
+    end
+
+    P -->|"Transform"| R
+    R -->|"P_cam = R × P_world + t"| T
+    T --> O
+
+    K -.->|"u = fx × (X/Z) + cx<br/>v = fy × (Y/Z) + cy"| IP
+
+    style P fill:#e1f5ff
+    style O fill:#fff3cd
+    style IP fill:#d4edda
+    style K fill:#f8d7da
+    style R fill:#d1ecf1
+    style T fill:#d1ecf1

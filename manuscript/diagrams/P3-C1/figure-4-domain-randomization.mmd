@@ -1,0 +1,49 @@
+graph TB
+    subgraph "Domain Randomization Parameter Space"
+        A[Nominal Robot<br/>Parameters]
+
+        subgraph "Randomization Cloud"
+            B1[Mass ± 10%]
+            B2[Friction μ ± 20%]
+            B3[Damping ± 15%]
+            B4[Actuator gain ± 5%]
+            B5[Sensor noise σ]
+            B6[Link length ± 2%]
+        end
+
+        C["Real-World<br/>Configuration<br/>(unknown)"]
+
+        A --> B1
+        A --> B2
+        A --> B3
+        A --> B4
+        A --> B5
+        A --> B6
+
+        B1 -.->|Goal: Coverage| C
+        B2 -.->|Goal: Coverage| C
+        B3 -.->|Goal: Coverage| C
+        B4 -.->|Goal: Coverage| C
+        B5 -.->|Goal: Coverage| C
+        B6 -.->|Goal: Coverage| C
+    end
+
+    D[Training Process] --> E{Sample from<br/>Randomization<br/>Distribution}
+    E --> F[Sim Environment 1]
+    E --> G[Sim Environment 2]
+    E --> H[Sim Environment N]
+
+    F --> I[Robust Policy]
+    G --> I
+    H --> I
+    I --> C
+
+    style A fill:#e3f2fd,stroke:#1976d2,stroke-width:3px
+    style C fill:#ffebee,stroke:#c62828,stroke-width:3px
+    style I fill:#e8f5e9,stroke:#2e7d32,stroke-width:3px
+    style B1 fill:#fff9c4,stroke:#f57f17,stroke-width:1px
+    style B2 fill:#fff9c4,stroke:#f57f17,stroke-width:1px
+    style B3 fill:#fff9c4,stroke:#f57f17,stroke-width:1px
+    style B4 fill:#fff9c4,stroke:#f57f17,stroke-width:1px
+    style B5 fill:#fff9c4,stroke:#f57f17,stroke-width:1px
+    style B6 fill:#fff9c4,stroke:#f57f17,stroke-width:1px

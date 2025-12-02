@@ -1,0 +1,27 @@
+{
+  "version": "v001",
+  "agent": "writer-agent",
+  "created": "2025-12-01T00:00:00Z",
+  "chapter_id": "P7-C1",
+  "inputs": {
+    "lesson_file": ".book-generation/lessons/P7-C1/v001/lesson.md",
+    "outline_file": ".book-generation/outlines/industry-applications/v001/outline.md",
+    "voice_guidelines": "Expert yet friendly, simple, structured, motivational, step-by-step, beginner-friendly."
+  },
+  "outputs": {
+    "file": "draft.md",
+    "word_count": 0
+  },
+  "metrics": {
+    "flesch_kincaid_grade": 0,
+    "dual_domain_balance": 1.0
+  },
+  "comparison": {
+    "previous_version": null,
+    "changes": [],
+    "improvements": [],
+    "regressions": []
+  }
+}
+
+

@@ -1,0 +1,22 @@
+graph TD
+    A[Expert Demonstrations] --> B[Vision<br/>Camera Images]
+    A --> C[Proprioception<br/>Joint Angles, Forces]
+    A --> D[Language<br/>Instructions, Goals]
+    
+    B --> E[Multi-modal<br/>Policy Training]
+    C --> E
+    D --> E
+    
+    E --> F[Learned Policy<br/>Robust to Modalities]
+    
+    G[What to do] -.->|Vision| B
+    H[How it feels] -.->|Proprioception| C
+    I[High-level goals] -.->|Language| D
+    
+    style A fill:#4A90E2,stroke:#2E5C8A,color:#fff
+    style B fill:#E8F4F8,stroke:#4A90E2
+    style C fill:#F0F8E8,stroke:#7CB342
+    style D fill:#FFF3E0,stroke:#FF9800
+    style E fill:#F3E5F5,stroke:#9C27B0
+    style F fill:#E8F5E9,stroke:#4CAF50
+

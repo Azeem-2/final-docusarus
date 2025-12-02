@@ -1,0 +1,21 @@
+graph LR
+    A[State s] --> B{Value Function<br/>V(s) or Q(s,a)}
+    A --> C{Policy<br/>π(a|s)}
+    
+    B --> D[How good is<br/>this state?]
+    C --> E[Which action<br/>to choose?]
+    
+    D --> F[Long-term<br/>reward estimate]
+    E --> G[Action<br/>selection]
+    
+    F --> H[Q-learning<br/>Value-based]
+    G --> I[Policy Gradients<br/>Policy-based]
+    
+    H --> J[Actor-Critic<br/>Both]
+    I --> J
+    
+    style A fill:#4A90E2,stroke:#2E5C8A,color:#fff
+    style B fill:#E8F4F8,stroke:#4A90E2
+    style C fill:#F0F8E8,stroke:#7CB342
+    style J fill:#FFF3E0,stroke:#FF9800
+

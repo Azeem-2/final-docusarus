@@ -1,0 +1,107 @@
+{
+  "chapter_id": "P2-C1",
+  "title": "Mechanical Structures - Building the Robot's Physical Foundation",
+  "part": 2,
+  "chapter_number": 1,
+  "slug": "/mechanical-structures",
+  "status": "Published",
+  "version": 2,
+  "created_date": "2025-11-30",
+  "published_date": "2025-11-30",
+  "word_count": 7700,
+  "estimated_reading_time_minutes": 31,
+  "validation_results": {
+    "constitutional_compliant": true,
+    "sections_count": 14,
+    "dual_domain_present": true,
+    "dual_domain_balance_score": 0.73,
+    "tier1_citation_count": 12,
+    "flesch_kincaid_grade": 14.3,
+    "reading_ease": 27,
+    "editorial_quality_score": 95
+  },
+  "content_attributes": {
+    "diagram_count": 5,
+    "lab_count": 2,
+    "has_simulation_lab": true,
+    "has_physical_lab": true,
+    "mini_project_count": 1,
+    "review_question_count": 12,
+    "key_term_count": 22,
+    "learning_objective_count": 10
+  },
+  "agent_pipeline": {
+    "research_agent": {
+      "version": "v001",
+      "quality_score": 91,
+      "word_count": 6847,
+      "source_count": 15
+    },
+    "outliner_agent": {
+      "version": "v001",
+      "quality_score": 96,
+      "section_count": 14
+    },
+    "chapter_structure_architect": {
+      "version": "v001",
+      "quality_score": 94,
+      "concept_density": 0.189,
+      "chapter_type": "Technical/Code-Focused"
+    },
+    "lesson_planner": {
+      "version": "v001",
+      "quality_score": 95,
+      "word_count": 7119,
+      "part_count": 6
+    },
+    "writer_agent": {
+      "version": "v002",
+      "quality_score": 92,
+      "iterations": 2
+    },
+    "book_editor": {
+      "version": "v002",
+      "quality_score": 95,
+      "approval_status": "Approved",
+      "iterations": 2
+    },
+    "diagram_generator": {
+      "version": "v001",
+      "diagram_count": 5
+    }
+  },
+  "file_locations": {
+    "manuscript": "manuscript/part2/chapter1-mechanical-structures.md",
+    "diagrams": "manuscript/diagrams/P2-C1/",
+    "research": ".book-generation/research/mechanical-structures/v001/",
+    "outline": ".book-generation/outlines/mechanical-structures/v001/",
+    "structure": ".book-generation/structures/P2-C1/v001/",
+    "lesson": ".book-generation/lessons/P2-C1/v001/",
+    "draft": ".book-generation/drafts/P2-C1/v002/",
+    "review": ".book-generation/reviews/P2-C1/v002/"
+  },
+  "glossary_terms_added": [
+    "Link",
+    "Joint",
+    "Revolute Joint",
+    "Prismatic Joint",
+    "Spherical Joint",
+    "Planar Joint",
+    "Degrees of Freedom (DOF)",
+    "Kinematic Chain",
+    "Serial Mechanism",
+    "Parallel Mechanism",
+    "Hybrid Mechanism",
+    "Workspace",
+    "Center of Mass (CoM)",
+    "Inertia Tensor",
+    "Compliance",
+    "URDF",
+    "MJCF",
+    "SDF",
+    "Collision Mesh",
+    "Visual Mesh",
+    "Domain Randomization",
+    "Sim-to-Real Transfer"
+  ]
+}

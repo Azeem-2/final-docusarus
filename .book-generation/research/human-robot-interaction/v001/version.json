@@ -1,0 +1,15 @@
+{
+  "version": "v001",
+  "created": "2025-12-01",
+  "agent": "research-agent",
+  "chapter_id": "P5-C5",
+  "title": "Human–Robot Interaction",
+  "status": "scaffold_complete",
+  "sources": {
+    "mcp_firecrawl": [
+      "https://www.mdpi.com/2079-9292/14/23/4734",
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC11076167/"
+    ]
+  }
+}
+

@@ -1,0 +1,13 @@
+graph LR
+    A[Large Teacher<br/>100M Parameters] --> B[Step 1: Distill]
+    B --> C[Medium Student<br/>10M Parameters]
+    C --> D[Step 2: Distill]
+    D --> E[Small Student<br/>1M Parameters]
+    
+    F[Progressive Distillation] --> G[Iterative Compression<br/>Maintains Performance<br/>Better Compression]
+    
+    style A fill:#4A90E2,stroke:#2E5C8A,color:#fff
+    style C fill:#E8F4F8,stroke:#4A90E2
+    style E fill:#E8F5E9,stroke:#4CAF50
+    style F fill:#FFF3E0,stroke:#FF9800
+

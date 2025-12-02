@@ -1,0 +1,14 @@
+{
+  "version": "v001",
+  "created": "2025-12-01",
+  "agent": "research-agent",
+  "chapter_id": "P5-C3",
+  "title": "Balance & Stability",
+  "status": "scaffold_complete",
+  "sources": {
+    "mcp_context7": [
+      "/robotlocomotion/drake"
+    ]
+  }
+}
+

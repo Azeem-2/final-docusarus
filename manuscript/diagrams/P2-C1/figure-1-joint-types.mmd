@@ -1,0 +1,46 @@
+```mermaid
+graph LR
+    subgraph Revolute["REVOLUTE JOINT (1 DOF - Rotation)"]
+        style Revolute fill:#0066CC,stroke:#000000,color:#FFFFFF
+        R1["Fixed Link"]
+        R2["Rotating Link"]
+        R3["θ (angle)"]
+        R1 ---|"Rotation Axis"| R2
+        R2 -.-> R3
+    end
+
+    subgraph Prismatic["PRISMATIC JOINT (1 DOF - Linear)"]
+        style Prismatic fill:#0066CC,stroke:#000000,color:#FFFFFF
+        P1["Fixed Base"]
+        P2["Sliding Link"]
+        P3["d (distance)"]
+        P1 ---|"Linear Axis"| P2
+        P2 -.-> P3
+    end
+
+    subgraph Spherical["SPHERICAL JOINT (3 DOF - Rotation)"]
+        style Spherical fill:#0066CC,stroke:#000000,color:#FFFFFF
+        S1["Ball Joint"]
+        S2["Roll (X-axis)"]
+        S3["Pitch (Y-axis)"]
+        S4["Yaw (Z-axis)"]
+        S1 --> S2
+        S1 --> S3
+        S1 --> S4
+    end
+
+    subgraph Examples["Real-World Examples"]
+        style Examples fill:#666666,stroke:#000000,color:#FFFFFF
+        E1["Revolute: Robot Elbow<br/>TowerPro MG996R Servo"]
+        E2["Prismatic: Telescope Arm<br/>Linear Actuator"]
+        E3["Spherical: Robot Shoulder<br/>3 × Orthogonal Motors"]
+    end
+
+    Revolute -.-> E1
+    Prismatic -.-> E2
+    Spherical -.-> E3
+```
+
+**Figure 1: Joint Type Comparison**
+
+Three fundamental joint types used in robotics: revolute (rotational motion around single axis), prismatic (linear sliding motion), and spherical (three-axis rotation). Each joint type has distinct motion characteristics and typical applications.

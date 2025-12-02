@@ -1,0 +1,14 @@
+%% Figure 2 – Visual vs collision geometry
+flowchart LR
+    subgraph Object
+        V[Visual mesh\n(complex shape)]:::visual --> C[Collision shape\n(simple box/capsule)]:::collision
+    end
+
+    V --- Note1[Rendered appearance\n(for humans)]:::note
+    C --- Note2[Physics & contacts\n(for simulator)]:::note
+
+    classDef visual fill:#e5dbff,stroke:#5f3dc4,color:#000000;
+    classDef collision fill:#d0ebff,stroke:#1971c2,color:#000000;
+    classDef note fill:#fff3bf,stroke:#f08c00,color:#000000;
+
+

@@ -1,0 +1,50 @@
+{
+  "version": "v001",
+  "agent": "book-editor",
+  "created": "2025-12-02T06:00:00Z",
+  "chapter": "research-pathways",
+  "inputs": {
+    "draft_version": "v001",
+    "draft_path": ".book-generation/drafts/research-pathways/v001/",
+    "research_path": ".book-generation/research/research-pathways/v001/",
+    "passes_requested": ["all"]
+  },
+  "outputs": {
+    "file": "review.md",
+    "total_changes": 16,
+    "blocking_issues": 0
+  },
+  "metrics": {
+    "before": {
+      "flesch_score": 65,
+      "passive_voice_pct": 15,
+      "citation_coverage_pct": 85
+    },
+    "after": {
+      "flesch_score": 65,
+      "passive_voice_pct": 15,
+      "citation_coverage_pct": 95
+    },
+    "changes_by_category": {
+      "grammar": 1,
+      "citations": 8,
+      "clarity": 2,
+      "consistency": 2,
+      "visual": 1,
+      "factual": 2
+    }
+  },
+  "comparison": {
+    "previous_version": null,
+    "changes": [],
+    "improvements": [],
+    "regressions": []
+  },
+  "quality_score": {
+    "thoroughness": 95,
+    "accuracy": 90,
+    "consistency": 94,
+    "overall": 91
+  }
+}
+

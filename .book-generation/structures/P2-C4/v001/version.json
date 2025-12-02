@@ -1,0 +1,15 @@
+{
+  "version": "v001",
+  "agent": "chapter-structure-architect",
+  "created": "2025-12-01T00:00:00Z",
+  "chapter_id": "P2-C4",
+  "inputs": {
+    "outline_file": ".book-generation/outlines/power-systems-and-batteries/v001/outline.md"
+  },
+  "outputs": {
+    "file": "structure.md",
+    "lesson_count": 3
+  }
+}
+
+

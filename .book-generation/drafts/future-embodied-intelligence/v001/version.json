@@ -1,0 +1,45 @@
+{
+  "version": "v001",
+  "agent": "writer-agent",
+  "created": "2025-12-02T05:15:00Z",
+  "chapter": "future-embodied-intelligence",
+  "inputs": {
+    "lesson_version": "v001",
+    "lesson_path": ".book-generation/lessons/future-embodied-intelligence/v001/",
+    "outline_version": "v001",
+    "outline_path": ".book-generation/outlines/future-embodied-intelligence/v001/",
+    "research_version": "v001",
+    "research_path": ".book-generation/research/future-embodied-intelligence/v001/",
+    "voice_config": {
+      "perspective": "you",
+      "tone": "conversational-balanced",
+      "technical_level": "intermediate"
+    }
+  },
+  "outputs": {
+    "file": "draft.md",
+    "word_count": 10000,
+    "section_count": 14,
+    "citation_count": 11
+  },
+  "metrics": {
+    "flesch_score": 63,
+    "active_voice_percentage": 87,
+    "avg_sentence_length": 19,
+    "verify_flags": 0
+  },
+  "comparison": {
+    "previous_version": null,
+    "changes": [],
+    "improvements": [],
+    "regressions": []
+  },
+  "quality_score": {
+    "voice_consistency": 93,
+    "structure_adherence": 96,
+    "research_integration": 91,
+    "readability": 87,
+    "overall": 92
+  }
+}
+

@@ -1,0 +1,17 @@
+{
+  "version": "v001",
+  "agent": "outliner-agent",
+  "created": "2025-12-01T00:00:00Z",
+  "chapter_id": "P2-C2",
+  "inputs": {
+    "research_file": ".book-generation/research/sensors-and-perception-hardware/v001/research.md",
+    "target_word_count": "7000-9000"
+  },
+  "outputs": {
+    "file": "outline.md",
+    "section_count": 10
+  },
+  "status": "Scaffold"
+}
+
+

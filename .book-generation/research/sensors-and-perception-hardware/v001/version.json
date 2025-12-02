@@ -1,0 +1,23 @@
+{
+  "version": "v001",
+  "agent": "research-agent",
+  "created": "2025-12-01T00:00:00Z",
+  "topic": "sensors-and-perception-hardware",
+  "inputs": {
+    "research_question": "Hardware building blocks and educational framing for P2-C2 Sensors & Perception Hardware.",
+    "scope": "P2-C2 Sensors & Perception Hardware",
+    "time_budget": "3-4 hours"
+  },
+  "outputs": {
+    "file": "research.md",
+    "word_count": 0,
+    "source_count": {
+      "tier1": 0,
+      "tier2": 0,
+      "total": 0
+    }
+  },
+  "status": "Scaffold"
+}
+
+

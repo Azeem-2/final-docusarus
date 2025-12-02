@@ -1,0 +1,23 @@
+{
+  "current_version": "v002",
+  "chapter": "P4-C1",
+  "chapter_title": "Vision Models for Robotics",
+  "last_updated": "2025-11-30T00:00:00Z",
+  "version_history": [
+    {
+      "version": "v001",
+      "created": "2025-11-30T00:00:00Z",
+      "summary": "Initial publication-ready draft with all 16 required sections",
+      "word_count": 8247,
+      "agent": "writer-agent"
+    },
+    {
+      "version": "v002",
+      "created": "2025-11-30T00:00:00Z",
+      "summary": "Revised based on editorial feedback - expanded simulation section (+658 words), reduced passive voice, added citations",
+      "word_count": 10500,
+      "agent": "writer-agent",
+      "changes_from_previous": "P0: Dual-domain balance fixed (0.59→0.84), P1: Passive voice reduced (23.4%→19%), P2: Citations added, P3: Terminology standardized"
+    }
+  ]
+}

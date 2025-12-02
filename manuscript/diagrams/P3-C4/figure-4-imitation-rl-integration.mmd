@@ -1,0 +1,20 @@
+graph TD
+    A[Expert Demonstrations] --> B[Imitation Learning]
+    B --> C[Initial Policy<br/>π_init]
+    
+    C --> D[RL Training<br/>Guided by π_init]
+    D --> E[Improved Policy<br/>π_final]
+    
+    F[RL Exploration] --> D
+    G[Imitation Loss] --> D
+    H[RL Reward] --> D
+    
+    E --> I[Deployment<br/>Better than BC or RL alone]
+    
+    style A fill:#4A90E2,stroke:#2E5C8A,color:#fff
+    style B fill:#E8F4F8,stroke:#4A90E2
+    style C fill:#F0F8E8,stroke:#7CB342
+    style D fill:#FFF3E0,stroke:#FF9800
+    style E fill:#E8F5E9,stroke:#4CAF50
+    style I fill:#E8F5E9,stroke:#4CAF50
+

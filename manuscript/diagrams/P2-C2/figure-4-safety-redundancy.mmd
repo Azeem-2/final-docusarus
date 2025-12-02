@@ -1,0 +1,25 @@
+%% Figure 4: Safety and Redundant Sensing
+flowchart LR
+  subgraph Sensing["Redundant Sensing"]
+    L[LiDAR]
+    B[Bumper]
+  end
+
+  L --> F1[Obstacle Detected?]
+  B --> F2[Bump Detected?]
+
+  F1 -->|Yes| OR1{Safety Logic}
+  F2 -->|Yes| OR1
+
+  OR1 --> STOP[Safe Stop Command]
+  OR1 --> WARN[Slow Down / Warning]
+
+  F1 -->|No| CONT[Normal Operation]
+  F2 -->|No| CONT
+
+  CONT --> DRIVE[Motion Command]
+
+  classDef sensor fill=#f3e5f5,stroke:#6a1b9a,stroke-width:1px;
+  class L,B sensor;
+
+

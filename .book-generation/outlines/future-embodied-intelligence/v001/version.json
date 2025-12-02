@@ -1,0 +1,41 @@
+{
+  "version": "v001",
+  "agent": "outliner-agent",
+  "created": "2025-12-02T03:50:00Z",
+  "book": "future-embodied-intelligence",
+  "inputs": {
+    "research_version": "v001",
+    "research_path": ".book-generation/research/future-embodied-intelligence/v001/",
+    "target_audience": "Students, researchers, practitioners, technology enthusiasts",
+    "estimated_length": "9,000-11,000 words"
+  },
+  "outputs": {
+    "file": "outline.md",
+    "structure": {
+      "part_count": 0,
+      "chapter_count": 1,
+      "section_count": 14
+    },
+    "estimated_pages": 28
+  },
+  "metrics": {
+    "research_coverage": 92,
+    "balance_score": 90,
+    "depth_consistency": 85,
+    "gaps_identified": 1
+  },
+  "comparison": {
+    "previous_version": null,
+    "changes": [],
+    "improvements": [],
+    "regressions": []
+  },
+  "quality_score": {
+    "completeness": 96,
+    "balance": 90,
+    "flow": 92,
+    "clarity": 90,
+    "overall": 92
+  }
+}
+

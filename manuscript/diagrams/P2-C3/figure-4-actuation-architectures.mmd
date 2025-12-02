@@ -1,0 +1,14 @@
+%% Figure 4: Comparing Actuation Architectures
+graph TD
+  DD[Direct-Drive\n(high torque motor,\nno gearbox)] --> Uses1[High backdrivability\n+ precision,\n- heavy/expensive]
+  GD[Geared Drive\n(motor + gearbox)] --> Uses2[+ Compact high torque,\n- less backdrivable,\n- more friction]
+  SEA[Series Elastic\nActuator] --> Uses3[+ Safer contacts,\n+ better force control,\n- more complex control]
+  HYD[Hydraulic/Pneumatic\nActuation] --> Uses4[+ Very high force density,\n- complex infrastructure]
+
+  classDef arch fill=#f3e5f5,stroke:#6a1b9a,stroke-width:1px;
+  classDef notes fill=#ffffff,stroke:#616161,stroke-width:1px,stroke-dasharray: 3 3;
+
+  class DD,GD,SEA,HYD arch;
+  class Uses1,Uses2,Uses3,Uses4 notes;
+
+

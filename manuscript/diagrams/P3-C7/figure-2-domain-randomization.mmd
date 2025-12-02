@@ -1,0 +1,21 @@
+graph LR
+    A[Domain Randomization] --> B[Physics<br/>Mass ±20%, Friction ±30%]
+    A --> C[Visual<br/>Textures, Lighting]
+    A --> D[Dynamics<br/>Delays, Torque Limits]
+    A --> E[Environmental<br/>Terrain, Object Placement]
+    
+    F[Training] --> G[Policy Trained Across<br/>Many Conditions]
+    G --> H[Robust Policy<br/>Works in Simulation]
+    H --> I[Better Transfer<br/>to Physical Robot]
+    
+    J[Trade-offs] --> K[Too Little:<br/>Overfits Simulation]
+    J --> L[Too Much:<br/>Learning Too Hard]
+    J --> M[Balance:<br/>Robust but Learnable]
+    
+    style A fill:#4A90E2,stroke:#2E5C8A,color:#fff
+    style B fill:#E8F4F8,stroke:#4A90E2
+    style C fill:#F0F8E8,stroke:#7CB342
+    style D fill:#FFF3E0,stroke:#FF9800
+    style E fill:#F3E5F5,stroke:#9C27B0
+    style I fill:#E8F5E9,stroke:#4CAF50
+

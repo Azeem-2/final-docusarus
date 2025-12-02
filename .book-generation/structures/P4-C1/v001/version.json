@@ -1,0 +1,92 @@
+{
+  "version": "001",
+  "created_date": "2025-11-30",
+  "agent": "chapter-structure-architect",
+  "chapter_id": "P4-C1",
+  "chapter_title": "Vision Models for Robotics",
+  "status": "completed",
+  "metadata": {
+    "lesson_count": 8,
+    "chapter_type": "TECHNICAL/CODE-FOCUSED",
+    "concept_density": 0.248,
+    "concept_density_classification": "HIGH",
+    "pedagogical_layers": {
+      "layer_1_manual_foundation": ["Lesson 1"],
+      "layer_2_ai_collaboration": ["Lesson 2", "Lesson 3", "Lesson 4", "Lesson 5", "Lesson 6"],
+      "layer_3_intelligence_design": ["Lesson 7"],
+      "layer_4_spec_driven_integration": ["Lesson 8"]
+    },
+    "reusable_intelligence_components": [
+      {
+        "lesson": 1,
+        "component": "Camera Calibration Skill",
+        "type": "skill"
+      },
+      {
+        "lesson": 2,
+        "component": "Object Detector Skill",
+        "type": "skill"
+      },
+      {
+        "lesson": 3,
+        "component": "Segmentation Skill",
+        "type": "skill"
+      },
+      {
+        "lesson": 4,
+        "component": "Depth Estimator Skill",
+        "type": "skill"
+      },
+      {
+        "lesson": 5,
+        "component": "SLAM Navigator Subagent",
+        "type": "subagent"
+      },
+      {
+        "lesson": 6,
+        "component": "Synthetic Dataset Generator Skill",
+        "type": "skill"
+      },
+      {
+        "lesson": 7,
+        "component": "3D Scene Reconstructor Component",
+        "type": "component_specification"
+      },
+      {
+        "lesson": 8,
+        "component": "Multi-Sensor Perception System",
+        "type": "integrated_system"
+      }
+    ],
+    "ai_touchpoint_coverage": {
+      "part_1_diagnostic_hook": "All lessons (8/8)",
+      "part_2_concept_theory": "Lessons 2-8 (7/8)",
+      "part_3_ai_collaboration": "Lessons 2-8 (7/8)",
+      "part_4_sdd_ri_challenge": "Lessons 2-8 (7/8)",
+      "part_5_spaced_repetition": "Lessons 2-8 (7/8)",
+      "part_6_reusable_intelligence": "All lessons (8/8)"
+    },
+    "input_sources": {
+      "outline": ".book-generation/outlines/vision-models/v001/outline.md",
+      "research": ".book-generation/research/vision-models/v001/research.md",
+      "constitution": ".specify/memory/constitution.md"
+    },
+    "validation": {
+      "chapter_type_classified": true,
+      "lesson_count_justified": true,
+      "ai_touchpoints_mapped": true,
+      "ai_role_evolution_defined": true,
+      "pedagogical_progression_enforced": true,
+      "manual_foundation_established": true,
+      "sdd_ri_challenges_spec_driven": true,
+      "ri_components_defined": true,
+      "prerequisites_defined": true,
+      "learning_outcomes_measurable": true,
+      "lesson_boundaries_aligned": true,
+      "ai_collaboration_types_defined": true,
+      "constitution_compliance": true
+    }
+  },
+  "next_agent": "lesson-planner",
+  "next_output_path": ".book-generation/lessons/P4-C1/v001/"
+}

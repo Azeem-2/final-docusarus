@@ -1,0 +1,40 @@
+{
+  "version": "v001",
+  "agent": "research-agent",
+  "created": "2025-12-02T03:30:00Z",
+  "topic": "research-pathways",
+  "inputs": {
+    "research_question": "What are the academic and professional research pathways available for students and practitioners interested in pursuing careers in Physical AI, Simulation AI, and Humanoid Robotics?",
+    "scope": "Part 7, Chapter 2 - Research Pathways",
+    "time_budget": "3-4 hours",
+    "mcp_servers_used": ["firecrawl", "context7"]
+  },
+  "outputs": {
+    "file": "research.md",
+    "word_count": 3200,
+    "source_count": {
+      "tier1": 8,
+      "tier2": 4,
+      "total": 12
+    }
+  },
+  "metrics": {
+    "time_spent_hours": 2.5,
+    "tier1_percentage": 67,
+    "claims_with_multiple_sources": 15,
+    "gaps_identified": 5
+  },
+  "comparison": {
+    "previous_version": null,
+    "changes": [],
+    "improvements": [],
+    "regressions": []
+  },
+  "quality_score": {
+    "source_quality": 85,
+    "coverage": 80,
+    "synthesis": 75,
+    "overall": 80
+  }
+}
+

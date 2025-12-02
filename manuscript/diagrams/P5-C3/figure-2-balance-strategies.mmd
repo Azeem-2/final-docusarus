@@ -1,0 +1,18 @@
+graph TD
+    A[Balance Control Strategies] --> B[Ankle Strategy<br/>Small Disturbances]
+    A --> C[Hip Strategy<br/>Medium Disturbances]
+    A --> D[Step Recovery<br/>Large Disturbances]
+    
+    B --> E[Adjust Ankle Torque<br/>Fast Response<br/>Limited Range]
+    C --> F[Move Hips<br/>Shift CoM<br/>More Range]
+    D --> G[Take Step<br/>Plan Placement<br/>Recover Balance]
+    
+    H[Strategy Selection] --> I[Small Push<br/>→ Ankle]
+    H --> J[Medium Push<br/>→ Hip]
+    H --> K[Large Push<br/>→ Step]
+    
+    style A fill:#4A90E2,stroke:#2E5C8A,color:#fff
+    style B fill:#E8F4F8,stroke:#4A90E2
+    style C fill:#F0F8E8,stroke:#7CB342
+    style D fill:#FFF3E0,stroke:#FF9800
+

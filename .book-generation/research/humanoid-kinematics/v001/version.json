@@ -1,0 +1,38 @@
+{
+  "version": "v001",
+  "agent": "research-agent",
+  "created": "2025-11-30T01:15:00Z",
+  "topic": "humanoid-kinematics",
+  "inputs": {
+    "research_question": "What are the fundamental concepts, computational methods, and practical implementations of kinematics and dynamics for humanoid robots, covering both physical and simulation domains?",
+    "scope": "Chapter P5-C1: Humanoid Kinematics & Dynamics",
+    "time_budget": "3-4 hours"
+  },
+  "outputs": {
+    "file": "research.md",
+    "word_count": 5847,
+    "source_count": {
+      "tier1": 11,
+      "tier2": 4,
+      "total": 15
+    }
+  },
+  "metrics": {
+    "time_spent_hours": 3.5,
+    "tier1_percentage": 73,
+    "claims_with_multiple_sources": 10,
+    "gaps_identified": 5
+  },
+  "comparison": {
+    "previous_version": null,
+    "changes": [],
+    "improvements": [],
+    "regressions": []
+  },
+  "quality_score": {
+    "source_quality": 95,
+    "coverage": 90,
+    "synthesis": 88,
+    "overall": 91
+  }
+}

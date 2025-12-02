@@ -1,0 +1,40 @@
+graph TB
+    A[Reality Gap Sources] --> B[Dynamics]
+    A --> C[Sensing]
+    A --> D[Actuation]
+    A --> E[Environment]
+
+    B --> B1[Mass Distribution<br/>Unmodeled payload<br/>Manufacturing tolerances]
+    B --> B2[Friction Models<br/>Static vs kinetic<br/>Surface dependencies]
+    B --> B3[Damping & Compliance<br/>Joint elasticity<br/>Cable stretch]
+
+    C --> C1[Sensor Noise<br/>Gaussian vs non-Gaussian<br/>Temperature drift]
+    C --> C2[Latency & Delays<br/>Communication lag<br/>Processing time]
+    C --> C3[Calibration Errors<br/>Bias & scale factors<br/>Cross-axis coupling]
+
+    D --> D1[Motor Dynamics<br/>Torque ripple<br/>Back-EMF effects]
+    D --> D2[Transmission Effects<br/>Backlash & hysteresis<br/>Gear compliance]
+    D --> D3[Saturation Limits<br/>Voltage limits<br/>Current limits]
+
+    E --> E1[Lighting Conditions<br/>Shadows & reflections<br/>Time of day]
+    E --> E2[Terrain Variation<br/>Surface roughness<br/>Slope & obstacles]
+    E --> E3[External Disturbances<br/>Wind & vibration<br/>Temperature]
+
+    style A fill:#e1f5ff,stroke:#0066cc,stroke-width:3px
+    style B fill:#fff4e6,stroke:#ff9800,stroke-width:2px
+    style C fill:#e8f5e9,stroke:#4caf50,stroke-width:2px
+    style D fill:#f3e5f5,stroke:#9c27b0,stroke-width:2px
+    style E fill:#ffebee,stroke:#f44336,stroke-width:2px
+
+    style B1 fill:#fff9c4,stroke:#f57f17,stroke-width:1px
+    style B2 fill:#fff9c4,stroke:#f57f17,stroke-width:1px
+    style B3 fill:#fff9c4,stroke:#f57f17,stroke-width:1px
+    style C1 fill:#e0f2f1,stroke:#00796b,stroke-width:1px
+    style C2 fill:#e0f2f1,stroke:#00796b,stroke-width:1px
+    style C3 fill:#e0f2f1,stroke:#00796b,stroke-width:1px
+    style D1 fill:#f1f8e9,stroke:#689f38,stroke-width:1px
+    style D2 fill:#f1f8e9,stroke:#689f38,stroke-width:1px
+    style D3 fill:#f1f8e9,stroke:#689f38,stroke-width:1px
+    style E1 fill:#fce4ec,stroke:#c2185b,stroke-width:1px
+    style E2 fill:#fce4ec,stroke:#c2185b,stroke-width:1px
+    style E3 fill:#fce4ec,stroke:#c2185b,stroke-width:1px

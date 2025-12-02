@@ -1,0 +1,33 @@
+{
+  "version": "v001",
+  "agent": "lesson-planner",
+  "created": "2025-12-02T04:25:00Z",
+  "book": "ethical-safety-guidelines",
+  "inputs": {
+    "structure_version": "v001",
+    "structure_path": ".book-generation/structures/ethical-safety-guidelines/v001/",
+    "outline_version": "v001",
+    "outline_path": ".book-generation/outlines/ethical-safety-guidelines/v001/",
+    "research_version": "v001",
+    "research_path": ".book-generation/research/ethical-safety-guidelines/v001/"
+  },
+  "outputs": {
+    "file": "lesson.md",
+    "sections_specified": 14,
+    "pedagogical_layers": 4,
+    "ai_touchpoints": 5,
+    "estimated_word_count": 9500
+  },
+  "metrics": {
+    "content_completeness": 94,
+    "dual_domain_coverage": 0.88,
+    "ai_integration": 100
+  },
+  "quality_score": {
+    "completeness": 94,
+    "clarity": 91,
+    "pedagogical_soundness": 92,
+    "overall": 92
+  }
+}
+

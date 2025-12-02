@@ -1,0 +1,40 @@
+{
+  "version": "v001",
+  "agent": "research-agent",
+  "created": "2025-12-02T03:35:00Z",
+  "topic": "future-embodied-intelligence",
+  "inputs": {
+    "research_question": "What are the future directions, emerging trends, and research trajectories for embodied intelligence in robotics and AI?",
+    "scope": "Part 7, Chapter 3 - Future of Embodied Intelligence",
+    "time_budget": "3-4 hours",
+    "mcp_servers_used": ["firecrawl", "context7"]
+  },
+  "outputs": {
+    "file": "research.md",
+    "word_count": 2800,
+    "source_count": {
+      "tier1": 8,
+      "tier2": 3,
+      "total": 11
+    }
+  },
+  "metrics": {
+    "time_spent_hours": 2.0,
+    "tier1_percentage": 73,
+    "claims_with_multiple_sources": 12,
+    "gaps_identified": 5
+  },
+  "comparison": {
+    "previous_version": null,
+    "changes": [],
+    "improvements": [],
+    "regressions": []
+  },
+  "quality_score": {
+    "source_quality": 88,
+    "coverage": 85,
+    "synthesis": 80,
+    "overall": 84
+  }
+}
+

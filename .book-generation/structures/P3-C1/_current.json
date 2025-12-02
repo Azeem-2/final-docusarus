@@ -1,0 +1,15 @@
+{
+  "current_version": "v001",
+  "chapter_code": "P3-C1",
+  "chapter_title": "Physics Engines for Robotics Simulation",
+  "last_updated": "2025-11-30",
+  "structure_path": ".book-generation/structures/P3-C1/v001/structure.md",
+  "version_history": [
+    {
+      "version": "v001",
+      "date": "2025-11-30",
+      "agent": "chapter-structure-architect",
+      "changes": "Initial structural blueprint created with 9 lessons following 4-layer pedagogical progression"
+    }
+  ]
+}

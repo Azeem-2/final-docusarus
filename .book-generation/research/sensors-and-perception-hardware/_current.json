@@ -1,0 +1,14 @@
+{
+  "current_version": "v001",
+  "topic": "sensors-and-perception-hardware",
+  "last_updated": "2025-12-01T00:00:00Z",
+  "version_history": [
+    {
+      "version": "v001",
+      "created": "2025-12-01T00:00:00Z",
+      "summary": "Initial scaffold research for P2-C2 Sensors & Perception Hardware."
+    }
+  ]
+}
+
+

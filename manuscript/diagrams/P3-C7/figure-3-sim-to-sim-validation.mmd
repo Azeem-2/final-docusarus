@@ -1,0 +1,21 @@
+graph TD
+    A[Train Policy<br/>Isaac Sim] --> B[Export Policy]
+    B --> C[Test in MuJoCo<br/>No Retraining]
+    C --> D{Success Rate<br/>Acceptable?}
+    D -->|Yes| E[Test in Gazebo]
+    D -->|No| F[Increase Domain<br/>Randomization]
+    F --> A
+    E --> G{Success Rate<br/>Acceptable?}
+    G -->|Yes| H[Ready for<br/>Physical Deployment]
+    G -->|No| F
+    
+    I[Why Sim-to-Sim?] --> J[Low-Cost Validation<br/>Before Physical Testing]
+    I --> K[Tests Robustness<br/>Across Physics Engines]
+    I --> L[Catches Simulator-Specific<br/>Artifacts Early]
+    
+    style A fill:#4A90E2,stroke:#2E5C8A,color:#fff
+    style C fill:#E8F4F8,stroke:#4A90E2
+    style E fill:#F0F8E8,stroke:#7CB342
+    style H fill:#E8F5E9,stroke:#4CAF50
+    style F fill:#FFEBEE,stroke:#E53935
+

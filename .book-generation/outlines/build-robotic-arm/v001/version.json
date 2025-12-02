@@ -1,0 +1,43 @@
+{
+  "version": "v001",
+  "agent": "outliner-agent",
+  "created": "2025-01-27T03:21:00Z",
+  "book": "build-robotic-arm",
+  "inputs": {
+    "research_version": "v001",
+    "research_path": ".book-generation/research/build-robotic-arm/v001/",
+    "target_audience": "Students, educators, robotics engineers (Parts 1-5 completed)",
+    "estimated_length": "8,000-12,000 words"
+  },
+  "outputs": {
+    "file": "outline.md",
+    "structure": {
+      "part_count": 0,
+      "chapter_count": 1,
+      "lesson_count": 0,
+      "section_count": 14
+    },
+    "estimated_pages": 25
+  },
+  "metrics": {
+    "research_coverage": 95,
+    "balance_score": 90,
+    "depth_consistency": 85,
+    "gaps_identified": 0,
+    "dual_domain_coverage": 0.9
+  },
+  "comparison": {
+    "previous_version": null,
+    "changes": ["Initial outline created from MCP-enhanced research"],
+    "improvements": ["Comprehensive 14-section structure", "Strong dual-domain integration", "Clear lab progression"],
+    "regressions": []
+  },
+  "quality_score": {
+    "completeness": 95,
+    "balance": 90,
+    "flow": 90,
+    "clarity": 95,
+    "overall": 92
+  }
+}
+

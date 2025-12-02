@@ -1,0 +1,24 @@
+%% Figure 4 – Robust vs fragile control (conceptual comparison)
+flowchart TB
+    subgraph Fragile Controller
+        F0[Nominal model\nparameters]:::base --> F1[High-gain\ncontroller]:::fragile
+        F1 --> F2[Good performance\nin nominal case]:::ok
+        F3[Small change in\npayload/friction]:::delta --> F1
+        F1 --> F4[Unstable or\noscillatory behavior]:::bad
+    end
+
+    subgraph Robust Controller
+        R0[Approximate model\nparameters]:::base --> R1[Moderate-gain\ncontroller\n+ safety limits]:::robust
+        R1 --> R2[Acceptable performance\nin nominal case]:::ok
+        R3[Small change in\npayload/friction]:::delta --> R1
+        R1 --> R4[Behavior remains\nstable, predictable]:::ok
+    end
+
+    classDef base fill:#e7f5ff,stroke:#1c7ed6,color:#000000;
+    classDef fragile fill:#ffe3e3,stroke:#c92a2a,color:#000000;
+    classDef robust fill:#d3f9d8,stroke:#2b8a3e,color:#000000;
+    classDef ok fill:#ffffff,stroke:#0b7285,color:#000000;
+    classDef bad fill:#ffa8a8,stroke:#e03131,color:#000000;
+    classDef delta fill:#fff3bf,stroke:#f08c00,color:#000000;
+
+

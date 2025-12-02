@@ -1,0 +1,17 @@
+graph TD
+    A[Expert Demonstrations<br/>State-Action Pairs] --> B[Supervised Learning<br/>Policy Training]
+    B --> C[Learned Policy<br/>π: state → action]
+    C --> D[Deployment]
+    D --> E{Distribution Shift?}
+    E -->|Match| F[Success]
+    E -->|Mismatch| G[Failure<br/>Compounding Errors]
+    
+    H[Expert States] -.->|Training| B
+    I[Deployment States] -.->|Different| E
+    
+    style A fill:#4A90E2,stroke:#2E5C8A,color:#fff
+    style B fill:#E8F4F8,stroke:#4A90E2
+    style C fill:#F0F8E8,stroke:#7CB342
+    style D fill:#FFF3E0,stroke:#FF9800
+    style G fill:#FFEBEE,stroke:#E53935
+

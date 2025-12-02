@@ -1,0 +1,13 @@
+{
+  "version": "v001",
+  "agent": "chapter-structure-architect",
+  "created": "2025-12-01T00:00:00Z",
+  "chapter_id": "P2-C3",
+  "inputs": {
+    "outline_file": ".book-generation/outlines/actuators-and-motors/v001/outline.md"
+  },
+  "outputs": {
+    "file": "structure.md",
+    "section_count": 10
+  }
+}

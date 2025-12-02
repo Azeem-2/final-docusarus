@@ -1,0 +1,20 @@
+graph TD
+    A[Language Command<br/>"Pick up the red cup"] --> B[Vision-Language Model]
+    C[Camera Image<br/>Scene with Objects] --> B
+    B --> D[Understanding<br/>Object: red cup<br/>Action: pick up]
+    D --> E[Object Grounding<br/>Locate in Image]
+    E --> F[Action Planning<br/>Grasp Pose, Trajectory]
+    F --> G[Control Execution<br/>Robot Actions]
+    
+    H[Integration Pipeline] --> I[Perception<br/>Cameras, Sensors]
+    I --> J[VLM Understanding<br/>Language + Vision]
+    J --> K[Planning<br/>Action Sequence]
+    K --> L[Control<br/>Actuators]
+    
+    style A fill:#4A90E2,stroke:#2E5C8A,color:#fff
+    style B fill:#E8F4F8,stroke:#4A90E2
+    style D fill:#F0F8E8,stroke:#7CB342
+    style E fill:#FFF3E0,stroke:#FF9800
+    style F fill:#F3E5F5,stroke:#9C27B0
+    style G fill:#E8F5E9,stroke:#4CAF50
+

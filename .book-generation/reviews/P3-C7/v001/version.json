@@ -1,0 +1,12 @@
+{
+  "version": "v001",
+  "created": "2025-12-01",
+  "agent": "book-editor",
+  "chapter_id": "P3-C7",
+  "title": "Sim-to-Real Transfer",
+  "status": "complete",
+  "approval_status": "ApprovedWithMinorRevisions",
+  "quality_score": 89,
+  "draft_version_reviewed": "v001"
+}
+

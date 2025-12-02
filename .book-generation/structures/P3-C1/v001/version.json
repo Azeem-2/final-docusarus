@@ -1,0 +1,63 @@
+{
+  "version": "v001",
+  "chapter_code": "P3-C1",
+  "chapter_title": "Physics Engines for Robotics Simulation",
+  "created_date": "2025-11-30",
+  "agent": "chapter-structure-architect",
+  "status": "active",
+  "metadata": {
+    "chapter_type": "Technical/Code-Focused",
+    "total_lessons": 9,
+    "pedagogical_layers": {
+      "layer_1_manual_foundation": [1, 2],
+      "layer_2_ai_collaboration": [3, 4, 5, 6, 7],
+      "layer_3_intelligence_design": [8],
+      "layer_4_spec_driven_integration": [9]
+    },
+    "core_concepts": [
+      "Rigid body dynamics",
+      "Contact dynamics formulations",
+      "MuJoCo architecture",
+      "PyBullet implementation",
+      "Isaac Sim/Lab GPU parallelization",
+      "Reality gap measurement",
+      "Domain randomization",
+      "Multi-engine validation"
+    ],
+    "ai_integration_touchpoints": [
+      "Diagnostic Hook (Evaluator)",
+      "Concept Theory (Tutor)",
+      "AI-Collaborative Walkthrough (Collaborator)",
+      "SDD-RI Challenge (Generator + Grader)",
+      "Spaced-Repetition (Retention Partner)",
+      "Reusable Intelligence Design (Apprentice)"
+    ],
+    "reusable_intelligence_outputs": {
+      "lesson_1": "Dynamics Equation Solver (mental blueprint)",
+      "lesson_2": "Contact Constraint Validator (mental blueprint)",
+      "lesson_3": "MuJoCo Model Generator (skill spec)",
+      "lesson_4": "PyBullet Gym Environment Generator (skill spec)",
+      "lesson_5": "GPU-Parallel Environment Scaler (skill spec)",
+      "lesson_6": "Reality Gap Analyzer (skill spec)",
+      "lesson_7": "Domain Randomization Config Generator (skill spec)",
+      "lesson_8": "Multi-Engine Validation Orchestrator (full component spec)",
+      "lesson_9": "Physics Simulation Orchestrator (master skill)"
+    },
+    "sdd_ri_focus": "Building toward reusable Physics Simulation Orchestrator skill that generates domain randomization configs, validates sim-to-real transfer, and composes engine-specific implementations"
+  },
+  "input_dependencies": {
+    "outline": ".book-generation/outlines/physics-engines/v001/outline.md",
+    "research": ".book-generation/research/physics-engines/v001/research.md"
+  },
+  "validation": {
+    "concept_density_justified": true,
+    "pedagogical_progression_enforced": true,
+    "ai_touchpoints_mapped": true,
+    "sdd_ri_challenges_specified": true,
+    "ri_outputs_defined": true,
+    "prerequisites_clear": true,
+    "learning_outcomes_measurable": true,
+    "lesson_boundaries_natural": true
+  },
+  "notes": "Structure enforces 4-layer pedagogical progression with Layer 1 (Manual Foundation) for physics fundamentals, Layer 2 (AI Collaboration) for core skills across 3 engines, Layer 3 (Intelligence Design) for component specification, and Layer 4 (Spec-Driven Integration) for orchestration capstone. AI integration follows 6-touchpoint framework with full role evolution from Evaluator to Apprentice."
+}

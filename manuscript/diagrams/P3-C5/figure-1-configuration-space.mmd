@@ -1,0 +1,18 @@
+graph TD
+    A[Physical Space<br/>Robot + Obstacles] --> B[Configuration Space<br/>C-space]
+    
+    B --> C[Robot = Point<br/>q = q1, q2, ...]
+    B --> D[Obstacles = Regions<br/>C_obs]
+    B --> E[Free Space<br/>C_free]
+    
+    F[2-Link Arm Example] --> G[2D C-space<br/>θ1, θ2]
+    G --> H[Obstacle Regions<br/>Mapped from physical]
+    G --> I[Path Planning<br/>Curve in C_free]
+    
+    style A fill:#4A90E2,stroke:#2E5C8A,color:#fff
+    style B fill:#E8F4F8,stroke:#4A90E2
+    style C fill:#F0F8E8,stroke:#7CB342
+    style D fill:#FFEBEE,stroke:#E53935
+    style E fill:#E8F5E9,stroke:#4CAF50
+    style I fill:#FFF3E0,stroke:#FF9800
+

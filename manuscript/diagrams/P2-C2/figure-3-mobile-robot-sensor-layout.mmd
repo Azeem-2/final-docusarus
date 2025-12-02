@@ -1,0 +1,25 @@
+%% Figure 3: Mobile Robot Sensor Layout
+graph TD
+  subgraph Robot_Base["Mobile Robot"]
+    W1[[Wheel Encoder L]]
+    W2[[Wheel Encoder R]]
+    IMU[IMU]
+    LIDAR((2D LiDAR))
+    CAM[(Front Camera)]
+    B1{{Bumper Switches}}
+  end
+
+  W1 --> CTRL[Controller]
+  W2 --> CTRL
+  IMU --> CTRL
+  LIDAR --> CTRL
+  CAM --> CTRL
+  B1 --> CTRL
+  CTRL --> NAV[Navigation & Safety Logic]
+
+  classDef proprio fill=#e0f7fa,stroke:#00796b,stroke-width:1px;
+  classDef extero fill=#f3e5f5,stroke:#6a1b9a,stroke-width:1px;
+  class W1,W2,IMU proprio;
+  class LIDAR,CAM,B1 extero;
+
+
