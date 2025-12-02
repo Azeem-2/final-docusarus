@@ -4,7 +4,6 @@ import { AnalyticsTracker } from '@/components/AnalyticsTracker';
 import { ChatWidget } from '@/components/ChatWidget';
 import { AuthProvider } from '@site/src/components/AuthProvider';
 import { ToastProvider } from '@site/src/components/Toast';
-import BottomNavWidget from '@site/src/components/BottomNavWidget';
 
 export default function Root({ children }: { children: React.ReactNode }) {
   // Prevent FOUC by setting theme immediately before React hydrates
@@ -33,7 +32,6 @@ export default function Root({ children }: { children: React.ReactNode }) {
           <ToastProvider>
             {children}
             <ChatWidget />
-            <BottomNavWidget />
           </ToastProvider>
         </AuthProvider>
       </AnalyticsTracker>

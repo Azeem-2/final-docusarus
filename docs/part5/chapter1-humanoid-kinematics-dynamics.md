@@ -1,4 +1,4 @@
-﻿---
+---
 title: Humanoid Kinematics and Dynamics
 slug: /part5/chapter1-humanoid-kinematics-dynamics
 sidebar_label: Humanoid Kinematics and Dynamics
@@ -22,46 +22,46 @@ By the end of this chapter, you will be able to:
 
 ## Motivation
 
-You're standing in a robotics lab, watching a humanoid robot reach for a coffee cup. The movement looks effortless—the robot extends its arm, rotates its wrist, and grasps the handle smoothly. But beneath this simple action lies a symphony of mathematics. The robot's computer must solve three interconnected problems: where is the hand right now (forward kinematics), what joint angles will place it at the cup (inverse kinematics), and how much torque should each motor apply to create smooth motion (dynamics).
+You're standing in a robotics lab, watching a humanoid robot reach for a coffee cup. The movement looks effortless�the robot extends its arm, rotates its wrist, and grasps the handle smoothly. But beneath this simple action lies a symphony of mathematics. The robot's computer must solve three interconnected problems: where is the hand right now (forward kinematics), what joint angles will place it at the cup (inverse kinematics), and how much torque should each motor apply to create smooth motion (dynamics).
 
-These three problems form the foundation of all robotic manipulation. Without forward kinematics, you can't visualize what your robot is doing. Without inverse kinematics, you can't command it to reach specific targets. Without dynamics, your motions will be jerky, inefficient, or downright dangerous. Master these fundamentals, and you unlock the ability to control any articulated robot—from industrial arms to humanoid assistants to quadruped explorers.
+These three problems form the foundation of all robotic manipulation. Without forward kinematics, you can't visualize what your robot is doing. Without inverse kinematics, you can't command it to reach specific targets. Without dynamics, your motions will be jerky, inefficient, or downright dangerous. Master these fundamentals, and you unlock the ability to control any articulated robot�from industrial arms to humanoid assistants to quadruped explorers.
 
-> **💡 Key Insight:** Modern robotics follows a simulation-first workflow. You'll build and test your kinematics and dynamics models in virtual environments like MuJoCo or Isaac Sim before ever touching physical hardware. This approach is faster, safer, and enables powerful techniques like reinforcement learning on millions of simulated trials.
+> **?? Key Insight:** Modern robotics follows a simulation-first workflow. You'll build and test your kinematics and dynamics models in virtual environments like MuJoCo or Isaac Sim before ever touching physical hardware. This approach is faster, safer, and enables powerful techniques like reinforcement learning on millions of simulated trials.
 
-The dual-domain approach you'll learn here mirrors how industry operates. Companies like Boston Dynamics, Agility Robotics, and Tesla simulate humanoid motions extensively before deployment. Tesla's Optimus robot, for example, trains walking gaits in Isaac Sim using domain randomization—varying floor friction, actuator response times, and link masses to ensure the learned policies transfer robustly to the real world. You'll apply these same techniques, starting with mathematical foundations and building toward simulation-validated control.
+The dual-domain approach you'll learn here mirrors how industry operates. Companies like Boston Dynamics, Agility Robotics, and Tesla simulate humanoid motions extensively before deployment. Tesla's Optimus robot, for example, trains walking gaits in Isaac Sim using domain randomization�varying floor friction, actuator response times, and link masses to ensure the learned policies transfer robustly to the real world. You'll apply these same techniques, starting with mathematical foundations and building toward simulation-validated control.
 
-Why does this matter beyond robotics labs? Humanoid kinematics and dynamics are central to computer animation (motion capture retargeting), medical robotics (surgical assistants), prosthetics (powered limbs), and even virtual reality (inverse kinematics for avatar control). The mathematics you learn here appears wherever articulated structures move in 3D space. Understanding the physics—both in equations and in simulation—gives you the mental models to solve novel problems across these domains.
+Why does this matter beyond robotics labs? Humanoid kinematics and dynamics are central to computer animation (motion capture retargeting), medical robotics (surgical assistants), prosthetics (powered limbs), and even virtual reality (inverse kinematics for avatar control). The mathematics you learn here appears wherever articulated structures move in 3D space. Understanding the physics�both in equations and in simulation�gives you the mental models to solve novel problems across these domains.
 
 ## Core Concepts
 
-At the heart of robot motion lies a deceptively simple idea: **coordinate transformations**. Every part of a robot—each link, joint, and sensor—exists in its own local coordinate frame, like travelers using different maps to describe the same city. Your task is to translate between these frames systematically.
+At the heart of robot motion lies a deceptively simple idea: **coordinate transformations**. Every part of a robot�each link, joint, and sensor�exists in its own local coordinate frame, like travelers using different maps to describe the same city. Your task is to translate between these frames systematically.
 
 Think of a humanoid robot's arm as a chain of rulers attached at hinges. Each ruler measures distances in its own coordinate system. The shoulder's coordinate frame might point forward along the arm, while the elbow's frame points along the forearm. To find where the hand is in world coordinates, you must chain together these local measurements, rotating and translating through each joint.
 
-> **🎯 Core Concept:** A rotation matrix R transforms vectors between coordinate frames while preserving lengths and angles. It satisfies two critical properties: orthogonality (R^T R = I) and unit determinant (det(R) = 1). These constraints reduce 9 matrix elements to just 3 degrees of freedom—the minimum needed to describe 3D orientation.
+> **?? Core Concept:** A rotation matrix R transforms vectors between coordinate frames while preserving lengths and angles. It satisfies two critical properties: orthogonality (R^T R = I) and unit determinant (det(R) = 1). These constraints reduce 9 matrix elements to just 3 degrees of freedom�the minimum needed to describe 3D orientation.
 
-Rotations can be represented four ways, each with distinct trade-offs. **Rotation matrices** (3×3) enable fast composition via matrix multiplication but store redundant information. **Euler angles** (three values like yaw-pitch-roll) match human intuition but suffer from gimbal lock—configurations where you lose a degree of freedom. **Quaternions** (four values living on a 4D hypersphere) avoid gimbal lock and interpolate smoothly but feel mathematically alien. **Axis-angle** representations (rotation axis plus angle) provide geometric clarity but have ambiguities at 0° and 360°.
+Rotations can be represented four ways, each with distinct trade-offs. **Rotation matrices** (3�3) enable fast composition via matrix multiplication but store redundant information. **Euler angles** (three values like yaw-pitch-roll) match human intuition but suffer from gimbal lock�configurations where you lose a degree of freedom. **Quaternions** (four values living on a 4D hypersphere) avoid gimbal lock and interpolate smoothly but feel mathematically alien. **Axis-angle** representations (rotation axis plus angle) provide geometric clarity but have ambiguities at 0� and 360�.
 
-For robotics, we typically compute with rotation matrices for their speed, convert to quaternions for animation and interpolation, and use Euler angles only for user input or visualization. Never store orientations as Euler angles internally—gimbal lock will break your inverse kinematics when the robot's wrist approaches certain configurations.
+For robotics, we typically compute with rotation matrices for their speed, convert to quaternions for animation and interpolation, and use Euler angles only for user input or visualization. Never store orientations as Euler angles internally�gimbal lock will break your inverse kinematics when the robot's wrist approaches certain configurations.
 
-Transformations combine rotation and translation using **homogeneous coordinates**, a mathematical trick that represents both operations as a single 4×4 matrix:
+Transformations combine rotation and translation using **homogeneous coordinates**, a mathematical trick that represents both operations as a single 4�4 matrix:
 
-```
-T = [R  t]  where R is a 3×3 rotation, t is a 3×1 translation
+```text
+T = [R  t]  where R is a 3�3 rotation, t is a 3�1 translation
     [0  1]
 ```
 
-This representation is powerful because transformations compose via simple matrix multiplication: T_AC = T_AB · T_BC. The path from world to hand becomes a single matrix product of all intermediate joint transformations.
+This representation is powerful because transformations compose via simple matrix multiplication: T_AC = T_AB � T_BC. The path from world to hand becomes a single matrix product of all intermediate joint transformations.
 
-**Forward kinematics** applies this composition systematically. Given a robot's geometry (link lengths and joint axes) and current joint angles, you multiply transformation matrices from base to end-effector to compute the hand's position and orientation. The algorithm is deterministic—one input configuration always produces one output pose—and runs in linear time, making it fast enough for real-time control loops running at 1000 Hz.
+**Forward kinematics** applies this composition systematically. Given a robot's geometry (link lengths and joint axes) and current joint angles, you multiply transformation matrices from base to end-effector to compute the hand's position and orientation. The algorithm is deterministic�one input configuration always produces one output pose�and runs in linear time, making it fast enough for real-time control loops running at 1000 Hz.
 
-> **📖 Definition:** The Denavit-Hartenberg (DH) convention standardizes how we assign coordinate frames to robot links. Each joint is described by four parameters: link length (a), link twist (α), link offset (d), and joint angle (θ). For revolute joints, θ varies; for prismatic joints, d varies. These parameters fully define the transformation between consecutive frames.
+> **?? Definition:** The Denavit-Hartenberg (DH) convention standardizes how we assign coordinate frames to robot links. Each joint is described by four parameters: link length (a), link twist (a), link offset (d), and joint angle (?). For revolute joints, ? varies; for prismatic joints, d varies. These parameters fully define the transformation between consecutive frames.
 
-The DH convention isn't intuitive—it follows strict rules about where to place coordinate frame axes—but it's universal. Learn DH parameters once, and you can analyze any robot arm using the same framework. Industry-standard formats like URDF (Unified Robot Description Format) encode robot geometry in a more flexible representation than pure DH, but the underlying mathematics is identical.
+The DH convention isn't intuitive�it follows strict rules about where to place coordinate frame axes�but it's universal. Learn DH parameters once, and you can analyze any robot arm using the same framework. Industry-standard formats like URDF (Unified Robot Description Format) encode robot geometry in a more flexible representation than pure DH, but the underlying mathematics is identical.
 
-**Inverse kinematics** flips the problem: given a desired hand position and orientation, find joint angles that achieve it. Unlike forward kinematics, this problem has no general closed-form solution for complex robots. A 7-degree-of-freedom humanoid arm reaching a 6-DOF target (position plus orientation) has infinitely many solutions—a phenomenon called **redundancy**. How do you choose which solution to use?
+**Inverse kinematics** flips the problem: given a desired hand position and orientation, find joint angles that achieve it. Unlike forward kinematics, this problem has no general closed-form solution for complex robots. A 7-degree-of-freedom humanoid arm reaching a 6-DOF target (position plus orientation) has infinitely many solutions�a phenomenon called **redundancy**. How do you choose which solution to use?
 
-The mathematical tool connecting small joint angle changes to end-effector motions is the **Jacobian matrix** J. It maps joint velocities to end-effector velocities: δx = J(q)·δq. For inverse kinematics, we need the inverse: δq = J^(-1)·δx. But J is rarely square (for redundant robots) and becomes singular (non-invertible) at configurations called **singularities**—like when your arm is fully extended and small joint changes barely move your hand.
+The mathematical tool connecting small joint angle changes to end-effector motions is the **Jacobian matrix** J. It maps joint velocities to end-effector velocities: dx = J(q)�dq. For inverse kinematics, we need the inverse: dq = J^(-1)�dx. But J is rarely square (for redundant robots) and becomes singular (non-invertible) at configurations called **singularities**�like when your arm is fully extended and small joint changes barely move your hand.
 
 The solution is **iterative optimization**. Start with an initial guess for joint angles, compute the position error, use the Jacobian pseudoinverse to estimate how to adjust angles, and repeat until the error is small enough. Sophisticated variants add damping near singularities (damped least squares), enforce joint limits (constrained optimization), and optimize secondary objectives like manipulability (how far from singularities) or joint centering (preferring mid-range angles).
 
@@ -71,13 +71,13 @@ The mathematics of robot kinematics and dynamics builds on linear algebra, multi
 
 ### Rotation Representations and Conversions
 
-A rotation in 3D space has three degrees of freedom—you can think of them as rotations about the X, Y, and Z axes. The **rotation matrix** representation captures this as a 3×3 matrix R where columns are the rotated basis vectors:
+A rotation in 3D space has three degrees of freedom�you can think of them as rotations about the X, Y, and Z axes. The **rotation matrix** representation captures this as a 3�3 matrix R where columns are the rotated basis vectors:
 
-```
+```text
 R = [x'  y'  z']  where x', y', z' are unit vectors
 ```
 
-**Orthogonality** means columns (and rows) are mutually perpendicular: R^T R = I. This ensures that lengths and angles are preserved—rotations don't stretch or skew space. **Determinant +1** ensures right-handedness—no reflections or inversions.
+**Orthogonality** means columns (and rows) are mutually perpendicular: R^T R = I. This ensures that lengths and angles are preserved�rotations don't stretch or skew space. **Determinant +1** ensures right-handedness�no reflections or inversions.
 
 To verify a matrix is a valid rotation, check both properties:
 
@@ -98,97 +98,97 @@ def is_rotation_matrix(R):
 
 **Euler angles** decompose a rotation into three sequential rotations about coordinate axes. The most common convention is **ZYX** (yaw-pitch-roll), used in aerospace:
 
-1. Rotate by yaw ψ about the Z-axis (heading)
-2. Rotate by pitch θ about the new Y-axis (elevation)
-3. Rotate by roll φ about the new X-axis (bank)
+1. Rotate by yaw ? about the Z-axis (heading)
+2. Rotate by pitch ? about the new Y-axis (elevation)
+3. Rotate by roll f about the new X-axis (bank)
 
 The combined rotation matrix is:
 
-```
-R_ZYX(ψ, θ, φ) = R_Z(ψ) · R_Y(θ) · R_X(φ)
+```text
+R_ZYX(?, ?, f) = R_Z(?) � R_Y(?) � R_X(f)
 ```
 
-> **⚠️ Warning:** There are twelve Euler angle conventions (XYZ, ZYX, ZYZ, etc.). Always document which convention you use. Wrong ordering produces incorrect orientations, and gimbal lock occurs at pitch θ = ±90° where yaw and roll become indistinguishable.
+> **?? Warning:** There are twelve Euler angle conventions (XYZ, ZYX, ZYZ, etc.). Always document which convention you use. Wrong ordering produces incorrect orientations, and gimbal lock occurs at pitch ? = �90� where yaw and roll become indistinguishable.
 
-**Quaternions** avoid gimbal lock by representing rotations as points on the 4D unit sphere. A quaternion q = [w, x, y, z] with w² + x² + y² + z² = 1 encodes a rotation of angle α about unit axis [ax, ay, az]:
+**Quaternions** avoid gimbal lock by representing rotations as points on the 4D unit sphere. A quaternion q = [w, x, y, z] with w� + x� + y� + z� = 1 encodes a rotation of angle a about unit axis [ax, ay, az]:
 
-```
-w = cos(α/2)
-[x, y, z] = sin(α/2) · [ax, ay, az]
+```text
+w = cos(a/2)
+[x, y, z] = sin(a/2) � [ax, ay, az]
 ```
 
 The quaternion-to-matrix conversion is:
 
-```
-R(q) = [1-2(y²+z²)    2(xy-wz)      2(xz+wy)  ]
-       [2(xy+wz)      1-2(x²+z²)    2(yz-wx)  ]
-       [2(xz-wy)      2(yz+wx)      1-2(x²+y²)]
+```text
+R(q) = [1-2(y�+z�)    2(xy-wz)      2(xz+wy)  ]
+       [2(xy+wz)      1-2(x�+z�)    2(yz-wx)  ]
+       [2(xz-wy)      2(yz+wx)      1-2(x�+y�)]
 ```
 
 Quaternion composition (chaining rotations) is quaternion multiplication, defined as:
 
-```
+```text
 q1 * q2 = [w1w2 - x1x2 - y1y2 - z1z2,
            w1x2 + x1w2 + y1z2 - z1y2,
            w1y2 - x1z2 + y1w2 + z1x2,
            w1z2 + x1y2 - y1x2 + z1w2]
 ```
 
-Quaternions excel at **spherical linear interpolation (SLERP)**, smoothly interpolating between two orientations along the shortest arc on the 4D sphere—critical for animation and trajectory generation.
+Quaternions excel at **spherical linear interpolation (SLERP)**, smoothly interpolating between two orientations along the shortest arc on the 4D sphere�critical for animation and trajectory generation.
 
 ### Denavit-Hartenberg Parameters and Forward Kinematics
 
 The DH convention assigns a coordinate frame to each joint following four rules:
 
 1. Z-axis points along the joint axis (rotation axis for revolute joints)
-2. X-axis points along the common normal between Z_{i-1} and Z_i
+2. X-axis points along the common normal between Z\_{`{i-1}`} and Z\_i
 3. Y-axis completes a right-handed frame
-4. Origin is placed at the intersection of X_i and Z_i
+4. Origin is placed at the intersection of X\_i and Z\_i
 
-These rules lead to four parameters describing the transformation from frame i-1 to frame i:
+These rules lead to four parameters describing the transformation from frame i-1 to frame i (where i represents the frame index):
 
 | Parameter | Symbol | Description | Units |
 |-----------|--------|-------------|-------|
-| Link length | a_i | Distance along X_i from Z_{i-1} to Z_i | meters |
-| Link twist | α_i | Angle about X_i from Z_{i-1} to Z_i | radians |
-| Link offset | d_i | Distance along Z_{i-1} from X_{i-1} to X_i | meters |
-| Joint angle | θ_i | Angle about Z_{i-1} from X_{i-1} to X_i | radians |
+| Link length | a\_i | Distance along X\_i from Z\_{`{i-1}`} to Z\_i | meters |
+| Link twist | α\_i | Angle about X\_i from Z\_{`{i-1}`} to Z\_i | radians |
+| Link offset | d\_i | Distance along Z\_{`{i-1}`} from X\_{`{i-1}`} to X\_i | meters |
+| Joint angle | θ\_i | Angle about Z\_{`{i-1}`} from X\_{`{i-1}`} to X\_i | radians |
 
 The DH transformation matrix is:
 
-```
-T_i^{i-1} = [cos θ_i   -sin θ_i cos α_i    sin θ_i sin α_i   a_i cos θ_i]
-            [sin θ_i    cos θ_i cos α_i   -cos θ_i sin α_i   a_i sin θ_i]
-            [   0           sin α_i            cos α_i            d_i     ]
+```text
+T_i^{i-1} = [cos ?_i   -sin ?_i cos a_i    sin ?_i sin a_i   a_i cos ?_i]
+            [sin ?_i    cos ?_i cos a_i   -cos ?_i sin a_i   a_i sin ?_i]
+            [   0           sin a_i            cos a_i            d_i     ]
             [   0              0                  0                1      ]
 ```
 
 Forward kinematics composes these transformations:
 
-```
-T_0^N = T_0^1 · T_1^2 · ... · T_{N-1}^N
+```text
+T_0^N = T_0^1 � T_1^2 � ... � T\_\{N-1\}^N
 ```
 
 The end-effector position is T_0^N[0:3, 3] and orientation is T_0^N[0:3, 0:3].
 
 ### Jacobian Matrix and Velocity Kinematics
 
-The **Jacobian** J(q) relates joint velocities q̇ to end-effector velocity ẋ:
+The **Jacobian** J(q) relates joint velocities q? to end-effector velocity ?:
 
-```
-ẋ = J(q) · q̇
+```text
+? = J(q) � q?
 ```
 
-For a 6-DOF end-effector (3 linear + 3 angular velocities) and n joints, J is a 6×n matrix. Each column J_i represents how the end-effector moves when joint i rotates at unit velocity while all others are fixed.
+For a 6-DOF end-effector (3 linear + 3 angular velocities) and n joints, J is a 6�n matrix. Each column J_i represents how the end-effector moves when joint i rotates at unit velocity while all others are fixed.
 
 For revolute joint i with axis z_i and position p_i:
 
-```
-J_i = [z_i × (p_end - p_i)]  (linear velocity contribution)
+```text
+J_i = [z_i � (p_end - p_i)]  (linear velocity contribution)
       [       z_i         ]  (angular velocity contribution)
 ```
 
-The Jacobian is central to inverse kinematics, singularity analysis, and force control. At **singular configurations**, J loses rank (det(J J^T) → 0), meaning the robot cannot move in certain directions. Geometrically, this occurs when:
+The Jacobian is central to inverse kinematics, singularity analysis, and force control. At **singular configurations**, J loses rank (det(J J^T) ? 0), meaning the robot cannot move in certain directions. Geometrically, this occurs when:
 
 - The arm is fully extended (workspace boundary)
 - Two joint axes align (internal singularity)
@@ -198,55 +198,55 @@ The Jacobian is central to inverse kinematics, singularity analysis, and force c
 
 Robot dynamics are governed by:
 
-```
-M(q)q̈ + C(q, q̇)q̇ + G(q) = τ
+```text
+M(q)q� + C(q, q?)q? + G(q) = t
 ```
 
 Where:
-- **M(q)**: n×n mass/inertia matrix (configuration-dependent)
-- **C(q, q̇)**: Coriolis and centrifugal forces
+- **M(q)**: n�n mass/inertia matrix (configuration-dependent)
+- **C(q, q?)**: Coriolis and centrifugal forces
 - **G(q)**: Gravity torques
-- **τ**: Applied joint torques
-- **q, q̇, q̈**: Joint positions, velocities, accelerations
+- **t**: Applied joint torques
+- **q, q?, q�**: Joint positions, velocities, accelerations
 
 The **mass matrix** M(q) captures how mass distribution affects acceleration. It's symmetric, positive-definite, and configuration-dependent because the robot's effective inertia changes as links rotate. For a 2-link planar arm:
 
-```
+```text
 M(q) = [m11(q2)   m12(q2)]
        [m12(q2)   m22    ]
 
 where:
-  m11 = I1 + I2 + m1 r1² + m2(L1² + r2² + 2 L1 r2 cos q2)
-  m12 = I2 + m2 r2² + m2 L1 r2 cos q2
-  m22 = I2 + m2 r2²
+  m11 = I1 + I2 + m1 r1� + m2(L1� + r2� + 2 L1 r2 cos q2)
+  m12 = I2 + m2 r2� + m2 L1 r2 cos q2
+  m22 = I2 + m2 r2�
 ```
 
-**Coriolis forces** arise from rotating reference frames. The Coriolis matrix C(q, q̇) is computed from Christoffel symbols:
+**Coriolis forces** arise from rotating reference frames. The Coriolis matrix C(q, q?) is computed from Christoffel symbols:
 
-```
-C_ij = Σ_k c_ijk q̇_k  where c_ijk = (∂M_ij/∂q_k + ∂M_ik/∂q_j - ∂M_jk/∂q_i) / 2
+```text
+C_ij = S_k c_ijk q?_k  where c_ijk = (?M_ij/?q_k + ?M_ik/?q_j - ?M_jk/?q_i) / 2
 ```
 
 **Gravity torques** G(q) are computed from potential energy:
 
-```
-G_i(q) = ∂PE/∂q_i
+```text
+G_i(q) = ?PE/?q_i
 ```
 
 For a link with mass m and center-of-mass position p_c:
 
-```
+```text
 PE = m g h  where h is height (z-component of p_c)
 ```
 
 These equations enable two critical computations:
 
-1. **Inverse dynamics**: Given desired motion (q, q̇, q̈), compute required torques τ using the **Recursive Newton-Euler Algorithm (RNEA)** in O(n) time
-2. **Forward dynamics**: Given applied torques τ and current state (q, q̇), compute accelerations q̈ = M^(-1)(τ - C q̇ - G) and integrate to simulate motion
+1. **Inverse dynamics**: Given desired motion (q, q?, q�), compute required torques t using the **Recursive Newton-Euler Algorithm (RNEA)** in O(n) time
+2. **Forward dynamics**: Given applied torques t and current state (q, q?), compute accelerations q� = M^(-1)(t - C q? - G) and integrate to simulate motion
 
 ## Simulation Implementation
 
-Modern robotics development happens predominantly in simulation before transitioning to hardware. Simulation environments like MuJoCo, NVIDIA Isaac Sim, and PyBullet provide accurate physics engines, realistic rendering, and interfaces for control and learning algorithms. You'll spend orders of magnitude more time in simulation than with physical robots—it's faster, safer, and enables techniques impossible in the real world.
+Modern robotics development happens predominantly in simulation before transitioning to hardware. Simulation environments like MuJoCo, NVIDIA Isaac Sim, and PyBullet provide accurate physics engines, realistic rendering, and interfaces for control and learning algorithms. You'll spend orders of magnitude more time in simulation than with physical robots�it's faster, safer, and enables techniques impossible in the real world.
 
 ### MuJoCo: Physics-Accurate Contact Simulation
 
@@ -281,7 +281,7 @@ Setting up a humanoid arm in MuJoCo requires an XML model file defining bodies, 
 </mujoco>
 ```
 
-> **🔧 Practical Tip:** MuJoCo uses SI units (meters, kilograms, seconds) and requires careful mass/inertia specification for stable simulation. Use the `inertiafromgeom="true"` attribute to auto-compute inertias from geometry, or provide them explicitly via `<inertial>` tags.
+> **?? Practical Tip:** MuJoCo uses SI units (meters, kilograms, seconds) and requires careful mass/inertia specification for stable simulation. Use the `inertiafromgeom="true"` attribute to auto-compute inertias from geometry, or provide them explicitly via `<inertial>` tags.
 
 The Python API enables forward kinematics queries and control:
 
@@ -377,7 +377,7 @@ envs = world.create_environments(num_envs)
 for i, env in enumerate(envs):
     robot = env.get_robot()
 
-    # Randomize link masses ±20%
+    # Randomize link masses �20%
     mass_scale = torch.rand(1) * 0.4 + 0.8  # [0.8, 1.2]
     robot.scale_link_masses(mass_scale)
 
@@ -385,7 +385,7 @@ for i, env in enumerate(envs):
     friction = torch.rand(1) * 0.5 + 0.5  # [0.5, 1.0]
     env.set_friction_coefficients(friction)
 
-    # Randomize actuator gains ±10%
+    # Randomize actuator gains �10%
     gain_scale = torch.rand(1) * 0.2 + 0.9  # [0.9, 1.1]
     robot.scale_actuator_gains(gain_scale)
 ```
@@ -450,7 +450,7 @@ joint_poses = p.calculateInverseKinematics(
 print(f"IK solution: {joint_poses}")
 ```
 
-> **📝 Note:** PyBullet's IK solver is convenient but less customizable than implementing your own. For research, you'll often write custom solvers with specific constraint handling or secondary objectives.
+> **?? Note:** PyBullet's IK solver is convenient but less customizable than implementing your own. For research, you'll often write custom solvers with specific constraint handling or secondary objectives.
 
 ## Physical Implementation
 
@@ -483,9 +483,9 @@ def read_joint_angles():
     return np.array(joint_angles)
 ```
 
-**IMUs (Inertial Measurement Units)** combine accelerometers and gyroscopes to measure orientation and angular velocity. Placed at the end-effector or on body segments, they provide complementary information to joint encoders—especially useful for detecting slippage or external forces.
+**IMUs (Inertial Measurement Units)** combine accelerometers and gyroscopes to measure orientation and angular velocity. Placed at the end-effector or on body segments, they provide complementary information to joint encoders�especially useful for detecting slippage or external forces.
 
-> **⚠️ Warning:** IMU drift accumulates over time due to integration errors. Fuse IMU data with encoder-based forward kinematics using a Kalman filter or complementary filter to maintain accuracy.
+> **?? Warning:** IMU drift accumulates over time due to integration errors. Fuse IMU data with encoder-based forward kinematics using a Kalman filter or complementary filter to maintain accuracy.
 
 **Force/torque sensors** at the wrist measure interaction forces, critical for manipulation tasks like grasping fragile objects. Six-axis sensors measure forces (Fx, Fy, Fz) and torques (Tx, Ty, Tz), enabling wrench-based control.
 
@@ -493,7 +493,7 @@ def read_joint_angles():
 
 Humanoid arms typically use **brushless DC motors** or **servo motors** for their high torque-to-weight ratio. Control modes include:
 
-**Position control**: Command a target angle; the motor's controller adjusts current to minimize position error. Simple but ignores forces—can damage hardware if the robot contacts obstacles.
+**Position control**: Command a target angle; the motor's controller adjusts current to minimize position error. Simple but ignores forces�can damage hardware if the robot contacts obstacles.
 
 **Velocity control**: Command angular velocity; useful for teleoperation or tracking moving targets.
 
@@ -516,7 +516,7 @@ packetHandler.write1ByteTxRx(portHandler, 1, ADDR_OPERATING_MODE, OPERATING_MODE
 
 # Compute desired torque from dynamics
 def compute_torque(q, qd, qdd_desired):
-    """Inverse dynamics: τ = M(q)q̈ + C(q,q̇)q̇ + G(q)."""
+    """Inverse dynamics: t = M(q)q� + C(q,q?)q? + G(q)."""
     M = compute_mass_matrix(q)
     C = compute_coriolis_matrix(q, qd)
     G = compute_gravity_torques(q)
@@ -660,13 +660,13 @@ The canonical workflow in modern robotics is:
 3. **Transfer to hardware**: Deploy the trained policy on the physical system
 4. **Fine-tune with real data**: Adapt to unmodeled dynamics using small amounts of real-world experience
 
-> **💡 Key Insight:** Simulation is never perfect. Physics engines approximate contact, ignore cable dynamics, and assume rigid bodies. The sim-to-real gap is the difference between simulated and real performance. Successful transfer requires accounting for this gap explicitly.
+> **?? Key Insight:** Simulation is never perfect. Physics engines approximate contact, ignore cable dynamics, and assume rigid bodies. The sim-to-real gap is the difference between simulated and real performance. Successful transfer requires accounting for this gap explicitly.
 
 **Domain randomization** is the most effective technique for robust sim-to-real transfer. Instead of simulating a single nominal environment, randomize parameters across a distribution:
 
-- **Physical parameters**: Link masses (±20%), inertias (±30%), friction coefficients (0.3–1.2)
-- **Actuator dynamics**: Motor gains (±15%), time delays (0–5ms), torque limits (±10%)
-- **Sensor noise**: Encoder noise (±0.001 rad), IMU bias drift, force sensor offsets
+- **Physical parameters**: Link masses (�20%), inertias (�30%), friction coefficients (0.3�1.2)
+- **Actuator dynamics**: Motor gains (�15%), time delays (0�5ms), torque limits (�10%)
+- **Sensor noise**: Encoder noise (�0.001 rad), IMU bias drift, force sensor offsets
 - **Environmental variation**: Floor friction, object masses, lighting conditions (for vision)
 
 ```python
@@ -704,7 +704,7 @@ class RandomizedHumanoidEnv:
         return noisy_q
 ```
 
-Policies trained with domain randomization learn to be robust to model uncertainty. When deployed on hardware, they've already seen a wide range of dynamics and adapt quickly to the real system—which is just another sample from the randomized distribution.
+Policies trained with domain randomization learn to be robust to model uncertainty. When deployed on hardware, they've already seen a wide range of dynamics and adapt quickly to the real system�which is just another sample from the randomized distribution.
 
 ### Case Study: Simulation-Validated Inverse Kinematics
 
@@ -891,7 +891,7 @@ import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
 
 def compute_manipulability(q, model):
-    """Compute manipulability μ = sqrt(det(J J^T))."""
+    """Compute manipulability � = sqrt(det(J J^T))."""
     J = compute_jacobian(q, model)
     return np.sqrt(np.linalg.det(J @ J.T))
 
@@ -1054,7 +1054,7 @@ def gravity_compensation_control():
 
         time.sleep(0.001)  # 1 kHz loop
 
-# Test: manually push robot arm—it should move freely without falling
+# Test: manually push robot arm�it should move freely without falling
 ```
 
 **Expected Behavior**: Arm remains stationary when released but moves freely when pushed (feels "weightless").
@@ -1073,13 +1073,13 @@ Humanoid robots like Tesla Optimus, Boston Dynamics Atlas, and Agility Robotics 
 
 **Manufacturing assembly**: Inserting connectors, tightening screws, and aligning parts demand sub-millimeter accuracy. Digital twins synchronize with physical assembly lines, detecting anomalies and adapting motions in real-time.
 
-> **📝 Note:** Modern manipulation increasingly uses learning-based methods (imitation learning, RL) but always builds on kinematic and dynamic models. Jacobians appear in policy gradients, dynamics inform reward shaping, and FK enables visual servoing.
+> **?? Note:** Modern manipulation increasingly uses learning-based methods (imitation learning, RL) but always builds on kinematic and dynamic models. Jacobians appear in policy gradients, dynamics inform reward shaping, and FK enables visual servoing.
 
 ### Bipedal Locomotion
 
 Walking, running, and balancing require solving whole-body dynamics with contact constraints. Humanoid robots use:
 
-**Trajectory optimization**: Plan joint trajectories that satisfy dynamics (M q̈ + C q̇ + G = τ) and contact forces (feet must push downward, not pull). Tools like Drake and Pinocchio compute these trajectories using direct collocation or differential dynamic programming.
+**Trajectory optimization**: Plan joint trajectories that satisfy dynamics (M q� + C q? + G = t) and contact forces (feet must push downward, not pull). Tools like Drake and Pinocchio compute these trajectories using direct collocation or differential dynamic programming.
 
 **Model-predictive control**: Re-plan motions online every 10-50ms based on current state, compensating for disturbances like uneven terrain. The manipulator equation predicts future states given control inputs.
 
@@ -1087,7 +1087,7 @@ Walking, running, and balancing require solving whole-body dynamics with contact
 
 ### Teleoperation and Motion Retargeting
 
-Controlling humanoid robots remotely requires mapping human motions to robot joint angles—an inverse kinematics problem with human-to-robot kinematic retargeting:
+Controlling humanoid robots remotely requires mapping human motions to robot joint angles�an inverse kinematics problem with human-to-robot kinematic retargeting:
 
 ```python
 def retarget_human_to_robot(human_joint_angles, human_skeleton, robot_skeleton):
@@ -1137,12 +1137,12 @@ Apply your kinematics and dynamics skills to these self-contained projects. Each
 ```python
 def quintic_trajectory(q0, qf, T, num_points=100):
     """Generate quintic polynomial trajectory from q0 to qf over time T."""
-    # Boundary conditions: q(0)=q0, q(T)=qf, q̇(0)=q̇(T)=0, q̈(0)=q̈(T)=0
+    # Boundary conditions: q(0)=q0, q(T)=qf, q?(0)=q?(T)=0, q�(0)=q�(T)=0
 
-    # Quintic coefficients: q(t) = a0 + a1·t + a2·t² + a3·t³ + a4·t⁴ + a5·t⁵
+    # Quintic coefficients: q(t) = a0 + a1�t + a2�t� + a3�t� + a4�t4 + a5�t5
     a0 = q0
-    a1 = 0  # q̇(0) = 0
-    a2 = 0  # q̈(0) = 0
+    a1 = 0  # q?(0) = 0
+    a2 = 0  # q�(0) = 0
     a3 = 10 * (qf - q0) / T**3
     a4 = -15 * (qf - q0) / T**4
     a5 = 6 * (qf - q0) / T**5
@@ -1232,7 +1232,7 @@ class ReachingEnv(gym.Env):
         return np.concatenate([self.q, ee_pos, self.target])
 
     def randomize_physics(self):
-        # Randomize link masses ±20%
+        # Randomize link masses �20%
         masses = self.robot.get_link_masses()
         self.robot.set_link_masses(masses * np.random.uniform(0.8, 1.2, len(masses)))
 
@@ -1298,7 +1298,7 @@ while cap.isOpened():
         break
 ```
 
-**Extension**: Add hand orientation tracking and gripper control (close hand → close gripper).
+**Extension**: Add hand orientation tracking and gripper control (close hand ? close gripper).
 
 ## Key Takeaways
 
@@ -1308,7 +1308,7 @@ while cap.isOpened():
 
 3. **Inverse kinematics has no universal closed-form solution** for complex robots. Jacobian-based iterative methods and numerical optimization handle redundancy and constraints but require careful singularity handling.
 
-4. **The manipulator equation M(q)q̈ + C(q,q̇)q̇ + G(q) = τ** governs robot dynamics. Understanding each term—inertia, Coriolis forces, gravity—is essential for control, simulation, and motion planning.
+4. **The manipulator equation M(q)q� + C(q,q?)q? + G(q) = t** governs robot dynamics. Understanding each term�inertia, Coriolis forces, gravity�is essential for control, simulation, and motion planning.
 
 5. **Simulation accelerates development** by enabling rapid iteration, large-scale learning (millions of RL samples), and safe testing before hardware deployment. MuJoCo, Isaac Sim, and PyBullet are industry-standard tools.
 
@@ -1326,7 +1326,7 @@ while cap.isOpened():
 
 1. What are the four rotation representations, and when would you use each? Explain gimbal lock.
 
-2. Derive the DH transformation matrix from the four parameters (a, α, d, θ). Why is the order of operations important?
+2. Derive the DH transformation matrix from the four parameters (a, a, d, ?). Why is the order of operations important?
 
 3. Explain why inverse kinematics for a 7-DOF arm reaching a 6-DOF target has infinitely many solutions. How would you choose the "best" solution?
 
@@ -1342,7 +1342,7 @@ while cap.isOpened():
 
 9. How would you build a digital twin for a physical robot arm? What synchronization frequency is needed for real-time control?
 
-10. Derive the relationship between joint velocities q̇ and end-effector velocity ẋ using the Jacobian matrix. How does this relate to inverse kinematics?
+10. Derive the relationship between joint velocities q? and end-effector velocity ? using the Jacobian matrix. How does this relate to inverse kinematics?
 
 11. Explain the damped least squares method for inverse kinematics. Why is damping necessary near singularities?
 
@@ -1356,48 +1356,48 @@ while cap.isOpened():
 
 ## Glossary
 
-- **Denavit-Hartenberg (DH) Parameters**: Four parameters (a, α, d, θ) describing the transformation between consecutive robot link frames.
+- **Denavit-Hartenberg (DH) Parameters**: Four parameters (a, a, d, ?) describing the transformation between consecutive robot link frames.
 - **Digital Twin**: A real-time simulation model that mirrors a physical robot's state, synchronized via sensor data.
 - **Domain Randomization**: Varying simulation parameters (masses, friction, noise) during training to produce policies robust to modeling errors.
 - **End-Effector**: The tool or hand at the terminal link of a robot arm (e.g., gripper, wrist).
 - **Forward Kinematics (FK)**: Computing end-effector pose from joint angles using geometric transformations.
 - **Gimbal Lock**: A singularity in Euler angle representations where two rotation axes align, losing a degree of freedom.
 - **Homogeneous Coordinates**: Representing 3D points as 4-element vectors [x, y, z, 1]^T to enable rotation and translation as matrix multiplication.
-- **Inverse Dynamics**: Computing required joint torques given desired motion (q, q̇, q̈).
-- **Inverse Kinematics (IK)**: Finding joint angles that achieve a desired end-effector pose—typically solved via optimization.
-- **Jacobian Matrix**: Maps joint velocities to end-effector velocities: ẋ = J(q)·q̇.
-- **Manipulability**: A measure of how easily a robot can move in different directions, computed as μ = √det(J J^T).
-- **Manipulator Equation**: M(q)q̈ + C(q,q̇)q̇ + G(q) = τ, governing robot dynamics.
+- **Inverse Dynamics**: Computing required joint torques given desired motion (q, q?, q�).
+- **Inverse Kinematics (IK)**: Finding joint angles that achieve a desired end-effector pose�typically solved via optimization.
+- **Jacobian Matrix**: Maps joint velocities to end-effector velocities: ? = J(q)�q?.
+- **Manipulability**: A measure of how easily a robot can move in different directions, computed as � = vdet(J J^T).
+- **Manipulator Equation**: M(q)q� + C(q,q?)q? + G(q) = t, governing robot dynamics.
 - **Mass Matrix M(q)**: Configuration-dependent inertia matrix in the manipulator equation.
 - **Quaternion**: A 4D representation of 3D rotations avoiding gimbal lock: q = [w, x, y, z] with ||q|| = 1.
 - **Recursive Newton-Euler Algorithm (RNEA)**: An O(n) algorithm for computing inverse dynamics.
-- **Rotation Matrix**: A 3×3 orthogonal matrix with determinant +1 representing 3D rotation.
+- **Rotation Matrix**: A 3�3 orthogonal matrix with determinant +1 representing 3D rotation.
 - **Sim-to-Real Transfer**: Deploying policies trained in simulation to physical robots.
 - **Singularity**: A configuration where the Jacobian loses rank, preventing motion in certain directions.
-- **Special Orthogonal Group SO(3)**: The set of all 3×3 rotation matrices (R^T R = I, det(R) = 1).
+- **Special Orthogonal Group SO(3)**: The set of all 3�3 rotation matrices (R^T R = I, det(R) = 1).
 - **URDF (Unified Robot Description Format)**: XML-based standard for robot kinematic and dynamic description.
 
 ## Further Reading
 
-1. **"Modern Robotics" by Lynch and Park** — Comprehensive textbook covering kinematics, dynamics, and control with geometric perspective. Free PDF available.
+1. **"Modern Robotics" by Lynch and Park** � Comprehensive textbook covering kinematics, dynamics, and control with geometric perspective. Free PDF available.
 
-2. **"Robotics: Modelling, Planning and Control" by Siciliano et al.** — In-depth treatment of manipulator dynamics and control algorithms.
+2. **"Robotics: Modelling, Planning and Control" by Siciliano et al.** � In-depth treatment of manipulator dynamics and control algorithms.
 
-3. **MuJoCo Documentation** — Official docs with tutorials on modeling, simulation, and control: https://mujoco.readthedocs.io
+3. **MuJoCo Documentation** � Official docs with tutorials on modeling, simulation, and control: https://mujoco.readthedocs.io
 
-4. **NVIDIA Isaac Sim Documentation** — Guides for GPU-accelerated simulation and RL: https://docs.omniverse.nvidia.com/app_isaacsim
+4. **NVIDIA Isaac Sim Documentation** � Guides for GPU-accelerated simulation and RL: https://docs.omniverse.nvidia.com/app_isaacsim
 
-5. **Pinocchio Library** — Fast rigid body dynamics library (used by Tesla Optimus team): https://github.com/stack-of-tasks/pinocchio
+5. **Pinocchio Library** � Fast rigid body dynamics library (used by Tesla Optimus team): https://github.com/stack-of-tasks/pinocchio
 
-6. **"Learning Dexterous Manipulation" (OpenAI)** — Seminal paper on sim-to-real transfer for Rubik's cube solving with domain randomization.
+6. **"Learning Dexterous Manipulation" (OpenAI)** � Seminal paper on sim-to-real transfer for Rubik's cube solving with domain randomization.
 
-7. **Drake (Robotic Toolbox from MIT)** — Trajectory optimization and model-based control: https://drake.mit.edu
+7. **Drake (Robotic Toolbox from MIT)** � Trajectory optimization and model-based control: https://drake.mit.edu
 
-8. **"Rigid Body Dynamics Algorithms" by Featherstone** — Reference for efficient dynamics algorithms (RNEA, ABA).
+8. **"Rigid Body Dynamics Algorithms" by Featherstone** � Reference for efficient dynamics algorithms (RNEA, ABA).
 
-9. **PyBullet Quickstart Guide** — Beginner-friendly simulation tutorials: https://pybullet.org/wordpress/
+9. **PyBullet Quickstart Guide** � Beginner-friendly simulation tutorials: https://pybullet.org/wordpress/
 
-10. **"Domain Randomization for Transferring Deep Neural Networks from Simulation to the Real World" (Tobin et al.)** — Foundational paper on domain randomization techniques.
+10. **"Domain Randomization for Transferring Deep Neural Networks from Simulation to the Real World" (Tobin et al.)** � Foundational paper on domain randomization techniques.
 
 ---
 

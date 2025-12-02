@@ -5,7 +5,7 @@
   "scripts": {
     "docusaurus": "docusaurus",
     "start": "docusaurus start",
-    "build": "bash scripts/build.sh",
+    "build": "node scripts/build.js",
     "check:jsonld": "node scripts/check-jsonld-ssr.mjs",
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy",
