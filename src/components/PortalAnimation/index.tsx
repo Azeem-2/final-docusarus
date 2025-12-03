@@ -16,9 +16,7 @@ declare global {
 export default function PortalAnimation({ targetUrl, onComplete }: PortalAnimationProps) {
   const [showTunnel, setShowTunnel] = useState(false);
   const [threeLoaded, setThreeLoaded] = useState(false);
-  const portalCardRef = useRef<HTMLDivElement>(null);
   const tunnelCanvasRef = useRef<HTMLCanvasElement>(null);
-  const cardBgCanvasRef = useRef<HTMLCanvasElement>(null);
   const animationFrameRef = useRef<number | undefined>(undefined);
   const sceneRef = useRef<any>(null);
   const cameraRef = useRef<any>(null);
@@ -63,77 +61,6 @@ export default function PortalAnimation({ targetUrl, onComplete }: PortalAnimati
       document.head.appendChild(fallbackScript);
     };
     document.head.appendChild(script);
-  }, []);
-
-  // Initialize card background particles
-  useEffect(() => {
-    if (!cardBgCanvasRef.current) return;
-
-    const canvas = cardBgCanvasRef.current;
-    const ctx = canvas.getContext('2d');
-    if (!ctx) return;
-
-    const resize = () => {
-      canvas.width = canvas.parentElement?.offsetWidth || 300;
-      canvas.height = canvas.parentElement?.offsetHeight || 350;
-    };
-    resize();
-    window.addEventListener('resize', resize);
-
-    const particles: any[] = [];
-    const particleCount = 50;
-
-    for (let i = 0; i < particleCount; i++) {
-      particles.push({
-        x: Math.random() * canvas.width,
-        y: Math.random() * canvas.height,
-        radius: Math.random() * 2 + 1,
-        vx: Math.random() * 2 - 1,
-        vy: Math.random() * 2 - 1,
-        color: `rgba(0, ${Math.floor(Math.random() * 50 + 200)}, ${Math.floor(Math.random() * 50 + 230)}, 0.7)`
-      });
-    }
-
-    const animate = () => {
-      if (!ctx) return;
-      requestAnimationFrame(animate);
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-      for (let i = 0; i < particleCount; i++) {
-        const p = particles[i];
-        p.x += p.vx;
-        p.y += p.vy;
-        if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
-        if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
-
-        const gradient = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.radius * 2);
-        gradient.addColorStop(0, 'rgba(255,255,255,1)');
-        gradient.addColorStop(1, 'rgba(255,255,255,0)');
-        ctx.fillStyle = gradient;
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-        ctx.fill();
-
-        for (let j = i + 1; j < particleCount; j++) {
-          const p2 = particles[j];
-          const distance = Math.sqrt(Math.pow(p.x - p2.x, 2) + Math.pow(p.y - p2.y, 2));
-          if (distance < 100) {
-            ctx.beginPath();
-            ctx.strokeStyle = `rgba(0, 217, 255, ${0.1 * (1 - distance / 100)})`;
-            ctx.lineWidth = 0.5;
-            ctx.moveTo(p.x, p.y);
-            ctx.lineTo(p2.x, p2.y);
-            ctx.stroke();
-          }
-        }
-      }
-    };
-
-    animate();
-
-    return () => {
-      window.removeEventListener('resize', resize);
-    };
   }, []);
 
   // Create circular path like original
@@ -188,9 +115,9 @@ export default function PortalAnimation({ targetUrl, onComplete }: PortalAnimati
     const w = window.innerWidth;
     const h = window.innerHeight;
     
-    // EXACT original values
-    const cameraSpeed = 0.00015;
-    const lightSpeed = 0.001;
+    // Tunnel travel speed – tuned for a roller‑coaster style dive
+    const cameraSpeed = 0.0012;
+    const lightSpeed = 0.004;
     const tubularSegments = 1200;
     const radialSegments = 12;
     const tubeRadius = 3;
@@ -349,55 +276,33 @@ export default function PortalAnimation({ targetUrl, onComplete }: PortalAnimati
     };
   }, []);
 
-  // Start portal animation on mount
+  // Start portal animation on mount (skip intro card, go straight into tunnel)
   useEffect(() => {
-    const startPortal = () => {
-      setTimeout(() => {
-        setShowTunnel(true);
-        
-        setTimeout(() => {
-          if (tunnelCanvasRef.current) {
-            tunnelCanvasRef.current.classList.add(styles.active);
-          }
-          if (portalCardRef.current) {
-            portalCardRef.current.classList.add(styles.zoomIn);
-          }
-        }, 200);
-        
-        setTimeout(() => {
-          if (portalCardRef.current) {
-            portalCardRef.current.style.display = 'none';
-          }
-          
-          setTimeout(() => {
-            if (onComplete) {
-              onComplete();
-            }
-            history.push(targetUrl);
-          }, 5000);
-        }, 2500);
-      }, 1000);
-    };
+    setShowTunnel(true);
 
-    startPortal();
+    // small delay so CSS transition can apply
+    const activateTimeout = setTimeout(() => {
+      if (tunnelCanvasRef.current) {
+        tunnelCanvasRef.current.classList.add(styles.active);
+      }
+    }, 100);
+
+    // total tunnel duration before navigating
+    const navigateTimeout = setTimeout(() => {
+      if (onComplete) {
+        onComplete();
+      }
+      history.push(targetUrl);
+    }, 5000);
+
+    return () => {
+      clearTimeout(activateTimeout);
+      clearTimeout(navigateTimeout);
+    };
   }, [targetUrl, history, onComplete]);
 
   return (
     <div className={styles.portalOverlay}>
-      <div ref={portalCardRef} className={styles.portalCard} id="portalCard">
-        <div className={styles.gooeyEffect}>
-          <div className={styles.gooeyBlob}></div>
-          <div className={styles.gooeyBlob}></div>
-          <div className={styles.gooeyBlob}></div>
-          <div className={styles.gooeyBlob}></div>
-        </div>
-        <div className={styles.portalContent} id="portalContent">
-          <h1>ENTER<br/>THE PORTAL</h1>
-          <button className={styles.portalButton} id="portalButton">GO</button>
-        </div>
-        <canvas ref={cardBgCanvasRef} className={styles.cardBg} id="cardBgEffect"></canvas>
-      </div>
-      
       <div className={`${styles.tunnelContainer} ${showTunnel ? styles.active : ''}`} id="tunnelContainer">
         <canvas 
           ref={tunnelCanvasRef} 

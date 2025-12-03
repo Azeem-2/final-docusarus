@@ -113,30 +113,45 @@ export default function ProfileMenu() {
                   top: "3.5rem",
                   right: 0,
                   minWidth: "280px",
-                  background: "var(--ifm-background-surface-color)",
-                  borderRadius: "12px",
-                  boxShadow: "0 8px 32px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.1)",
-                  border: "1px solid rgba(255, 255, 255, 0.1)",
-                  padding: "1.25rem",
+                  background:
+                    "linear-gradient(145deg, rgba(5, 10, 22, 0.98), rgba(5, 24, 36, 0.98))",
+                  borderRadius: "18px",
+                  boxShadow:
+                    "0 18px 45px rgba(0, 0, 0, 0.85), 0 0 0 1px rgba(0, 212, 255, 0.18)",
+                  border: "1px solid rgba(12, 148, 196, 0.45)",
+                  padding: "1.4rem 1.35rem 1.25rem",
                   zIndex: 9998,
                   animation: "slideDown 0.2s ease-out",
                   overflow: "hidden",
+                  backdropFilter: "blur(16px)",
                 }}
               >
-                {/* User Info Section */}
+                {/* subtle top accent bar */}
                 <div
                   style={{
-                    marginBottom: "1rem",
-                    paddingBottom: "1rem",
-                    borderBottom: "1px solid var(--ifm-color-emphasis-300)",
+                    position: "absolute",
+                    top: 0,
+                    left: 0,
+                    right: 0,
+                    height: "3px",
+                    background:
+                      "linear-gradient(90deg, rgba(0, 212, 255, 0.1), rgba(0, 255, 157, 0.5), rgba(0, 212, 255, 0.1))",
                   }}
-                >
+                />
+                {/* User Info Section */}
+                  <div
+                    style={{
+                      marginBottom: "1.1rem",
+                      paddingBottom: "1rem",
+                      borderBottom: "1px solid rgba(148, 163, 184, 0.3)",
+                    }}
+                  >
                   <div
                     style={{
                       fontSize: "0.75rem",
                       textTransform: "uppercase",
                       letterSpacing: "0.5px",
-                      color: "var(--ifm-color-content-secondary)",
+                      color: "rgba(148, 163, 184, 0.9)",
                       marginBottom: "0.75rem",
                       fontWeight: 600,
                     }}
@@ -151,29 +166,67 @@ export default function ProfileMenu() {
                       marginBottom: "0.5rem",
                     }}
                   >
+                    {/* Avatar with glowing ring */}
                     <div
                       style={{
-                        width: "3rem",
-                        height: "3rem",
-                        borderRadius: "50%",
-                        background: "linear-gradient(135deg, var(--ifm-color-primary), var(--ifm-color-primary-dark))",
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        fontWeight: 700,
-                        fontSize: "1.25rem",
-                        color: "#ffffff",
+                        position: "relative",
+                        width: "3.1rem",
+                        height: "3.1rem",
                         flexShrink: 0,
                       }}
                     >
-                      {initial.toUpperCase()}
+                      <div
+                        style={{
+                          position: "absolute",
+                          inset: 0,
+                          borderRadius: "999px",
+                          background:
+                            "conic-gradient(from 140deg, #00f5ff, #00ff9d, #00b3ff, #00f5ff)",
+                          opacity: 0.9,
+                          filter: "blur(4px)",
+                        }}
+                      />
+                      <div
+                        style={{
+                          position: "relative",
+                          width: "100%",
+                          height: "100%",
+                          borderRadius: "999px",
+                          padding: "2px",
+                          background:
+                            "radial-gradient(circle at 30% 0%, rgba(255,255,255,0.22), transparent 55%), linear-gradient(145deg, #020617, #020617)",
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          boxShadow:
+                            "0 0 0 1px rgba(15, 23, 42, 0.9), 0 10px 25px rgba(0,0,0,0.9)",
+                        }}
+                      >
+                        <div
+                          style={{
+                            width: "100%",
+                            height: "100%",
+                            borderRadius: "999px",
+                            background:
+                              "radial-gradient(circle at 30% 20%, #38bdf8, #0f172a 70%)",
+                            display: "flex",
+                            alignItems: "center",
+                            justifyContent: "center",
+                            color: "#e5f4ff",
+                            fontWeight: 700,
+                            fontSize: "1.25rem",
+                          }}
+                        >
+                          {initial.toUpperCase()}
+                        </div>
+                      </div>
                     </div>
                     <div style={{ flex: 1, minWidth: 0 }}>
                       <div
                         style={{
                           fontSize: "1rem",
                           fontWeight: 600,
-                          color: "var(--ifm-color-content)",
+                          color: "#e5e7eb",
                           marginBottom: "0.25rem",
                           overflow: "hidden",
                           textOverflow: "ellipsis",
@@ -190,7 +243,7 @@ export default function ProfileMenu() {
                         <div
                           style={{
                             fontSize: "0.875rem",
-                            color: "var(--ifm-color-content-secondary)",
+                            color: "rgba(148, 163, 184, 0.95)",
                             overflow: "hidden",
                             textOverflow: "ellipsis",
                             whiteSpace: "nowrap",
@@ -204,44 +257,7 @@ export default function ProfileMenu() {
                 </div>
 
                 {/* Menu Items */}
-                <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}>
-                  <button
-                    type="button"
-                    onClick={() => {
-                      setOpen(false);
-                      history.push("/protected-example");
-                    }}
-                    style={{
-                      width: "100%",
-                      padding: "0.75rem 1rem",
-                      background: "transparent",
-                      border: "1px solid var(--ifm-color-emphasis-300)",
-                      borderRadius: "8px",
-                      color: "var(--ifm-color-content)",
-                      fontSize: "0.875rem",
-                      fontWeight: 500,
-                      cursor: "pointer",
-                      transition: "all 0.2s ease",
-                      textAlign: "left",
-                      display: "flex",
-                      alignItems: "center",
-                      gap: "0.5rem",
-                    }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.background = "var(--ifm-color-emphasis-100)";
-                      e.currentTarget.style.borderColor = "var(--ifm-color-primary)";
-                      e.currentTarget.style.transform = "translateX(4px)";
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.background = "transparent";
-                      e.currentTarget.style.borderColor = "var(--ifm-color-emphasis-300)";
-                      e.currentTarget.style.transform = "translateX(0)";
-                    }}
-                  >
-                    <span>🔒</span>
-                    <span>Protected Page</span>
-                  </button>
-
+                <div style={{ display: "flex", flexDirection: "column", gap: "0.75rem" }}>
                   <button
                     type="button"
                     onClick={handleSignOut}

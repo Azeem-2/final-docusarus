@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import clsx from "clsx";
 import Link from "@docusaurus/Link";
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
@@ -9,6 +9,70 @@ import GhostCard from "@site/src/components/GhostCard";
 import PortalAnimation from "@site/src/components/PortalAnimation";
 
 import styles from "./index.module.css";
+
+function HeroEyeBackground() {
+  const irisRef = useRef<HTMLDivElement | null>(null);
+  const pupilRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    const iris = irisRef.current;
+    const pupil = pupilRef.current;
+    if (!iris || !pupil) return;
+
+    let currentX = 0;
+    let currentY = 0;
+    let targetX = 0;
+    let targetY = 0;
+    let animationFrameId: number | null = null;
+
+    const handleMouseMove = (e: MouseEvent) => {
+      const centerX = window.innerWidth / 2;
+      const centerY = window.innerHeight / 2;
+      const rawX = e.clientX - centerX;
+      const rawY = e.clientY - centerY;
+
+      const maxDist = 60;
+      const angle = Math.atan2(rawY, rawX);
+      const dist = Math.min(Math.sqrt(rawX * rawX + rawY * rawY) / 8, maxDist);
+      targetX = Math.cos(angle) * dist;
+      targetY = Math.sin(angle) * dist;
+    };
+
+    const animate = () => {
+      currentX += (targetX - currentX) * 0.08;
+      currentY += (targetY - currentY) * 0.08;
+
+      iris.style.transform = `translate(-50%, -50%) translate(${currentX}px, ${currentY}px)`;
+      pupil.style.transform = `translate(-50%, -50%) translate(${currentX * 0.25}px, ${currentY * 0.25}px) scaleX(0.65)`;
+
+      animationFrameId = window.requestAnimationFrame(animate);
+    };
+
+    window.addEventListener("mousemove", handleMouseMove);
+    animationFrameId = window.requestAnimationFrame(animate);
+
+    return () => {
+      window.removeEventListener("mousemove", handleMouseMove);
+      if (animationFrameId !== null) {
+        window.cancelAnimationFrame(animationFrameId);
+      }
+    };
+  }, []);
+
+  return (
+    <div className={styles.heroEyeScene} aria-hidden="true">
+      <div className={styles.heroEyeEyeball}>
+        <div ref={irisRef} className={styles.heroEyeIris}>
+          <div className={styles.heroEyeIrisTexture} />
+          <div className={styles.heroEyeInnerGlow} />
+          <div ref={pupilRef} className={styles.heroEyePupil} />
+          <div className={styles.heroEyeHighlightPrimary} />
+          <div className={styles.heroEyeHighlightSecondary} />
+        </div>
+      </div>
+    </div>
+  );
+}
 
 function HomepageHeader() {
   const { siteConfig } = useDocusaurusContext();
@@ -21,41 +85,42 @@ function HomepageHeader() {
 
   return (
     <>
-    <header className={styles.heroBanner}>
-      <div className="container">
-        <div className={styles.heroContent}>
-          <div className={styles.heroTextContent}>
-            <div className={styles.heroBadge}>
-              <span className={styles.heroBadgeDot}></span>
-              <span>Robotics & AI</span>
-            </div>
-            <Heading as="h1" className={styles.heroTitle}>
-              <span className={styles.heroTitleMain}>Robotic Intelligence</span>
-              <span className={styles.heroTitleSub}>AI-Driven Development</span>
-            </Heading>
-            <p className={styles.heroDescription}>
-              Build intelligent robots with Python, TypeScript, and AI. 
-              Master physical AI systems that see, think, and act autonomously.
-            </p>
+      <header className={styles.heroBanner}>
+        <HeroEyeBackground />
+        <div className="container">
+          <div className={styles.heroContent}>
+            <div className={styles.heroTextContent}>
+              <div className={styles.heroBadge}>
+                <span className={styles.heroBadgeDot}></span>
+                <span>Robotics & AI</span>
+              </div>
+              <Heading as="h1" className={styles.heroTitle}>
+                <span className={styles.heroTitleMain}>Robotic Intelligence</span>
+                <span className={styles.heroTitleSub}>AI-Driven Development</span>
+              </Heading>
+              <p className={styles.heroDescription}>
+                Build intelligent robots with Python, TypeScript, and AI.
+                Master physical AI systems that see, think, and act autonomously.
+              </p>
 
-            <div className={styles.heroButtons}>
+              <div className={styles.heroButtons}>
                 <button
-                className={clsx(
-                  "button button--primary button--lg",
-                  styles.ctaButton
-                )}
+                  className={clsx(
+                    "button button--primary button--lg",
+                    styles.ctaButton
+                  )}
                   onClick={handleStartReading}
-              >
-                Start Reading
+                >
+                  Start Reading
                 </button>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </header>
+      </header>
       {showPortal && (
         <PortalAnimation
-          targetUrl="/docs/preface-agent-native"
+          targetUrl="/docs/toc"
           onComplete={() => setShowPortal(false)}
         />
       )}
